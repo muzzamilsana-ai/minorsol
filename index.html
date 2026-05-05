@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Minorsoltech – Invest-Scale-Prosper</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #1a2b4a;
+  --navy-dark: #101c30;
+  --gold: #c8a951;
+  --gold-light: #e0c97a;
+  --gold-dim: rgba(200,169,81,0.12);
+  --white: #ffffff;
+  --light-bg: #f7f8fc;
+  --light-bg2: #eef1f7;
+  --text: #2d3748;
+  --muted: #718096;
+  --muted2: #a0aec0;
+  --border: #e2e8f0;
+  --font-head: 'Playfair Display', serif;
+  --font-body: 'Nunito Sans', sans-serif;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --shadow: 0 4px 24px rgba(26,43,74,0.10);
+  --shadow-md: 0 8px 40px rgba(26,43,74,0.14);
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--text); background: var(--white); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ── TOPBAR ── */
+.topbar {
+  background: var(--navy-dark);
+  color: #aab4c4;
+  font-size: 0.8rem;
+  padding: 8px 5%;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 6px;
+}
+.topbar span { display: flex; align-items: center; gap: 6px; }
+.topbar .socials { display: flex; gap: 10px; }
+.topbar .socials a {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; color: #aab4c4;
+  transition: background 0.2s;
+}
+.topbar .socials a:hover { background: var(--gold); color: #fff; }
+
+/* ── NAV (modern row style) ── */
+nav {
+  position: sticky; top: 0; z-index: 999;
+  background: var(--white);
+  box-shadow: 0 2px 16px rgba(26,43,74,0.08);
+  padding: 0 5%;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 76px;
+  gap: 2rem;
+}
+.nav-logo-text {
+  font-family: var(--font-head); font-size: 1.6rem;
+  font-weight: 800; color: var(--navy);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.nav-logo-text span { color: var(--gold); }
+
+.nav-center {
+  display: flex; align-items: center; gap: 0;
+  flex: 1; justify-content: center;
+}
+.nav-links { display: flex; gap: 0; list-style: none; }
+.nav-links li a {
+  display: block; padding: 0 15px; line-height: 76px;
+  font-size: 0.82rem; font-weight: 600; color: var(--navy);
+  letter-spacing: 0.03em; text-transform: uppercase;
+  transition: color 0.2s;
+  position: relative; white-space: nowrap;
+}
+.nav-links li a::after {
+  content: ''; position: absolute; bottom: 0; left: 15px; right: 15px;
+  height: 3px; background: var(--gold);
+  transform: scaleX(0); transform-origin: center;
+  transition: transform 0.25s;
+}
+.nav-links li a:hover { color: var(--gold); }
+.nav-links li a:hover::after { transform: scaleX(1); }
+
+.nav-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.nav-phone {
+  font-size: 0.78rem; font-weight: 600; color: var(--muted);
+  display: flex; align-items: center; gap: 6px;
+  white-space: nowrap;
+}
+.nav-phone span { color: var(--gold); font-size: 0.9rem; }
+.nav-cta {
+  background: var(--gold); color: var(--white);
+  padding: 10px 20px; border-radius: 4px;
+  font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, transform 0.2s;
+  white-space: nowrap;
+}
+.nav-cta:hover { background: var(--navy); transform: translateY(-1px); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.hamburger span { width: 24px; height: 2px; background: var(--navy); border-radius: 2px; }
+
+/* ── HERO SLIDER ── */
+.hero {
+  position: relative; overflow: hidden;
+  height: 620px; min-height: 520px;
+}
+.slide {
+  position: absolute; inset: 0;
+  display: flex; align-items: center;
+  opacity: 0; transition: opacity 0.8s ease;
+}
+.slide.active { opacity: 1; }
+.slide-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #0d1f38 0%, #1a3560 40%, #243b6e 100%);
+}
+.slide-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(10,20,50,0.85) 0%, rgba(10,20,50,0.45) 60%, transparent 100%);
+}
+.slide-pattern {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(200,169,81,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.slide-content {
+  position: relative; z-index: 2;
+  padding: 0 8%;
+  max-width: 720px;
+}
+.slide-tag {
+  display: inline-block;
+  background: var(--gold); color: #fff;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 5px 14px;
+  border-radius: 3px; margin-bottom: 1.2rem;
+}
+.slide-content h1 {
+  font-family: var(--font-head);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 800; color: var(--white);
+  line-height: 1.1; letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+.slide-content h1 em { color: var(--gold-light); font-style: normal; }
+.slide-content p {
+  color: rgba(255,255,255,0.78);
+  font-size: 1.05rem; font-weight: 300; line-height: 1.7;
+  margin-bottom: 2rem; max-width: 520px;
+}
+.slide-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-gold {
+  background: var(--gold); color: #fff;
+  padding: 13px 28px; border-radius: 4px;
+  font-weight: 700; font-size: 0.9rem; text-transform: uppercase;
+  letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 8px;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-gold:hover { background: #b8942e; transform: translateY(-2px); }
+.btn-outline-white {
+  background: transparent; color: #fff;
+  border: 2px solid rgba(255,255,255,0.45);
+  padding: 13px 28px; border-radius: 4px;
+  font-weight: 700; font-size: 0.9rem; text-transform: uppercase;
+  letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 8px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-outline-white:hover { border-color: var(--gold); background: rgba(200,169,81,0.12); }
+.slide-person {
+  position: absolute; bottom: 0; right: 6%;
+  height: 92%; z-index: 1;
+  display: flex; align-items: flex-end;
+}
+.slide-person img {
+  height: 100%; width: auto;
+  object-fit: contain; object-position: bottom;
+  filter: drop-shadow(-8px 0 30px rgba(0,0,0,0.4));
+}
+.hero-dots {
+  position: absolute; bottom: 24px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; gap: 8px; z-index: 10;
+}
+.hero-dots span {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(255,255,255,0.35); cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.hero-dots span.active { background: var(--gold); transform: scale(1.2); }
+.hero-arrows {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 100%; display: flex; justify-content: space-between; padding: 0 2%; z-index: 10;
+}
+.hero-arrows button {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+  color: #fff; cursor: pointer; font-size: 1.1rem;
+  transition: background 0.2s; display: flex; align-items: center; justify-content: center;
+}
+.hero-arrows button:hover { background: var(--gold); border-color: var(--gold); }
+
+/* ── VALUES ── */
+.values-strip {
+  background: var(--navy);
+  padding: 3.5rem 5%;
+  display: flex; gap: 0;
+}
+.value-item {
+  flex: 1; padding: 0 2rem;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.value-item:last-child { border-right: none; }
+.value-item h4 {
+  font-family: var(--font-head); font-size: 1.15rem;
+  color: var(--gold-light); margin-bottom: 0.6rem;
+}
+.value-item p { color: rgba(255,255,255,0.65); font-size: 0.875rem; line-height: 1.65; font-weight: 300; }
+
+/* ── SECTION SHARED ── */
+section { padding: 90px 5%; }
+.inner { max-width: 1200px; margin: 0 auto; }
+.section-label {
+  font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--gold); font-weight: 700; margin-bottom: 0.6rem;
+  display: block;
+}
+.section-h {
+  font-family: var(--font-head);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 700; color: var(--navy);
+  line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 1rem;
+}
+.section-h em { color: var(--gold); font-style: normal; }
+.section-p { color: var(--muted); font-size: 1rem; font-weight: 300; line-height: 1.75; max-width: 560px; }
+.divider {
+  width: 50px; height: 3px;
+  background: var(--gold); border-radius: 2px;
+  margin: 1rem 0 1.5rem;
+}
+.btn-navy {
+  background: var(--navy); color: #fff;
+  padding: 13px 28px; border-radius: 4px;
+  font-weight: 700; font-size: 0.875rem; text-transform: uppercase;
+  letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 8px;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-navy:hover { background: var(--navy-dark); transform: translateY(-2px); }
+
+/* ── SERVICES SECTION ── */
+#services { background: var(--light-bg); }
+.services-header { text-align: center; margin-bottom: 3.5rem; }
+.services-header .divider { margin: 1rem auto 0; }
+.services-intro {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: center; margin-bottom: 4rem;
+}
+.services-intro-img {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  aspect-ratio: 4/3;
+  position: relative;
+}
+.services-intro-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  display: block;
+}
+
+/* ── tech image overlay badge ── */
+.services-intro-img .tech-badge {
+  position: absolute; bottom: 20px; left: 20px;
+  background: rgba(26,43,74,0.92);
+  border: 1px solid rgba(200,169,81,0.4);
+  border-radius: 8px;
+  padding: 12px 18px;
+  display: flex; align-items: center; gap: 10px;
+  backdrop-filter: blur(8px);
+}
+.services-intro-img .tech-badge .dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--gold); flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(200,169,81,0.6);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.3); }
+}
+.services-intro-img .tech-badge span {
+  font-size: 0.78rem; font-weight: 700;
+  color: var(--white); text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 1.75rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  position: relative; overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--gold); transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s;
+}
+.service-card:hover::before { transform: scaleX(1); }
+.service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: transparent; }
+.service-icon {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--gold-dim); display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; margin-bottom: 1.2rem;
+  border: 2px solid rgba(200,169,81,0.2);
+}
+.service-card h3 {
+  font-family: var(--font-head); font-size: 1.1rem;
+  font-weight: 700; color: var(--navy); margin-bottom: 0.6rem;
+}
+.service-card p { color: var(--muted); font-size: 0.875rem; line-height: 1.65; font-weight: 300; }
+
+/* ── ABOUT SECTION ── */
+#about { background: var(--white); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.about-img { position: relative; }
+.about-img-main {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  aspect-ratio: 4/5;
+}
+.about-img-main img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.about-badge {
+  position: absolute; bottom: -20px; right: -20px;
+  background: var(--gold); color: var(--white);
+  padding: 1.5rem; border-radius: var(--radius);
+  text-align: center; box-shadow: var(--shadow-md);
+  min-width: 130px;
+}
+.about-badge .num {
+  font-family: var(--font-head); font-size: 2.5rem;
+  font-weight: 800; line-height: 1; display: block;
+}
+.about-badge .lbl { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.9; }
+.about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 2rem; }
+.about-val {
+  display: flex; align-items: flex-start; gap: 10px;
+  background: var(--light-bg); border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem; border-left: 3px solid var(--gold);
+}
+.about-val-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+.about-val-text strong { display: block; font-size: 0.85rem; color: var(--navy); font-weight: 700; }
+.about-val-text span { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
+
+/* ── TEAM ── */
+#team { background: var(--light-bg); }
+.team-header { text-align: center; margin-bottom: 3rem; }
+.team-header .divider { margin: 1rem auto; }
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+.team-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+.team-card-img {
+  height: 280px; overflow: hidden;
+  background: linear-gradient(135deg, #c0cce8, #98aed4);
+  position: relative;
+}
+.team-card-img img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.team-card-img .placeholder-avatar {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-head); font-size: 4rem; font-weight: 800;
+  color: rgba(26,43,74,0.35);
+}
+.team-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(26,43,74,0.6) 0%, transparent 50%);
+  opacity: 0; transition: opacity 0.3s;
+}
+.team-card:hover .team-overlay { opacity: 1; }
+.team-card-body { padding: 1.25rem 1.5rem; border-top: 3px solid var(--gold); }
+.team-card-body h4 {
+  font-family: var(--font-head); font-size: 1.1rem;
+  font-weight: 700; color: var(--navy); margin-bottom: 3px;
+}
+.team-card-body .role { font-size: 0.8rem; color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+.team-card-body p { font-size: 0.82rem; color: var(--muted); line-height: 1.55; font-weight: 300; }
+.team-socials { display: flex; gap: 8px; margin-top: 10px; }
+.team-socials a {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--light-bg); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; color: var(--muted);
+  transition: background 0.2s, color 0.2s;
+}
+.team-socials a:hover { background: var(--gold); color: #fff; border-color: var(--gold); }
+
+/* ── STEPS ── */
+#steps { background: var(--navy); padding: 90px 5%; }
+#steps .section-label { color: var(--gold-light); }
+#steps .section-h { color: var(--white); }
+#steps .section-p { color: rgba(255,255,255,0.6); }
+.steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; }
+.step-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+  position: relative;
+  transition: background 0.2s;
+}
+.step-card:hover { background: rgba(255,255,255,0.08); }
+.step-num {
+  font-family: var(--font-head); font-size: 4rem;
+  font-weight: 800; color: rgba(200,169,81,0.15);
+  line-height: 1; position: absolute; top: 1.5rem; right: 1.5rem;
+}
+.step-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--gold-dim); border: 2px solid rgba(200,169,81,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; margin-bottom: 1.25rem;
+}
+.step-card h4 {
+  font-family: var(--font-head); font-size: 1.15rem;
+  font-weight: 700; color: var(--white); margin-bottom: 0.6rem;
+}
+.step-card p { color: rgba(255,255,255,0.55); font-size: 0.875rem; line-height: 1.65; font-weight: 300; }
+
+/* ── FAQ ── */
+#faq { background: var(--light-bg); }
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+.faq-list { display: flex; flex-direction: column; gap: 0; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-q {
+  width: 100%; background: none; border: none;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.1rem 0; cursor: pointer;
+  font-family: var(--font-body); font-size: 0.95rem;
+  font-weight: 600; color: var(--navy); text-align: left; gap: 12px;
+}
+.faq-q .icon {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--gold-dim); border: 1px solid rgba(200,169,81,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; color: var(--gold); flex-shrink: 0;
+  transition: background 0.2s, transform 0.3s;
+}
+.faq-q.open .icon { background: var(--gold); color: #fff; transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s; }
+.faq-a.open { max-height: 300px; padding-bottom: 1rem; }
+.faq-a p { color: var(--muted); font-size: 0.875rem; line-height: 1.7; font-weight: 300; }
+.faq-side {
+  background: var(--navy); border-radius: var(--radius);
+  padding: 3rem 2.5rem; color: var(--white);
+}
+.faq-side h3 { font-family: var(--font-head); font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
+.faq-side p { color: rgba(255,255,255,0.65); font-size: 0.9rem; line-height: 1.7; font-weight: 300; margin-bottom: 2rem; }
+.faq-contact-list { display: flex; flex-direction: column; gap: 1rem; }
+.faq-contact-item { display: flex; align-items: center; gap: 12px; }
+.faq-contact-item .ic {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--gold-dim); border: 1px solid rgba(200,169,81,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0;
+}
+.faq-contact-item .lbl { font-size: 0.72rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.06em; }
+.faq-contact-item .val { font-size: 0.9rem; color: var(--white); font-weight: 600; }
+
+/* ── TESTIMONIALS ── */
+#testimonials { background: var(--white); }
+.testimonials-header { text-align: center; margin-bottom: 3rem; }
+.testimonials-header .divider { margin: 1rem auto; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+.testimonial {
+  background: var(--light-bg); border-radius: var(--radius);
+  padding: 2rem; border: 1px solid var(--border);
+  position: relative; transition: box-shadow 0.2s;
+}
+.testimonial:hover { box-shadow: var(--shadow-md); }
+.testimonial::before {
+  content: '\201C';
+  font-family: var(--font-head); font-size: 5rem; line-height: 1;
+  color: var(--gold); opacity: 0.2;
+  position: absolute; top: 10px; left: 20px;
+}
+.stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 1rem; }
+.testimonial p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; font-weight: 300; font-style: italic; margin-bottom: 1.5rem; position: relative; z-index: 1; }
+.t-author { display: flex; align-items: center; gap: 12px; }
+.t-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  overflow: hidden; border: 2px solid var(--gold);
+  background: var(--navy); display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-head); font-weight: 700; color: var(--gold-light);
+  font-size: 0.85rem; flex-shrink: 0;
+}
+.t-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.t-name { font-weight: 700; font-size: 0.9rem; color: var(--navy); }
+.t-role { font-size: 0.75rem; color: var(--muted); }
+
+/* ── BLOG ── */
+#blog { background: var(--light-bg); }
+.blog-header { margin-bottom: 3rem; }
+.blog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+.blog-card {
+  background: var(--white); border-radius: var(--radius);
+  overflow: hidden; box-shadow: var(--shadow);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.blog-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+.blog-card-img {
+  height: 200px; overflow: hidden;
+  background: linear-gradient(135deg, #c8d8f0, #a0bade);
+  position: relative;
+}
+.blog-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.blog-card:hover .blog-card-img img { transform: scale(1.05); }
+.blog-cat {
+  position: absolute; top: 12px; left: 12px;
+  background: var(--gold); color: #fff;
+  font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+  padding: 3px 10px; border-radius: 3px;
+}
+.blog-card-body { padding: 1.5rem; }
+.blog-date { font-size: 0.75rem; color: var(--muted2); margin-bottom: 0.5rem; }
+.blog-card-body h4 {
+  font-family: var(--font-head); font-size: 1rem;
+  font-weight: 700; color: var(--navy); margin-bottom: 0.6rem; line-height: 1.3;
+}
+.blog-card-body p { font-size: 0.825rem; color: var(--muted); line-height: 1.6; font-weight: 300; margin-bottom: 1rem; }
+.read-more { font-size: 0.8rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 5px; }
+.read-more:hover { color: var(--navy); }
+
+/* ── NEWSLETTER ── */
+.newsletter {
+  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+  padding: 70px 5%; text-align: center;
+}
+.newsletter h2 {
+  font-family: var(--font-head); font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 800; color: var(--white); margin-bottom: 0.6rem;
+}
+.newsletter p { color: rgba(255,255,255,0.6); font-size: 0.95rem; font-weight: 300; margin-bottom: 2rem; }
+.newsletter-form { display: flex; gap: 0; max-width: 480px; margin: 0 auto; }
+.newsletter-form input {
+  flex: 1; padding: 13px 18px;
+  border: 2px solid rgba(255,255,255,0.15); border-right: none;
+  background: rgba(255,255,255,0.07); color: #fff;
+  font-family: var(--font-body); font-size: 0.9rem;
+  border-radius: 4px 0 0 4px; outline: none;
+}
+.newsletter-form input::placeholder { color: rgba(255,255,255,0.4); }
+.newsletter-form input:focus { border-color: var(--gold); }
+.newsletter-form button {
+  background: var(--gold); color: #fff;
+  border: none; padding: 13px 24px;
+  font-weight: 700; font-size: 0.875rem; text-transform: uppercase;
+  letter-spacing: 0.06em; cursor: pointer;
+  border-radius: 0 4px 4px 0;
+  transition: background 0.2s;
+}
+.newsletter-form button:hover { background: #b8942e; }
+
+/* ── MAP + FOOTER ── */
+.map-section { height: 360px; overflow: hidden; }
+.map-section iframe { width: 100%; height: 100%; border: none; }
+
+footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60px 5% 0; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+.footer-logo-text {
+  font-family: var(--font-head); font-size: 1.8rem;
+  font-weight: 800; color: var(--white); margin-bottom: 1rem;
+}
+.footer-logo-text span { color: var(--gold); }
+.footer-brand-col p { font-size: 0.875rem; line-height: 1.7; font-weight: 300; margin-bottom: 1.5rem; color: rgba(255,255,255,0.55); }
+.footer-contact-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-contact-list li { display: flex; align-items: center; gap: 10px; font-size: 0.82rem; color: rgba(255,255,255,0.55); }
+.footer-contact-list li .ic { color: var(--gold); font-size: 0.9rem; flex-shrink: 0; }
+.footer-col h5 {
+  font-family: var(--font-head); font-size: 1rem;
+  font-weight: 700; color: var(--white);
+  margin-bottom: 1.25rem; padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--gold);
+  display: inline-block;
+}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.footer-links li a {
+  font-size: 0.85rem; color: rgba(255,255,255,0.55);
+  transition: color 0.2s; display: flex; align-items: center; gap: 6px;
+}
+.footer-links li a::before { content: '›'; color: var(--gold); }
+.footer-links li a:hover { color: var(--gold); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 1.25rem 0;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 0.5rem;
+}
+.footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+.footer-bottom .socials { display: flex; gap: 8px; }
+.footer-bottom .socials a {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.5); font-size: 0.7rem;
+  transition: background 0.2s, color 0.2s;
+}
+.footer-bottom .socials a:hover { background: var(--gold); color: #fff; border-color: var(--gold); }
+
+/* ── WHATSAPP FLOAT ── */
+.wa-float {
+  position: fixed; bottom: 24px; right: 24px; z-index: 999;
+  width: 54px; height: 54px; border-radius: 50%;
+  background: #25D366; box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
+.wa-float svg { width: 28px; height: 28px; fill: white; }
+
+/* ── BACK TO TOP ── */
+.back-to-top {
+  position: fixed; bottom: 88px; right: 24px; z-index: 999;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--navy); border: 2px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold); font-size: 1.1rem;
+  cursor: pointer; opacity: 0; transition: opacity 0.3s, transform 0.2s;
+  pointer-events: none;
+}
+.back-to-top.visible { opacity: 1; pointer-events: all; }
+.back-to-top:hover { transform: translateY(-3px); }
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ── MOBILE ── */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-phone { display: none; }
+  .hamburger { display: flex; }
+  nav { padding: 0 4%; }
+  .nav-mobile-open .nav-links {
+    display: flex; flex-direction: column;
+    position: absolute; top: 76px; left: 0; right: 0;
+    background: var(--white); box-shadow: var(--shadow-md);
+    padding: 1rem 0; z-index: 998;
+  }
+  .nav-mobile-open .nav-links li a { line-height: 1; padding: 12px 5%; }
+  .nav-mobile-open .nav-links li a::after { display: none; }
+  .values-strip { flex-direction: column; gap: 1.5rem; }
+  .value-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0 0 1.5rem; }
+  .value-item:last-child { border-bottom: none; }
+  .hero { height: auto; min-height: 480px; padding: 80px 0 60px; }
+  .slide-person { display: none; }
+  .slide-content { max-width: 100%; padding: 0 6%; }
+  .services-intro { grid-template-columns: 1fr; gap: 2rem; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-badge { right: 10px; bottom: -15px; }
+  .team-grid { grid-template-columns: 1fr 1fr; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .faq-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr 1fr; }
+  .blog-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  section { padding: 70px 4%; }
+}
+@media (max-width: 600px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .blog-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .newsletter-form { flex-direction: column; }
+  .newsletter-form input { border-right: 2px solid rgba(255,255,255,0.15); border-bottom: none; border-radius: 4px 4px 0 0; }
+  .newsletter-form button { border-radius: 0 0 4px 4px; }
+  .topbar { justify-content: center; }
+  .topbar .left-info { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="left-info" style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+    <span>📞 +92 333 673 0540</span>
+    <span>✉️ info@minorsoltech.com</span>
+  </div>
+  <div class="socials">
+    <a href="#" title="Facebook">f</a>
+    <a href="#" title="Twitter">𝕏</a>
+    <a href="#" title="LinkedIn">in</a>
+    <a href="#" title="Instagram">ig</a>
+  </div>
+</div>
+
+<!-- NAV (modern row) -->
+<nav id="main-nav">
+  <a href="#" class="nav-logo-text">Minor<span>soltech</span></a>
+
+  <div class="nav-center">
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <div class="nav-right">
+    <div class="nav-phone">
+      <span>📞</span> +92 333 673 0540
+    </div>
+    <a href="#contact" class="nav-cta">Book Consultation</a>
+  </div>
+
+  <div class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO SLIDER -->
+<div class="hero" id="hero-slider">
+  <div class="slide active">
+    <div class="slide-bg"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-pattern"></div>
+    <div class="slide-content">
+      <span class="slide-tag">Amazon FBA Experts</span>
+      <h1>Business<br><em>Planning</em> &amp;<br>Growth Strategy</h1>
+      <p>We will build your own business. Where you put your money matters — open a path to financial freedom through smart Amazon Wholesale FBA.</p>
+      <div class="slide-actions">
+        <a href="#services" class="btn-gold">View Services ›</a>
+        <a href="#about" class="btn-outline-white">Our Story</a>
+      </div>
+    </div>
+  </div>
+  <div class="slide">
+    <div class="slide-bg" style="background: linear-gradient(135deg, #0b1e35 0%, #152e52 40%, #1c3d6b 100%);"></div>
+    <div class="slide-overlay"></div>
+    <div class="slide-pattern"></div>
+    <div class="slide-content">
+      <span class="slide-tag">Invest · Scale · Prosper</span>
+      <h1>Build <em>Passive Income</em><br>That Lasts</h1>
+      <p>Helping investors worldwide build passive income through Amazon Wholesale FBA — creating freedom, security, and peace of mind.</p>
+      <div class="slide-actions">
+        <a href="#contact" class="btn-gold">Book Free Call ›</a>
+        <a href="#steps" class="btn-outline-white">How It Works</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-arrows">
+    <button onclick="changeSlide(-1)" aria-label="Previous">&#8592;</button>
+    <button onclick="changeSlide(1)" aria-label="Next">&#8594;</button>
+  </div>
+  <div class="hero-dots">
+    <span class="active" onclick="goToSlide(0)"></span>
+    <span onclick="goToSlide(1)"></span>
+  </div>
+</div>
+
+<!-- VALUES STRIP -->
+<div class="values-strip">
+  <div class="value-item">
+    <h4>Our Value</h4>
+    <p>We value transparency, honesty, discipline, humility, and a winner's mindset—driving productivity, resilience, and continuous growth.</p>
+  </div>
+  <div class="value-item">
+    <h4>Our Mission</h4>
+    <p>Helping clients build passive income through Amazon Wholesale FBA—creating freedom, security, and peace of mind.</p>
+  </div>
+  <div class="value-item">
+    <h4>Why Minorsoltech</h4>
+    <p>Born from personal struggle, built with purpose. We don't just run businesses—we build pathways to financial independence for you.</p>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="inner">
+    <div class="services-header reveal">
+      <span class="section-label">Services</span>
+      <h2 class="section-h">We're ready to share our<br><em>advice and experience</em></h2>
+      <div class="divider"></div>
+      <p class="section-p" style="margin:0 auto;">We develop the relationships that underpin the next phase in your organisation's growth through proven platforms and strategies.</p>
+    </div>
+    <div class="services-intro reveal">
+
+      <!-- INNOVATIVE TECH IMAGE -->
+      <div class="services-intro-img">
+        <img
+          src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80"
+          alt="Amazon FBA Technology"
+          onerror="this.src='https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80';"
+        />
+        <div class="tech-badge">
+          <div class="dot"></div>
+          <span>AI-Powered FBA Growth</span>
+        </div>
+      </div>
+
+      <div>
+        <span class="section-label">What We Do</span>
+        <h3 class="section-h">End-to-end Amazon FBA management for <em>passive growth</em></h3>
+        <div class="divider"></div>
+        <p class="section-p">From product sourcing to logistics, PPC campaigns to performance reporting — our team handles every detail so you don't have to.</p>
+        <ul style="margin:1.5rem 0; padding-left:1.2rem; color:var(--muted); font-size:0.9rem; line-height:2; font-weight:300; list-style:none;">
+          <li style="display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);font-weight:700;">✓</span> Full Account Management</li>
+          <li style="display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);font-weight:700;">✓</span> Product Research &amp; Sourcing</li>
+          <li style="display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);font-weight:700;">✓</span> PPC Campaign Optimization</li>
+          <li style="display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);font-weight:700;">✓</span> Transparent Monthly Reporting</li>
+        </ul>
+        <a href="#contact" class="btn-navy">Get Started ›</a>
+      </div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">📦</div>
+        <h3>Amazon FBA Management</h3>
+        <p>Full-service account management including product sourcing, listing optimization, PPC, inventory, and logistics.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">📈</div>
+        <h3>E-commerce Strategy</h3>
+        <p>Custom growth roadmaps, revenue scaling plans, and automation systems built for long-term sustainable success.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">💡</div>
+        <h3>Business Consulting</h3>
+        <p>Expert guidance on market entry, brand positioning, and scaling your e-commerce venture from idea to income.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🔍</div>
+        <h3>Product Research</h3>
+        <p>Data-driven product discovery using advanced tools to find high-margin, low-competition opportunities on Amazon.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">📊</div>
+        <h3>PPC Advertising</h3>
+        <p>Targeted Amazon ad campaigns designed to maximize visibility, reduce ACOS, and drive consistent profitable sales.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🤝</div>
+        <h3>Wholesale Partnerships</h3>
+        <p>We establish relationships with authorised distributors and suppliers to secure profitable wholesale accounts for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="inner">
+    <div class="about-grid">
+      <div class="about-img reveal">
+        <div class="about-img-main">
+          <!-- CEO IMAGE from GitHub repo -->
+          <img
+            src="192170777_1681746962009591_7091455462882851203_n.jpg"
+            alt="Muzzamil Sana Khan – Co-Founder & CEO"
+          />
+        </div>
+        <div class="about-badge">
+          <span class="num">4+</span>
+          <span class="lbl">Years of<br>Experience</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <span class="section-label">About Us</span>
+        <h2 class="section-h">Turning <em>Pain into Purpose</em>:<br>Our Journey</h2>
+        <div class="divider"></div>
+        <p style="color:var(--muted);font-size:0.95rem;line-height:1.8;font-weight:300;margin-bottom:1rem;">In 2021, personal tragedy reshaped our lives and ignited a powerful mission: building resilience when life is at its toughest. Inspired by the challenge of navigating financial and emotional uncertainty firsthand.</p>
+        <p style="color:var(--muted);font-size:0.95rem;line-height:1.8;font-weight:300;margin-bottom:1.5rem;">We began humbly — driven by determination, working tirelessly from our homes, motivated by a single vision: creating financial security and peace of mind. Today, through our Amazon Wholesale FBA model, Minorsoltech supports countless individuals in achieving financial freedom and stability.</p>
+        <div class="about-values">
+          <div class="about-val">
+            <div class="about-val-icon">🔍</div>
+            <div class="about-val-text"><strong>Transparency</strong><span>Open decisions &amp; progress</span></div>
+          </div>
+          <div class="about-val">
+            <div class="about-val-icon">🏆</div>
+            <div class="about-val-text"><strong>Winner Mindset</strong><span>Resilience &amp; ambition</span></div>
+          </div>
+          <div class="about-val">
+            <div class="about-val-icon">⚙️</div>
+            <div class="about-val-text"><strong>Discipline</strong><span>Standards without reminders</span></div>
+          </div>
+          <div class="about-val">
+            <div class="about-val-icon">🌱</div>
+            <div class="about-val-text"><strong>Humility</strong><span>Always learning &amp; growing</span></div>
+          </div>
+        </div>
+        <div style="margin-top:2rem;">
+          <a href="#contact" class="btn-navy">About Us ›</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="inner">
+    <div class="team-header reveal">
+      <span class="section-label">Our People</span>
+      <h2 class="section-h">Meet the <em>Team</em></h2>
+      <div class="divider"></div>
+      <p class="section-p" style="margin:0 auto;">The dedicated professionals behind Minorsoltech's success — passionate, experienced, and committed to your growth.</p>
+    </div>
+    <div class="team-grid">
+
+      <div class="team-card reveal">
+        <div class="team-card-img">
+          <img
+            src="192170777_1681746962009591_7091455462882851203_n.jpg"
+            alt="Muzzamil Sana Khan"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="placeholder-avatar" style="display:none;">MSK</div>
+          <div class="team-overlay"></div>
+        </div>
+        <div class="team-card-body">
+          <h4>Muzzamil Sana Khan</h4>
+          <div class="role">Co-Founder &amp; CEO</div>
+          <p>Visionary behind Minorsoltech's mission. Leads strategy, client partnerships, and Amazon wholesale operations with strong focus on growth and execution.</p>
+          <div class="team-socials">
+            <a href="#" title="LinkedIn">in</a>
+            <a href="#" title="Twitter">𝕏</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card reveal">
+        <div class="team-card-img">
+          <div class="placeholder-avatar">SF</div>
+          <div class="team-overlay"></div>
+        </div>
+        <div class="team-card-body">
+          <h4>Sadaf Fatima</h4>
+          <div class="role">Co-Founder &amp; COO</div>
+          <p>Operations lead and Amazon FBA strategist. Drives the systems that scale client businesses efficiently and profitably.</p>
+          <div class="team-socials">
+            <a href="#" title="LinkedIn">in</a>
+            <a href="#" title="Twitter">𝕏</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card reveal">
+        <div class="team-card-img">
+          <div class="placeholder-avatar">AR</div>
+          <div class="team-overlay"></div>
+        </div>
+        <div class="team-card-body">
+          <h4>Account Manager</h4>
+          <div class="role">Amazon Account Manager</div>
+          <p>Manages day-to-day Amazon seller accounts, monitors KPIs, and ensures listings stay optimized and competitive.</p>
+          <div class="team-socials">
+            <a href="#" title="LinkedIn">in</a>
+            <a href="#" title="Twitter">𝕏</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="steps">
+  <div class="inner">
+    <div class="reveal" style="text-align:center;margin-bottom:3.5rem;">
+      <span class="section-label">Steps to Start</span>
+      <h2 class="section-h" style="color:var(--white);">Some easy steps to <em style="color:var(--gold-light);">get started!</em></h2>
+      <div class="divider" style="margin:1rem auto;"></div>
+      <p style="color:rgba(255,255,255,0.55);font-size:1rem;font-weight:300;max-width:500px;margin:0 auto;">From your first call to your first sale — here's how simple it is to get your Amazon business up and running with Minorsoltech.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-num">01</div>
+        <div class="step-icon">📅</div>
+        <h4>Pick a Date &amp; Time</h4>
+        <p>Browse the calendar and select a time slot that suits your schedule for your free strategy consultation.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">02</div>
+        <div class="step-icon">📝</div>
+        <h4>Enter Your Details</h4>
+        <p>Fill in your basic information like name, email, and phone number to confirm your booking and goals.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">03</div>
+        <div class="step-icon">🎥</div>
+        <h4>Join the Session</h4>
+        <p>You'll receive an email with your video meeting link. Just click to join at the scheduled time — we handle the rest.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:3rem;">
+      <a href="#contact" class="btn-gold">Book Your Free Call ›</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="inner">
+    <div class="faq-grid">
+      <div>
+        <div class="reveal">
+          <span class="section-label">FAQ</span>
+          <h2 class="section-h">Learn more from frequently<br>asked <em>questions</em></h2>
+          <div class="divider"></div>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item reveal">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              How does Minorsoltech ensure profitability and transparency?
+              <span class="icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Every venture we build is guided by data, strategy, and performance metrics. We provide transparent reporting, regular progress updates, and financial tracking so investors can clearly see how their business is performing and growing over time.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              What level of involvement is required from investors?
+              <span class="icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Minorsoltech is designed for hands-free growth. Our team manages all day-to-day operations—including sourcing, pricing, logistics, and analytics—while keeping investors updated through transparent reports and strategy reviews.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              How is the estimated profit calculated?
+              <span class="icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>The profit range is based on average market performance and internal analysis. These figures are estimates only—actual results may vary depending on market conditions, investment amount, and duration.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              How long before I start seeing results?
+              <span class="icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Most clients begin seeing meaningful traction within 60–90 days of account setup. Amazon wholesale FBA requires an initial ramp-up period for account health, product approvals, and inventory, after which growth accelerates steadily month over month.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="faq-side reveal">
+        <h3>Get Expert Help Right When You Need It</h3>
+        <p>Ready to book your free consultation? Our team is available to answer questions and map out your personalised growth plan.</p>
+        <div class="faq-contact-list">
+          <div class="faq-contact-item">
+            <div class="ic">📞</div>
+            <div>
+              <div class="lbl">Call Us</div>
+              <div class="val">+92 333 673 0540</div>
+            </div>
+          </div>
+          <div class="faq-contact-item">
+            <div class="ic">✉️</div>
+            <div>
+              <div class="lbl">Email</div>
+              <div class="val">info@minorsoltech.com</div>
+            </div>
+          </div>
+          <div class="faq-contact-item">
+            <div class="ic">📍</div>
+            <div>
+              <div class="lbl">Office</div>
+              <div class="val" style="font-size:0.8rem;">Office No. 05, 5th Floor, The Centaurus Mall, Jinnah Avenue, Islamabad, Pakistan</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:2rem;">
+          <a href="#contact" class="btn-gold" style="width:100%;justify-content:center;">Book Appointment ›</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="inner">
+    <div class="testimonials-header reveal">
+      <span class="section-label">Testimonials</span>
+      <h2 class="section-h">It's always a joy to hear that the work<br>we do has <em>positively</em> impacted clients</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial reveal">
+        <div class="stars">★★★★★</div>
+        <p>I asked for an extra customization and the team made special amendments live on my account. Customer support is amazing — genuinely responsive and helpful.</p>
+        <div class="t-author">
+          <div class="t-avatar">MS</div>
+          <div>
+            <div class="t-name">Maria Silverii</div>
+            <div class="t-role">CEO of Blue Illusion</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial reveal">
+        <div class="stars">★★★★★</div>
+        <p>I love working with Minorsoltech! Support deserves 7 stars but unfortunately that's not an option. I really suggest everyone work with them.</p>
+        <div class="t-author">
+          <div class="t-avatar">PM</div>
+          <div>
+            <div class="t-name">Phillip Macintyre</div>
+            <div class="t-role">CEO of Blue Illusion</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial reveal">
+        <div class="stars">★★★★★</div>
+        <p>Great, versatile team with lots of customisability. Above all, the customer support is amazing, useful, and quick. I must recommend them.</p>
+        <div class="t-author">
+          <div class="t-avatar">AH</div>
+          <div>
+            <div class="t-name">Amy Harrison</div>
+            <div class="t-role">Contiki Holidays</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="inner">
+    <div class="blog-header reveal">
+      <span class="section-label">Our Blog</span>
+      <h2 class="section-h">We're here to share story &amp;<br>more news from the <em>resource library</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card reveal">
+        <div class="blog-card-img">
+          <img src="https://mokhu.com/wp-content/uploads/2020/03/update-service-02-600x373.jpg" alt="Blog 1" onerror="this.style.display='none';" />
+          <span class="blog-cat">Business</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-date">November 5, 2019</div>
+          <h4>How Stay Calm from the First Time.</h4>
+          <p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p>
+          <a href="#" class="read-more">Read more ›</a>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-card-img">
+          <img src="https://mokhu.com/wp-content/uploads/2019/11/u-blog-02-600x373.jpg" alt="Blog 2" onerror="this.style.display='none';" />
+          <span class="blog-cat">Strategy</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-date">November 5, 2019</div>
+          <h4>Why You'll Never Succeed at 7 Habits.</h4>
+          <p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p>
+          <a href="#" class="read-more">Read more ›</a>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-card-img">
+          <img src="https://mokhu.com/wp-content/uploads/2019/11/update-blog3-600x373.jpg" alt="Blog 3" onerror="this.style.display='none';" />
+          <span class="blog-cat">Growth</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-date">November 5, 2019</div>
+          <h4>You can use it for any kind of website like.</h4>
+          <p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p>
+          <a href="#" class="read-more">Read more ›</a>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-card-img">
+          <img src="https://mokhu.com/wp-content/uploads/2019/11/theme-13-600x373.jpg" alt="Blog 4" onerror="this.style.display='none';" />
+          <span class="blog-cat">Startup</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-date">November 5, 2019</div>
+          <h4>How to go about initiating a start-up.</h4>
+          <p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p>
+          <a href="#" class="read-more">Read more ›</a>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-card-img">
+          <img src="https://mokhu.com/wp-content/uploads/2019/11/theme-09-600x373.jpg" alt="Blog 5" onerror="this.style.display='none';" />
+          <span class="blog-cat">Amazon</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-date">November 5, 2019</div>
+          <h4>Reasons to explain fast business builder.</h4>
+          <p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p>
+          <a href="#" class="read-more">Read more ›</a>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-card-img">
+          <img src="https://mokhu.com/wp-content/uploads/2019/11/theme-05-600x373.jpg" alt="Blog 6" onerror="this.style.display='none';" />
+          <span class="blog-cat">Finance</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-date">November 4, 2018</div>
+          <h4>Blackpool polices hunt for David.</h4>
+          <p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p>
+          <a href="#" class="read-more">Read more ›</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div class="newsletter" id="contact">
+  <div style="max-width:700px;margin:0 auto;">
+    <span class="section-label" style="color:var(--gold-light);">Newsletter</span>
+    <h2>Build Wealth, Smarter.</h2>
+    <p>Subscribe to our newsletter and receive early alerts on market opportunities, Amazon FBA tips, and exclusive Minorsoltech insights.</p>
+    <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+      <input type="email" placeholder="Enter your email address..." required />
+      <button type="submit">Subscribe</button>
+    </form>
+    <div style="margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,0.1);">
+      <p style="color:rgba(255,255,255,0.5);margin-bottom:1rem;font-size:0.9rem;">Ready to start your Amazon journey?</p>
+      <a href="https://wa.me/923336730540" class="btn-gold" style="display:inline-flex;">Chat on WhatsApp ›</a>
+    </div>
+  </div>
+</div>
+
+<!-- MAP -->
+<div class="map-section">
+  <iframe
+    src="https://maps.google.com/maps?q=The+Centaurus+Mall+Jinnah+Avenue+Islamabad+Pakistan&t=m&z=15&output=embed&iwloc=near"
+    title="Minorsoltech Office Location"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand-col">
+      <div class="footer-logo-text">Minor<span>soltech</span></div>
+      <p>Your trusted partner in building scalable e-commerce ventures that deliver passive income and long-term wealth.</p>
+      <ul class="footer-contact-list">
+        <li><span class="ic">📞</span> +92 333 673 0540</li>
+        <li><span class="ic">✉️</span> info@minorsoltech.com</li>
+        <li><span class="ic">📍</span> Office No. 05, 5th Floor, The Centaurus Mall, Jinnah Avenue, Islamabad, Pakistan</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Links</h5>
+      <ul class="footer-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Book Consultation</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Support</h5>
+      <ul class="footer-links">
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>2025 © Minorsoltech — All rights reserved.</p>
+    <div class="socials">
+      <a href="#" title="Facebook">f</a>
+      <a href="#" title="Twitter">𝕏</a>
+      <a href="#" title="LinkedIn">in</a>
+      <a href="#" title="Instagram">ig</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/923336730540" class="wa-float" target="_blank" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- BACK TO TOP -->
+<div class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</div>
+
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.hero-dots span');
+let autoSlide = setInterval(() => changeSlide(1), 5000);
+
+function goToSlide(n) {
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide = n;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+  clearInterval(autoSlide);
+  autoSlide = setInterval(() => changeSlide(1), 5000);
+}
+function changeSlide(dir) {
+  let next = (currentSlide + dir + slides.length) % slides.length;
+  goToSlide(next);
+}
+
+const reveals = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 90);
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => revealObs.observe(el));
+
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const answer = item.querySelector('.faq-a');
+  const isOpen = btn.classList.contains('open');
+  document.querySelectorAll('.faq-q.open').forEach(q => {
+    q.classList.remove('open');
+    q.parentElement.querySelector('.faq-a').classList.remove('open');
+  });
+  if (!isOpen) {
+    btn.classList.add('open');
+    answer.classList.add('open');
+  }
+}
+
+function toggleMobileNav() {
+  document.getElementById('main-nav').classList.toggle('nav-mobile-open');
+}
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.getElementById('main-nav').classList.remove('nav-mobile-open');
+  });
+});
+
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('back-to-top');
+  if (window.scrollY > 500) btn.classList.add('visible');
+  else btn.classList.remove('visible');
+});
+
+function handleNewsletter(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  btn.textContent = 'Subscribed ✓';
+  btn.style.background = '#2e7d32';
+  setTimeout(() => { btn.textContent = 'Subscribe'; btn.style.background = ''; }, 3000);
+}
+</script>
+</body>
+</html>
