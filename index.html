@@ -55,7 +55,7 @@ img { max-width: 100%; display: block; }
 }
 .topbar .socials a:hover { background: var(--gold); color: #fff; }
 
-/* ── NAV (modern row style) ── */
+/* ── NAV ── */
 nav {
   position: sticky; top: 0; z-index: 999;
   background: var(--white);
@@ -279,8 +279,6 @@ section { padding: 90px 5%; }
   width: 100%; height: 100%; object-fit: cover;
   display: block;
 }
-
-/* ── tech image overlay badge ── */
 .services-intro-img .tech-badge {
   position: absolute; bottom: 20px; left: 20px;
   background: rgba(26,43,74,0.92);
@@ -305,7 +303,6 @@ section { padding: 90px 5%; }
   color: var(--white); text-transform: uppercase;
   letter-spacing: 0.06em;
 }
-
 .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
 .service-card {
   background: var(--white);
@@ -719,10 +716,9 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   </div>
 </div>
 
-<!-- NAV (modern row) -->
+<!-- NAV -->
 <nav id="main-nav">
   <a href="#" class="nav-logo-text">Minor<span>soltech</span></a>
-
   <div class="nav-center">
     <ul class="nav-links">
       <li><a href="#">Home</a></li>
@@ -733,14 +729,12 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
       <li><a href="#contact">Contact Us</a></li>
     </ul>
   </div>
-
   <div class="nav-right">
     <div class="nav-phone">
       <span>📞</span> +92 333 673 0540
     </div>
     <a href="#contact" class="nav-cta">Book Consultation</a>
   </div>
-
   <div class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
     <span></span><span></span><span></span>
   </div>
@@ -812,8 +806,6 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
       <p class="section-p" style="margin:0 auto;">We develop the relationships that underpin the next phase in your organisation's growth through proven platforms and strategies.</p>
     </div>
     <div class="services-intro reveal">
-
-      <!-- INNOVATIVE TECH IMAGE -->
       <div class="services-intro-img">
         <img
           src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80"
@@ -825,7 +817,6 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
           <span>AI-Powered FBA Growth</span>
         </div>
       </div>
-
       <div>
         <span class="section-label">What We Do</span>
         <h3 class="section-h">End-to-end Amazon FBA management for <em>passive growth</em></h3>
@@ -881,10 +872,9 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
     <div class="about-grid">
       <div class="about-img reveal">
         <div class="about-img-main">
-          <!-- CEO IMAGE from GitHub repo -->
           <img
             src="192170777_1681746962009591_7091455462882851203_n.jpg"
-            alt="Muzzamil Sana Khan – Co-Founder & CEO"
+            alt="Muzzamil Sana Khan – Founder & CEO"
           />
         </div>
         <div class="about-badge">
@@ -935,6 +925,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
     </div>
     <div class="team-grid">
 
+      <!-- Muzzamil Sana Khan -->
       <div class="team-card reveal">
         <div class="team-card-img">
           <img
@@ -947,40 +938,52 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
         </div>
         <div class="team-card-body">
           <h4>Muzzamil Sana Khan</h4>
-          <div class="role">Co-Founder &amp; CEO</div>
+          <div class="role">Founder &amp; CEO</div>
           <p>Visionary behind Minorsoltech's mission. Leads strategy, client partnerships, and Amazon wholesale operations with strong focus on growth and execution.</p>
           <div class="team-socials">
-            <a href="#" title="LinkedIn">in</a>
+            <a href="https://www.linkedin.com/in/muzamil-sana-184225134/" target="_blank" rel="noopener noreferrer" title="LinkedIn">in</a>
             <a href="#" title="Twitter">𝕏</a>
           </div>
         </div>
       </div>
 
+      <!-- Sadaf Fatima -->
       <div class="team-card reveal">
         <div class="team-card-img">
-          <div class="placeholder-avatar">SF</div>
+          <img
+            src="sadaf pic.jpeg"
+            alt="Sadaf Fatima"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="placeholder-avatar" style="display:none;">SF</div>
           <div class="team-overlay"></div>
         </div>
         <div class="team-card-body">
           <h4>Sadaf Fatima</h4>
-          <div class="role">Co-Founder &amp; COO</div>
+          <div class="role">Co-Founder</div>
           <p>Operations lead and Amazon FBA strategist. Drives the systems that scale client businesses efficiently and profitably.</p>
           <div class="team-socials">
-            <a href="#" title="LinkedIn">in</a>
+            <a href="https://www.linkedin.com/in/sadaf-fatima-2397b2336?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" title="LinkedIn">in</a>
             <a href="#" title="Twitter">𝕏</a>
           </div>
         </div>
       </div>
 
+      <!-- Hira Yousafzai -->
       <div class="team-card reveal">
         <div class="team-card-img">
-          <div class="placeholder-avatar">AR</div>
+          <img
+            src="hira-yousafzai.jpg"
+            alt="Hira Yousafzai"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="placeholder-avatar" style="display:none;">HY</div>
           <div class="team-overlay"></div>
         </div>
         <div class="team-card-body">
-          <h4>Account Manager</h4>
-          <div class="role">Amazon Account Manager</div>
-          <p>Manages day-to-day Amazon seller accounts, monitors KPIs, and ensures listings stay optimized and competitive.</p>
+          <h4>Hira Yousafzai</h4>
+          <div class="role">Senior Manager Operations</div>
+          <p>Oversees day-to-day operations, manages Amazon seller accounts, monitors KPIs, and ensures listings stay optimized and competitive.</p>
           <div class="team-socials">
             <a href="#" title="LinkedIn">in</a>
             <a href="#" title="Twitter">𝕏</a>
