@@ -333,23 +333,101 @@ section { padding: 90px 5%; }
 }
 .service-card p { color: var(--muted); font-size: 0.875rem; line-height: 1.65; font-weight: 300; }
 
+/* ── MARKETPLACES SECTION ── */
+#marketplaces { background: var(--white); padding: 90px 5%; }
+.marketplaces-header { text-align: center; margin-bottom: 1.5rem; }
+.marketplaces-header .divider { margin: 1rem auto 0; }
+.marketplaces-tagline {
+  text-align: center; max-width: 600px; margin: 0 auto 3.5rem;
+  color: var(--muted); font-size: 0.95rem; font-weight: 300; line-height: 1.75;
+}
+.marketplaces-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 2rem; max-width: 980px; margin: 0 auto;
+}
+.marketplace-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 14px; padding: 2.5rem 2rem 2rem;
+  box-shadow: var(--shadow);
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  position: relative; overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.marketplace-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;
+}
+.marketplace-card:hover::before { transform: scaleX(1); }
+.marketplace-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
+.marketplace-globe {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: var(--gold-dim); border: 2px solid rgba(200,169,81,0.25);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.5rem; position: relative;
+  transition: background 0.3s, border-color 0.3s;
+}
+.marketplace-card:hover .marketplace-globe { background: rgba(200,169,81,0.22); border-color: var(--gold); }
+.marketplace-globe svg { width: 40px; height: 40px; }
+.marketplace-flag {
+  position: absolute; top: -4px; right: -4px;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--white); box-shadow: 0 2px 8px rgba(26,43,74,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; border: 1.5px solid var(--border);
+}
+.marketplace-card h3 {
+  font-family: var(--font-head); font-size: 1.3rem; font-weight: 700;
+  color: var(--navy); margin-bottom: 0.3rem; letter-spacing: -0.01em;
+}
+.marketplace-sub {
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--gold); margin-bottom: 1rem;
+}
+.marketplace-card p {
+  color: var(--muted); font-size: 0.875rem; line-height: 1.65;
+  font-weight: 300; flex: 1; margin-bottom: 1.5rem;
+}
+.marketplace-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--light-bg); border: 1px solid var(--border);
+  border-radius: 20px; padding: 5px 14px;
+  font-size: 0.72rem; font-weight: 700; color: var(--navy);
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.marketplace-badge .live-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #22c55e; box-shadow: 0 0 6px rgba(34,197,94,0.5);
+  animation: pulse 2s infinite;
+}
+.marketplace-stats {
+  display: flex; gap: 1.5rem; margin-top: 1.5rem;
+  padding-top: 1.25rem; border-top: 1px solid var(--border);
+  width: 100%; justify-content: center;
+}
+.marketplace-stat .stat-val {
+  font-family: var(--font-head); font-size: 1.15rem; font-weight: 700;
+  color: var(--navy); line-height: 1; display: block;
+}
+.marketplace-stat .stat-lbl {
+  font-size: 0.68rem; color: var(--muted2); text-transform: uppercase;
+  letter-spacing: 0.06em; margin-top: 2px; display: block;
+}
+
 /* ── ABOUT SECTION ── */
 #about { background: var(--white); }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
 .about-img { position: relative; }
 .about-img-main {
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  aspect-ratio: 4/5;
+  border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow-md); aspect-ratio: 4/5;
 }
 .about-img-main img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
 .about-badge {
   position: absolute; bottom: -20px; right: -20px;
   background: var(--gold); color: var(--white);
   padding: 1.5rem; border-radius: var(--radius);
-  text-align: center; box-shadow: var(--shadow-md);
-  min-width: 130px;
+  text-align: center; box-shadow: var(--shadow-md); min-width: 130px;
 }
 .about-badge .num {
   font-family: var(--font-head); font-size: 2.5rem;
@@ -372,17 +450,14 @@ section { padding: 90px 5%; }
 .team-header .divider { margin: 1rem auto; }
 .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
 .team-card {
-  background: var(--white);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
+  background: var(--white); border-radius: var(--radius);
+  overflow: hidden; box-shadow: var(--shadow);
   transition: transform 0.25s, box-shadow 0.25s;
 }
 .team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
 .team-card-img {
   height: 280px; overflow: hidden;
-  background: linear-gradient(135deg, #c0cce8, #98aed4);
-  position: relative;
+  background: linear-gradient(135deg, #c0cce8, #98aed4); position: relative;
 }
 .team-card-img img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
 .team-card-img .placeholder-avatar {
@@ -421,12 +496,9 @@ section { padding: 90px 5%; }
 #steps .section-p { color: rgba(255,255,255,0.6); }
 .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; }
 .step-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: var(--radius);
-  padding: 2.5rem 2rem;
-  position: relative;
-  transition: background 0.2s;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius); padding: 2.5rem 2rem;
+  position: relative; transition: background 0.2s;
 }
 .step-card:hover { background: rgba(255,255,255,0.08); }
 .step-num {
@@ -440,10 +512,7 @@ section { padding: 90px 5%; }
   display: flex; align-items: center; justify-content: center;
   font-size: 1.5rem; margin-bottom: 1.25rem;
 }
-.step-card h4 {
-  font-family: var(--font-head); font-size: 1.15rem;
-  font-weight: 700; color: var(--white); margin-bottom: 0.6rem;
-}
+.step-card h4 { font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 0.6rem; }
 .step-card p { color: rgba(255,255,255,0.55); font-size: 0.875rem; line-height: 1.65; font-weight: 300; }
 
 /* ── FAQ ── */
@@ -469,10 +538,7 @@ section { padding: 90px 5%; }
 .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s; }
 .faq-a.open { max-height: 300px; padding-bottom: 1rem; }
 .faq-a p { color: var(--muted); font-size: 0.875rem; line-height: 1.7; font-weight: 300; }
-.faq-side {
-  background: var(--navy); border-radius: var(--radius);
-  padding: 3rem 2.5rem; color: var(--white);
-}
+.faq-side { background: var(--navy); border-radius: var(--radius); padding: 3rem 2.5rem; color: var(--white); }
 .faq-side h3 { font-family: var(--font-head); font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
 .faq-side p { color: rgba(255,255,255,0.65); font-size: 0.9rem; line-height: 1.7; font-weight: 300; margin-bottom: 2rem; }
 .faq-contact-list { display: flex; flex-direction: column; gap: 1rem; }
@@ -498,10 +564,8 @@ section { padding: 90px 5%; }
 }
 .testimonial:hover { box-shadow: var(--shadow-md); }
 .testimonial::before {
-  content: '\201C';
-  font-family: var(--font-head); font-size: 5rem; line-height: 1;
-  color: var(--gold); opacity: 0.2;
-  position: absolute; top: 10px; left: 20px;
+  content: '\201C'; font-family: var(--font-head); font-size: 5rem; line-height: 1;
+  color: var(--gold); opacity: 0.2; position: absolute; top: 10px; left: 20px;
 }
 .stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 1rem; }
 .testimonial p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; font-weight: 300; font-style: italic; margin-bottom: 1.5rem; position: relative; z-index: 1; }
@@ -527,11 +591,7 @@ section { padding: 90px 5%; }
   transition: transform 0.25s, box-shadow 0.25s;
 }
 .blog-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
-.blog-card-img {
-  height: 200px; overflow: hidden;
-  background: linear-gradient(135deg, #c8d8f0, #a0bade);
-  position: relative;
-}
+.blog-card-img { height: 200px; overflow: hidden; background: linear-gradient(135deg, #c8d8f0, #a0bade); position: relative; }
 .blog-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
 .blog-card:hover .blog-card-img img { transform: scale(1.05); }
 .blog-cat {
@@ -542,23 +602,14 @@ section { padding: 90px 5%; }
 }
 .blog-card-body { padding: 1.5rem; }
 .blog-date { font-size: 0.75rem; color: var(--muted2); margin-bottom: 0.5rem; }
-.blog-card-body h4 {
-  font-family: var(--font-head); font-size: 1rem;
-  font-weight: 700; color: var(--navy); margin-bottom: 0.6rem; line-height: 1.3;
-}
+.blog-card-body h4 { font-family: var(--font-head); font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.6rem; line-height: 1.3; }
 .blog-card-body p { font-size: 0.825rem; color: var(--muted); line-height: 1.6; font-weight: 300; margin-bottom: 1rem; }
 .read-more { font-size: 0.8rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 5px; }
 .read-more:hover { color: var(--navy); }
 
 /* ── NEWSLETTER ── */
-.newsletter {
-  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
-  padding: 70px 5%; text-align: center;
-}
-.newsletter h2 {
-  font-family: var(--font-head); font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-  font-weight: 800; color: var(--white); margin-bottom: 0.6rem;
-}
+.newsletter { background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%); padding: 70px 5%; text-align: center; }
+.newsletter h2 { font-family: var(--font-head); font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 800; color: var(--white); margin-bottom: 0.6rem; }
 .newsletter p { color: rgba(255,255,255,0.6); font-size: 0.95rem; font-weight: 300; margin-bottom: 2rem; }
 .newsletter-form { display: flex; gap: 0; max-width: 480px; margin: 0 auto; }
 .newsletter-form input {
@@ -571,11 +622,9 @@ section { padding: 90px 5%; }
 .newsletter-form input::placeholder { color: rgba(255,255,255,0.4); }
 .newsletter-form input:focus { border-color: var(--gold); }
 .newsletter-form button {
-  background: var(--gold); color: #fff;
-  border: none; padding: 13px 24px;
+  background: var(--gold); color: #fff; border: none; padding: 13px 24px;
   font-weight: 700; font-size: 0.875rem; text-transform: uppercase;
-  letter-spacing: 0.06em; cursor: pointer;
-  border-radius: 0 4px 4px 0;
+  letter-spacing: 0.06em; cursor: pointer; border-radius: 0 4px 4px 0;
   transition: background 0.2s;
 }
 .newsletter-form button:hover { background: #b8942e; }
@@ -586,32 +635,23 @@ section { padding: 90px 5%; }
 
 footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60px 5% 0; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
-.footer-logo-text {
-  font-family: var(--font-head); font-size: 1.8rem;
-  font-weight: 800; color: var(--white); margin-bottom: 1rem;
-}
+.footer-logo-text { font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; color: var(--white); margin-bottom: 1rem; }
 .footer-logo-text span { color: var(--gold); }
 .footer-brand-col p { font-size: 0.875rem; line-height: 1.7; font-weight: 300; margin-bottom: 1.5rem; color: rgba(255,255,255,0.55); }
 .footer-contact-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
 .footer-contact-list li { display: flex; align-items: center; gap: 10px; font-size: 0.82rem; color: rgba(255,255,255,0.55); }
 .footer-contact-list li .ic { color: var(--gold); font-size: 0.9rem; flex-shrink: 0; }
 .footer-col h5 {
-  font-family: var(--font-head); font-size: 1rem;
-  font-weight: 700; color: var(--white);
+  font-family: var(--font-head); font-size: 1rem; font-weight: 700; color: var(--white);
   margin-bottom: 1.25rem; padding-bottom: 0.6rem;
-  border-bottom: 2px solid var(--gold);
-  display: inline-block;
+  border-bottom: 2px solid var(--gold); display: inline-block;
 }
 .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-.footer-links li a {
-  font-size: 0.85rem; color: rgba(255,255,255,0.55);
-  transition: color 0.2s; display: flex; align-items: center; gap: 6px;
-}
+.footer-links li a { font-size: 0.85rem; color: rgba(255,255,255,0.55); transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
 .footer-links li a::before { content: '›'; color: var(--gold); }
 .footer-links li a:hover { color: var(--gold); }
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding: 1.25rem 0;
+  border-top: 1px solid rgba(255,255,255,0.08); padding: 1.25rem 0;
   display: flex; justify-content: space-between; align-items: center;
   flex-wrap: wrap; gap: 0.5rem;
 }
@@ -676,6 +716,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   .slide-content { max-width: 100%; padding: 0 6%; }
   .services-intro { grid-template-columns: 1fr; gap: 2rem; }
   .services-grid { grid-template-columns: 1fr 1fr; }
+  .marketplaces-grid { grid-template-columns: 1fr 1fr; max-width: 100%; gap: 1.25rem; }
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
   .about-badge { right: 10px; bottom: -15px; }
   .team-grid { grid-template-columns: 1fr 1fr; }
@@ -685,9 +726,11 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   .blog-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
   section { padding: 70px 4%; }
+  #marketplaces { padding: 70px 4%; }
 }
 @media (max-width: 600px) {
   .services-grid { grid-template-columns: 1fr; }
+  .marketplaces-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
   .team-grid { grid-template-columns: 1fr; }
   .testimonials-grid { grid-template-columns: 1fr; }
   .blog-grid { grid-template-columns: 1fr; }
@@ -730,9 +773,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
     </ul>
   </div>
   <div class="nav-right">
-    <div class="nav-phone">
-      <span>📞</span> +92 333 673 0540
-    </div>
+    <div class="nav-phone"><span>📞</span> +92 333 673 0540</div>
     <a href="#contact" class="nav-cta">Book Consultation</a>
   </div>
   <div class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
@@ -807,11 +848,8 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
     </div>
     <div class="services-intro reveal">
       <div class="services-intro-img">
-        <img
-          src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80"
-          alt="Amazon FBA Technology"
-          onerror="this.src='https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80';"
-        />
+        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80" alt="Amazon FBA Technology"
+          onerror="this.src='https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80';" />
         <div class="tech-badge">
           <div class="dot"></div>
           <span>AI-Powered FBA Growth</span>
@@ -822,7 +860,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
         <h3 class="section-h">End-to-end Amazon FBA management for <em>passive growth</em></h3>
         <div class="divider"></div>
         <p class="section-p">From product sourcing to logistics, PPC campaigns to performance reporting — our team handles every detail so you don't have to.</p>
-        <ul style="margin:1.5rem 0; padding-left:1.2rem; color:var(--muted); font-size:0.9rem; line-height:2; font-weight:300; list-style:none;">
+        <ul style="margin:1.5rem 0;padding-left:1.2rem;color:var(--muted);font-size:0.9rem;line-height:2;font-weight:300;list-style:none;">
           <li style="display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);font-weight:700;">✓</span> Full Account Management</li>
           <li style="display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);font-weight:700;">✓</span> Product Research &amp; Sourcing</li>
           <li style="display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);font-weight:700;">✓</span> PPC Campaign Optimization</li>
@@ -866,16 +904,132 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   </div>
 </section>
 
+<!-- ════════════════════════════════════════ -->
+<!--      MARKETPLACES WE MANAGE            -->
+<!-- ════════════════════════════════════════ -->
+<section id="marketplaces">
+  <div class="inner">
+
+    <div class="marketplaces-header reveal">
+      <span class="section-label">Global Reach</span>
+      <h2 class="section-h">Marketplaces We <em>Manage</em></h2>
+      <div class="divider"></div>
+    </div>
+
+    <p class="marketplaces-tagline reveal">
+      We operate across the world's most lucrative Amazon markets — giving your business exposure to millions of buyers in established, high-purchasing-power economies.
+    </p>
+
+    <div class="marketplaces-grid">
+
+      <!-- USA -->
+      <div class="marketplace-card reveal">
+        <div class="marketplace-globe">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="17" stroke="#c8a951" stroke-width="1.5"/>
+            <ellipse cx="20" cy="20" rx="8" ry="17" stroke="#c8a951" stroke-width="1.2"/>
+            <line x1="3" y1="20" x2="37" y2="20" stroke="#c8a951" stroke-width="1.2"/>
+            <path d="M5 13 Q20 16 35 13" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M5 27 Q20 24 35 27" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <circle cx="20" cy="20" r="2.5" fill="#c8a951" opacity="0.5"/>
+          </svg>
+          <div class="marketplace-flag">🇺🇸</div>
+        </div>
+        <h3>United States</h3>
+        <div class="marketplace-sub">Amazon.com</div>
+        <p>The world's largest Amazon marketplace. We manage end-to-end FBA operations on Amazon.com, tapping into the highest-spending consumer base on the planet.</p>
+        <div class="marketplace-badge">
+          <span class="live-dot"></span>
+          Actively Managed
+        </div>
+        <div class="marketplace-stats">
+          <div class="marketplace-stat">
+            <span class="stat-val">$500B+</span>
+            <span class="stat-lbl">Market Size</span>
+          </div>
+          <div class="marketplace-stat">
+            <span class="stat-val">#1</span>
+            <span class="stat-lbl">Global Rank</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- UK -->
+      <div class="marketplace-card reveal">
+        <div class="marketplace-globe">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="17" stroke="#c8a951" stroke-width="1.5"/>
+            <ellipse cx="20" cy="20" rx="8" ry="17" stroke="#c8a951" stroke-width="1.2"/>
+            <line x1="3" y1="20" x2="37" y2="20" stroke="#c8a951" stroke-width="1.2"/>
+            <path d="M5 13 Q20 16 35 13" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M5 27 Q20 24 35 27" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <circle cx="20" cy="20" r="2.5" fill="#c8a951" opacity="0.5"/>
+          </svg>
+          <div class="marketplace-flag">🇬🇧</div>
+        </div>
+        <h3>United Kingdom</h3>
+        <div class="marketplace-sub">Amazon.co.uk</div>
+        <p>One of Europe's most profitable FBA markets. We navigate UK VAT, compliance, and logistics so your business thrives on Amazon.co.uk with full confidence.</p>
+        <div class="marketplace-badge">
+          <span class="live-dot"></span>
+          Actively Managed
+        </div>
+        <div class="marketplace-stats">
+          <div class="marketplace-stat">
+            <span class="stat-val">£30B+</span>
+            <span class="stat-lbl">Market Size</span>
+          </div>
+          <div class="marketplace-stat">
+            <span class="stat-val">Top 3</span>
+            <span class="stat-lbl">Global Rank</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Canada -->
+      <div class="marketplace-card reveal">
+        <div class="marketplace-globe">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="17" stroke="#c8a951" stroke-width="1.5"/>
+            <ellipse cx="20" cy="20" rx="8" ry="17" stroke="#c8a951" stroke-width="1.2"/>
+            <line x1="3" y1="20" x2="37" y2="20" stroke="#c8a951" stroke-width="1.2"/>
+            <path d="M5 13 Q20 16 35 13" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <path d="M5 27 Q20 24 35 27" stroke="#c8a951" stroke-width="1" fill="none"/>
+            <circle cx="20" cy="20" r="2.5" fill="#c8a951" opacity="0.5"/>
+          </svg>
+          <div class="marketplace-flag">🇨🇦</div>
+        </div>
+        <h3>Canada</h3>
+        <div class="marketplace-sub">Amazon.ca</div>
+        <p>A rapidly growing market with strong purchasing power and lower competition. Our team manages your Amazon.ca presence to capture this high-opportunity territory.</p>
+        <div class="marketplace-badge">
+          <span class="live-dot"></span>
+          Actively Managed
+        </div>
+        <div class="marketplace-stats">
+          <div class="marketplace-stat">
+            <span class="stat-val">$40B+</span>
+            <span class="stat-lbl">Market Size</span>
+          </div>
+          <div class="marketplace-stat">
+            <span class="stat-val">Top 5</span>
+            <span class="stat-lbl">Global Rank</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /marketplaces-grid -->
+  </div>
+</section>
+<!-- ════════════════════════════════════════ -->
+
 <!-- ABOUT -->
 <section id="about">
   <div class="inner">
     <div class="about-grid">
       <div class="about-img reveal">
         <div class="about-img-main">
-          <img
-            src="192170777_1681746962009591_7091455462882851203_n.jpg"
-            alt="Muzzamil Sana Khan – Founder & CEO"
-          />
+          <img src="192170777_1681746962009591_7091455462882851203_n.jpg" alt="Muzzamil Sana Khan – Founder & CEO" />
         </div>
         <div class="about-badge">
           <span class="num">4+</span>
@@ -906,9 +1060,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
             <div class="about-val-text"><strong>Humility</strong><span>Always learning &amp; growing</span></div>
           </div>
         </div>
-        <div style="margin-top:2rem;">
-          <a href="#contact" class="btn-navy">About Us ›</a>
-        </div>
+        <div style="margin-top:2rem;"><a href="#contact" class="btn-navy">About Us ›</a></div>
       </div>
     </div>
   </div>
@@ -924,15 +1076,10 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
       <p class="section-p" style="margin:0 auto;">The dedicated professionals behind Minorsoltech's success — passionate, experienced, and committed to your growth.</p>
     </div>
     <div class="team-grid">
-
-      <!-- Muzzamil Sana Khan -->
       <div class="team-card reveal">
         <div class="team-card-img">
-          <img
-            src="192170777_1681746962009591_7091455462882851203_n.jpg"
-            alt="Muzzamil Sana Khan"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          />
+          <img src="192170777_1681746962009591_7091455462882851203_n.jpg" alt="Muzzamil Sana Khan"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
           <div class="placeholder-avatar" style="display:none;">MSK</div>
           <div class="team-overlay"></div>
         </div>
@@ -946,15 +1093,10 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
           </div>
         </div>
       </div>
-
-      <!-- Sadaf Fatima -->
       <div class="team-card reveal">
         <div class="team-card-img">
-          <img
-            src="sadaf pic.jpeg"
-            alt="Sadaf Fatima"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          />
+          <img src="sadaf pic.jpeg" alt="Sadaf Fatima"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
           <div class="placeholder-avatar" style="display:none;">SF</div>
           <div class="team-overlay"></div>
         </div>
@@ -968,15 +1110,10 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
           </div>
         </div>
       </div>
-
-      <!-- Hira Yousafzai -->
       <div class="team-card reveal">
         <div class="team-card-img">
-          <img
-            src="hira-yousafzai.jpg"
-            alt="Hira Yousafzai"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          />
+          <img src="hira-yousafzai.jpg" alt="Hira Yousafzai"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
           <div class="placeholder-avatar" style="display:none;">HY</div>
           <div class="team-overlay"></div>
         </div>
@@ -990,7 +1127,6 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -1340,8 +1476,7 @@ function goToSlide(n) {
   autoSlide = setInterval(() => changeSlide(1), 5000);
 }
 function changeSlide(dir) {
-  let next = (currentSlide + dir + slides.length) % slides.length;
-  goToSlide(next);
+  goToSlide((currentSlide + dir + slides.length) % slides.length);
 }
 
 const reveals = document.querySelectorAll('.reveal');
@@ -1363,25 +1498,18 @@ function toggleFaq(btn) {
     q.classList.remove('open');
     q.parentElement.querySelector('.faq-a').classList.remove('open');
   });
-  if (!isOpen) {
-    btn.classList.add('open');
-    answer.classList.add('open');
-  }
+  if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
 }
 
 function toggleMobileNav() {
   document.getElementById('main-nav').classList.toggle('nav-mobile-open');
 }
 document.querySelectorAll('.nav-links a').forEach(a => {
-  a.addEventListener('click', () => {
-    document.getElementById('main-nav').classList.remove('nav-mobile-open');
-  });
+  a.addEventListener('click', () => document.getElementById('main-nav').classList.remove('nav-mobile-open'));
 });
 
 window.addEventListener('scroll', () => {
-  const btn = document.getElementById('back-to-top');
-  if (window.scrollY > 500) btn.classList.add('visible');
-  else btn.classList.remove('visible');
+  document.getElementById('back-to-top').classList.toggle('visible', window.scrollY > 500);
 });
 
 function handleNewsletter(e) {
