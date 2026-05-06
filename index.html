@@ -144,6 +144,145 @@ nav {
 }
 .hero-arrows button:hover { background: var(--gold); border-color: var(--gold); }
 
+/* ══════════════════════════════════════════
+   HERO TEAM SLIDER — SLIDE 2 RIGHT PANEL
+   All classes prefixed hts- to avoid conflicts
+   ══════════════════════════════════════════ */
+.slide-split {
+  position: absolute; inset: 0;
+  display: flex; align-items: center;
+}
+.slide-split-left {
+  position: relative; z-index: 2;
+  padding: 0 0 0 8%;
+  flex: 0 0 52%;
+  max-width: 52%;
+}
+.slide-split-right {
+  flex: 0 0 48%;
+  max-width: 48%;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 2; padding-right: 5%;
+}
+.hts-slider {
+  width: 100%;
+  max-width: 320px;
+  position: relative;
+  overflow: hidden;
+}
+.hts-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+  will-change: transform;
+}
+.hts-card {
+  flex: 0 0 100%;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(200,169,81,0.35);
+  border-radius: 14px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.08);
+  position: relative;
+}
+.hts-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+  border-radius: 14px 14px 0 0;
+}
+.hts-img-wrap {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #1a3560, #0d1f38);
+}
+.hts-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.hts-card:hover .hts-img-wrap img { transform: scale(1.04); }
+.hts-img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(13,31,56,0.75) 0%, transparent 55%);
+}
+.hts-avatar-fallback {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-head); font-size: 3.5rem; font-weight: 800;
+  color: rgba(200,169,81,0.5);
+}
+.hts-body {
+  padding: 1.1rem 1.4rem 1.3rem;
+}
+.hts-role-badge {
+  display: inline-block;
+  background: var(--gold-dim);
+  border: 1px solid rgba(200,169,81,0.35);
+  color: var(--gold-light);
+  font-size: 0.65rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  padding: 3px 10px; border-radius: 20px;
+  margin-bottom: 0.5rem;
+}
+.hts-name {
+  font-family: var(--font-head);
+  font-size: 1.15rem; font-weight: 700;
+  color: #fff; margin-bottom: 0.35rem; line-height: 1.2;
+}
+.hts-desc {
+  font-size: 0.78rem; color: rgba(255,255,255,0.6);
+  font-weight: 300; line-height: 1.55;
+}
+.hts-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 0.9rem; padding-top: 0.75rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.hts-socials { display: flex; gap: 7px; }
+.hts-socials a {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.6); font-size: 0.65rem;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.hts-socials a:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
+.hts-counter {
+  font-size: 0.72rem; color: rgba(255,255,255,0.4);
+  font-weight: 600; letter-spacing: 0.05em;
+}
+.hts-dots {
+  display: flex; gap: 6px; justify-content: center;
+  margin-top: 14px;
+}
+.hts-dots span {
+  width: 6px; height: 6px; border-radius: 3px;
+  background: rgba(255,255,255,0.25);
+  cursor: pointer; transition: background 0.25s, width 0.25s;
+}
+.hts-dots span.active {
+  background: var(--gold); width: 20px;
+}
+.hts-label {
+  text-align: center; margin-bottom: 14px;
+}
+.hts-label span {
+  font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--gold-light); font-weight: 700;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.hts-label span::before,
+.hts-label span::after {
+  content: ''; display: block; width: 28px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,169,81,0.5));
+}
+.hts-label span::after { background: linear-gradient(90deg, rgba(200,169,81,0.5), transparent); }
+
 /* ── VALUES ── */
 .values-strip { background: var(--navy); padding: 3.5rem 5%; display: flex; gap: 0; }
 .value-item { flex: 1; padding: 0 2rem; border-right: 1px solid rgba(255,255,255,0.08); }
@@ -170,13 +309,9 @@ section { padding: 90px 5%; }
 /* ══════════════════════════════════════════════
    ABOUT + TEAM — COMBINED HERO SECTION (TOP)
    ══════════════════════════════════════════════ */
-#about-team-hero {
-  background: var(--white);
-  padding: 90px 5%;
-}
+#about-team-hero { background: var(--white); padding: 90px 5%; }
 .ath-inner { max-width: 1200px; margin: 0 auto; }
 
-/* About grid */
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-bottom: 80px; }
 .about-img { position: relative; }
 .about-img-main { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); aspect-ratio: 4/5; }
@@ -195,27 +330,15 @@ section { padding: 90px 5%; }
 .about-val-text strong { display: block; font-size: 0.85rem; color: var(--navy); font-weight: 700; }
 .about-val-text span { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
 
-/* Team sub-section inside about-team-hero */
+/* Original team section — untouched */
 .team-sub-header { text-align: center; margin-bottom: 3rem; }
 .team-sub-header .divider { margin: 1rem auto; }
 .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
 .team-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: transform 0.25s, box-shadow 0.25s; }
 .team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
-.team-card-img {
-  height: 280px; overflow: hidden;
-  background: linear-gradient(135deg, #c0cce8, #98aed4); position: relative;
-}
-.team-card-img img {
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: top center;
-  display: block;
-}
-.team-card-img .placeholder-avatar {
-  width: 100%; height: 100%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-head); font-size: 4rem; font-weight: 800;
-  color: rgba(26,43,74,0.35);
-}
+.team-card-img { height: 280px; overflow: hidden; background: linear-gradient(135deg, #c0cce8, #98aed4); position: relative; }
+.team-card-img img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+.team-card-img .placeholder-avatar { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-size: 4rem; font-weight: 800; color: rgba(26,43,74,0.35); }
 .team-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,43,74,0.6) 0%, transparent 50%); opacity: 0; transition: opacity 0.3s; }
 .team-card:hover .team-overlay { opacity: 1; }
 .team-card-body { padding: 1.25rem 1.5rem; border-top: 3px solid var(--gold); }
@@ -223,38 +346,22 @@ section { padding: 90px 5%; }
 .team-card-body .role { font-size: 0.8rem; color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
 .team-card-body p { font-size: 0.82rem; color: var(--muted); line-height: 1.55; font-weight: 300; }
 .team-socials { display: flex; gap: 8px; margin-top: 10px; }
-.team-socials a {
-  width: 30px; height: 30px; border-radius: 50%;
-  background: var(--light-bg); border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.7rem; color: var(--muted); transition: background 0.2s, color 0.2s;
-}
+.team-socials a { width: 30px; height: 30px; border-radius: 50%; background: var(--light-bg); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: var(--muted); transition: background 0.2s, color 0.2s; }
 .team-socials a:hover { background: var(--gold); color: #fff; border-color: var(--gold); }
 
-/* ── SERVICES SECTION ── */
+/* ── SERVICES ── */
 #services { background: var(--light-bg); }
 .services-header { text-align: center; margin-bottom: 3.5rem; }
 .services-header .divider { margin: 1rem auto 0; }
 .services-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 4rem; }
 .services-intro-img { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); aspect-ratio: 4/3; position: relative; }
 .services-intro-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.services-intro-img .tech-badge {
-  position: absolute; bottom: 20px; left: 20px;
-  background: rgba(26,43,74,0.92); border: 1px solid rgba(200,169,81,0.4);
-  border-radius: 8px; padding: 12px 18px; display: flex; align-items: center; gap: 10px; backdrop-filter: blur(8px);
-}
-.services-intro-img .tech-badge .dot {
-  width: 10px; height: 10px; border-radius: 50%; background: var(--gold); flex-shrink: 0;
-  box-shadow: 0 0 8px rgba(200,169,81,0.6); animation: pulse 2s infinite;
-}
+.services-intro-img .tech-badge { position: absolute; bottom: 20px; left: 20px; background: rgba(26,43,74,0.92); border: 1px solid rgba(200,169,81,0.4); border-radius: 8px; padding: 12px 18px; display: flex; align-items: center; gap: 10px; backdrop-filter: blur(8px); }
+.services-intro-img .tech-badge .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gold); flex-shrink: 0; box-shadow: 0 0 8px rgba(200,169,81,0.6); animation: pulse 2s infinite; }
 @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.3); } }
 .services-intro-img .tech-badge span { font-size: 0.78rem; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.06em; }
 .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
-.service-card {
-  background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 2rem 1.75rem; box-shadow: var(--shadow);
-  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s; position: relative; overflow: hidden;
-}
+.service-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem 1.75rem; box-shadow: var(--shadow); transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s; position: relative; overflow: hidden; }
 .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
 .service-card:hover::before { transform: scaleX(1); }
 .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: transparent; }
@@ -262,7 +369,7 @@ section { padding: 90px 5%; }
 .service-card h3 { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.6rem; }
 .service-card p { color: var(--muted); font-size: 0.875rem; line-height: 1.65; font-weight: 300; }
 
-/* ── MARKETPLACES GLOBE SECTION ── */
+/* ── MARKETPLACES ── */
 #marketplaces { background: var(--light-bg); padding: 90px 5%; }
 .mp-header { text-align: center; margin-bottom: 3rem; }
 .mp-header .divider { margin: 1rem auto; }
@@ -274,11 +381,7 @@ section { padding: 90px 5%; }
 .globe-svg-wrap { position: relative; filter: drop-shadow(0 12px 36px rgba(200,169,81,0.35)); }
 .globe-label { margin-top: 14px; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
 .conn-lines-wrap { position: absolute; inset: 0; pointer-events: none; z-index: 1; overflow: visible; }
-.mp-card {
-  background: var(--white); border: 1px solid var(--border); border-radius: 16px;
-  padding: 20px 18px 16px; width: 200px; text-align: center; position: relative;
-  transition: transform 0.25s, box-shadow 0.25s; box-shadow: 0 4px 20px rgba(26,43,74,0.09); z-index: 2;
-}
+.mp-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 20px 18px 16px; width: 200px; text-align: center; position: relative; transition: transform 0.25s, box-shadow 0.25s; box-shadow: 0 4px 20px rgba(26,43,74,0.09); z-index: 2; }
 .mp-card:hover { transform: translateY(-6px); box-shadow: 0 14px 38px rgba(26,43,74,0.16); }
 .mp-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); border-radius: 16px 16px 0 0; transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
 .mp-card:hover::before { transform: scaleX(1); }
@@ -404,13 +507,17 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
 .reveal.visible { opacity: 1; transform: none; }
 
-/* ── MOBILE ── */
+/* ── RESPONSIVE ── */
 @media (max-width: 1000px) {
   .globe-layout { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 24px; }
   .globe-center { grid-column: 1 / -1; grid-row: 1; }
   .cards-left { grid-column: 1; flex-direction: row; flex-wrap: wrap; align-items: flex-start; padding-right: 0; justify-content: center; }
   .cards-right { grid-column: 2; flex-direction: row; flex-wrap: wrap; align-items: flex-start; padding-left: 0; justify-content: center; }
   .conn-lines-wrap { display: none; }
+  .slide-split { flex-direction: column; justify-content: center; }
+  .slide-split-left { flex: none; max-width: 100%; padding: 0 6%; margin-bottom: 1.5rem; }
+  .slide-split-right { flex: none; max-width: 100%; padding: 0 6% 2rem; justify-content: flex-start; }
+  .hts-slider { max-width: 280px; }
 }
 @media (max-width: 900px) {
   .nav-links { display: none; }
@@ -443,6 +550,12 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   .globe-layout { grid-template-columns: 1fr; }
   .cards-left, .cards-right { grid-column: 1; flex-direction: column; align-items: center; }
   .mp-card { width: 100%; max-width: 320px; }
+  .slide-split { flex-direction: column; }
+  .slide-split-left { flex: none; max-width: 100%; padding: 60px 6% 0; }
+  .slide-split-right { flex: none; max-width: 100%; padding: 1.5rem 6% 3rem; justify-content: center; }
+  .hts-slider { max-width: 100%; }
+  .hts-card { border-radius: 10px; }
+  .hts-img-wrap { height: 160px; }
 }
 @media (max-width: 600px) {
   .services-grid { grid-template-columns: 1fr; }
@@ -497,8 +610,10 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   </div>
 </nav>
 
-<!-- HERO SLIDER -->
+<!-- HERO -->
 <div class="hero" id="hero-slider">
+
+  <!-- SLIDE 1: original full-width -->
   <div class="slide active">
     <div class="slide-bg"></div>
     <div class="slide-overlay"></div>
@@ -513,23 +628,116 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
       </div>
     </div>
   </div>
+
+  <!-- SLIDE 2: split layout with hero team slider -->
   <div class="slide">
     <div class="slide-bg" style="background: linear-gradient(135deg, #0b1e35 0%, #152e52 40%, #1c3d6b 100%);"></div>
-    <div class="slide-overlay"></div>
+    <div class="slide-overlay" style="background: linear-gradient(90deg, rgba(10,20,50,0.9) 0%, rgba(10,20,50,0.5) 55%, rgba(10,20,50,0.2) 100%);"></div>
     <div class="slide-pattern"></div>
-    <div class="slide-content">
-      <span class="slide-tag">Invest · Scale · Prosper</span>
-      <h1>Build <em>Passive Income</em><br>That Lasts</h1>
-      <p>Helping investors worldwide build passive income through Amazon Wholesale FBA — creating freedom, security, and peace of mind.</p>
-      <div class="slide-actions">
-        <a href="#contact" class="btn-gold">Book Free Call ›</a>
-        <a href="#steps" class="btn-outline-white">How It Works</a>
+    <div class="slide-split">
+
+      <!-- Left: text -->
+      <div class="slide-split-left">
+        <span class="slide-tag">Invest · Scale · Prosper</span>
+        <h1>Build <em>Passive Income</em><br>That Lasts</h1>
+        <p>Helping investors worldwide build passive income through Amazon Wholesale FBA — creating freedom, security, and peace of mind.</p>
+        <div class="slide-actions">
+          <a href="#contact" class="btn-gold">Book Free Call ›</a>
+          <a href="#steps" class="btn-outline-white">How It Works</a>
+        </div>
       </div>
+
+      <!-- Right: hero team slider (all hts-* classes) -->
+      <div class="slide-split-right">
+        <div>
+          <div class="hts-label">
+            <span>The Team Behind Your Growth</span>
+          </div>
+          <div class="hts-slider" id="hts-slider" aria-label="Team members slideshow">
+            <div class="hts-track" id="hts-track">
+
+              <!-- Card 1 -->
+              <div class="hts-card" role="group" aria-label="Muzzamil Sana Khan">
+                <div class="hts-img-wrap">
+                  <img src="192170777_1681746962009591_7091455462882851203_n.jpg" alt="Muzzamil Sana Khan"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+                  <div class="hts-avatar-fallback" style="display:none;">MSK</div>
+                  <div class="hts-img-overlay"></div>
+                </div>
+                <div class="hts-body">
+                  <div class="hts-role-badge">Founder &amp; CEO</div>
+                  <div class="hts-name">Muzzamil Sana Khan</div>
+                  <div class="hts-desc">Visionary behind Minorsoltech's mission. Leads strategy, client partnerships, and Amazon wholesale operations.</div>
+                  <div class="hts-footer">
+                    <div class="hts-socials">
+                      <a href="https://www.linkedin.com/in/muzamil-sana-184225134/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+                      <a href="#" aria-label="Twitter">𝕏</a>
+                    </div>
+                    <div class="hts-counter">1 / 3</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="hts-card" role="group" aria-label="Sadaf Fatima">
+                <div class="hts-img-wrap">
+                  <img src="sadaf pic.jpeg" alt="Sadaf Fatima"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+                  <div class="hts-avatar-fallback" style="display:none;">SF</div>
+                  <div class="hts-img-overlay"></div>
+                </div>
+                <div class="hts-body">
+                  <div class="hts-role-badge">Co-Founder</div>
+                  <div class="hts-name">Sadaf Fatima</div>
+                  <div class="hts-desc">Operations lead and Amazon FBA strategist. Drives the systems that scale client businesses efficiently and profitably.</div>
+                  <div class="hts-footer">
+                    <div class="hts-socials">
+                      <a href="https://www.linkedin.com/in/sadaf-fatima-2397b2336" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+                      <a href="#" aria-label="Twitter">𝕏</a>
+                    </div>
+                    <div class="hts-counter">2 / 3</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="hts-card" role="group" aria-label="Hira Yousafzai">
+                <div class="hts-img-wrap">
+                  <img src="Hira Yousafzai.jpeg" alt="Hira Yousafzai"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+                  <div class="hts-avatar-fallback" style="display:none;">HY</div>
+                  <div class="hts-img-overlay"></div>
+                </div>
+                <div class="hts-body">
+                  <div class="hts-role-badge">Senior Manager Operations</div>
+                  <div class="hts-name">Hira Yousafzai</div>
+                  <div class="hts-desc">Oversees day-to-day ops, manages Amazon seller accounts, monitors KPIs, and ensures listings stay optimized.</div>
+                  <div class="hts-footer">
+                    <div class="hts-socials">
+                      <a href="#" aria-label="LinkedIn">in</a>
+                      <a href="#" aria-label="Twitter">𝕏</a>
+                    </div>
+                    <div class="hts-counter">3 / 3</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="hts-dots" id="hts-dots" role="tablist">
+            <span class="active" role="tab" aria-selected="true" onclick="htsGoTo(0)"></span>
+            <span role="tab" aria-selected="false" onclick="htsGoTo(1)"></span>
+            <span role="tab" aria-selected="false" onclick="htsGoTo(2)"></span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
+
   <div class="hero-arrows">
-    <button onclick="changeSlide(-1)" aria-label="Previous">&#8592;</button>
-    <button onclick="changeSlide(1)" aria-label="Next">&#8594;</button>
+    <button onclick="changeSlide(-1)" aria-label="Previous slide">&#8592;</button>
+    <button onclick="changeSlide(1)" aria-label="Next slide">&#8594;</button>
   </div>
   <div class="hero-dots">
     <span class="active" onclick="goToSlide(0)"></span>
@@ -553,20 +761,13 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════════
-     ABOUT US + MEET THE TEAM  —  RIGHT AFTER HERO
-     ══════════════════════════════════════════════════ -->
+<!-- ABOUT + TEAM (original, untouched) -->
 <section id="about-team-hero">
   <div class="ath-inner">
-
-    <!-- ABOUT US -->
     <div class="about-grid">
       <div class="about-img reveal">
         <div class="about-img-main">
-          <img
-            src="192170777_1681746962009591_7091455462882851203_n.jpg"
-            alt="Muzzamil Sana Khan – Founder & CEO"
-          />
+          <img src="192170777_1681746962009591_7091455462882851203_n.jpg" alt="Muzzamil Sana Khan – Founder & CEO" />
         </div>
         <div class="about-badge">
           <span class="num">4+</span>
@@ -581,47 +782,27 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
           Turning challenges into opportunities, our journey is built on resilience, growth, and a clear vision for the future. We are a dedicated team of professionals committed to delivering excellence in every project. Our strength lies in our people — driven, skilled, and passionate about creating real impact. Together, we strive to provide reliable solutions and build long-term success for our clients.
         </p>
         <div class="about-values">
-          <div class="about-val">
-            <div class="about-val-icon">🔍</div>
-            <div class="about-val-text"><strong>Transparency</strong><span>Open decisions &amp; progress</span></div>
-          </div>
-          <div class="about-val">
-            <div class="about-val-icon">🏆</div>
-            <div class="about-val-text"><strong>Winner Mindset</strong><span>Resilience &amp; ambition</span></div>
-          </div>
-          <div class="about-val">
-            <div class="about-val-icon">⚙️</div>
-            <div class="about-val-text"><strong>Discipline</strong><span>Standards without reminders</span></div>
-          </div>
-          <div class="about-val">
-            <div class="about-val-icon">🌱</div>
-            <div class="about-val-text"><strong>Humility</strong><span>Always learning &amp; growing</span></div>
-          </div>
+          <div class="about-val"><div class="about-val-icon">🔍</div><div class="about-val-text"><strong>Transparency</strong><span>Open decisions &amp; progress</span></div></div>
+          <div class="about-val"><div class="about-val-icon">🏆</div><div class="about-val-text"><strong>Winner Mindset</strong><span>Resilience &amp; ambition</span></div></div>
+          <div class="about-val"><div class="about-val-icon">⚙️</div><div class="about-val-text"><strong>Discipline</strong><span>Standards without reminders</span></div></div>
+          <div class="about-val"><div class="about-val-icon">🌱</div><div class="about-val-text"><strong>Humility</strong><span>Always learning &amp; growing</span></div></div>
         </div>
-        <div style="margin-top:2rem;">
-          <a href="#contact" class="btn-navy">Book a Consultation ›</a>
-        </div>
+        <div style="margin-top:2rem;"><a href="#contact" class="btn-navy">Book a Consultation ›</a></div>
       </div>
     </div>
 
-    <!-- MEET THE TEAM -->
+    <!-- MEET THE TEAM — original static section, zero changes -->
     <div class="team-sub-header reveal">
       <span class="section-label">Our People</span>
       <h2 class="section-h">Meet the <em>Team</em></h2>
       <div class="divider"></div>
       <p class="section-p" style="margin:0 auto;">The dedicated professionals behind Minorsoltech's success — passionate, experienced, and committed to your growth.</p>
     </div>
-
     <div class="team-grid">
-
-      <!-- Muzzamil Sana Khan -->
       <div class="team-card reveal">
         <div class="team-card-img">
-          <img
-            src="192170777_1681746962009591_7091455462882851203_n.jpg"
-            alt="Muzzamil Sana Khan"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          />
+          <img src="192170777_1681746962009591_7091455462882851203_n.jpg" alt="Muzzamil Sana Khan"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
           <div class="placeholder-avatar" style="display:none;">MSK</div>
           <div class="team-overlay"></div>
         </div>
@@ -635,15 +816,10 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
           </div>
         </div>
       </div>
-
-      <!-- Sadaf Fatima -->
       <div class="team-card reveal">
         <div class="team-card-img">
-          <img
-            src="sadaf pic.jpeg"
-            alt="Sadaf Fatima"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          />
+          <img src="sadaf pic.jpeg" alt="Sadaf Fatima"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
           <div class="placeholder-avatar" style="display:none;">SF</div>
           <div class="team-overlay"></div>
         </div>
@@ -657,15 +833,10 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
           </div>
         </div>
       </div>
-
-      <!-- Hira Yousafzai — FIXED image path (case-sensitive, space preserved) -->
       <div class="team-card reveal">
         <div class="team-card-img">
-          <img
-            src="Hira Yousafzai.jpeg"
-            alt="Hira Yousafzai"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          />
+          <img src="Hira Yousafzai.jpeg" alt="Hira Yousafzai"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
           <div class="placeholder-avatar" style="display:none;">HY</div>
           <div class="team-overlay"></div>
         </div>
@@ -679,11 +850,9 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
-<!-- ══════════════════════════════════════════════════ -->
 
 <!-- SERVICES -->
 <section id="services">
@@ -697,17 +866,14 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
     <div class="services-intro reveal">
       <div class="services-intro-img">
         <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80" alt="Amazon FBA Technology" onerror="this.src='https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80';" />
-        <div class="tech-badge">
-          <div class="dot"></div>
-          <span>AI-Powered FBA Growth</span>
-        </div>
+        <div class="tech-badge"><div class="dot"></div><span>AI-Powered FBA Growth</span></div>
       </div>
       <div>
         <span class="section-label">What We Do</span>
         <h3 class="section-h">End-to-end Amazon FBA management for <em>passive growth</em></h3>
         <div class="divider"></div>
         <p class="section-p">From product sourcing to logistics, PPC campaigns to performance reporting — our team handles every detail so you don't have to.</p>
-        <ul style="margin:1.5rem 0; padding-left:1.2rem; color:var(--muted); font-size:0.9rem; line-height:2; font-weight:300; list-style:none;">
+        <ul style="margin:1.5rem 0;padding-left:1.2rem;color:var(--muted);font-size:0.9rem;line-height:2;font-weight:300;list-style:none;">
           <li style="display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);font-weight:700;">✓</span> Full Account Management</li>
           <li style="display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);font-weight:700;">✓</span> Product Research &amp; Sourcing</li>
           <li style="display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);font-weight:700;">✓</span> PPC Campaign Optimization</li>
@@ -717,41 +883,17 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
       </div>
     </div>
     <div class="services-grid">
-      <div class="service-card reveal">
-        <div class="service-icon">📦</div>
-        <h3>Amazon FBA Management</h3>
-        <p>Full-service account management including product sourcing, listing optimization, PPC, inventory, and logistics.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon">📈</div>
-        <h3>E-commerce Strategy</h3>
-        <p>Custom growth roadmaps, revenue scaling plans, and automation systems built for long-term sustainable success.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon">💡</div>
-        <h3>Business Consulting</h3>
-        <p>Expert guidance on market entry, brand positioning, and scaling your e-commerce venture from idea to income.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon">🔍</div>
-        <h3>Product Research</h3>
-        <p>Data-driven product discovery using advanced tools to find high-margin, low-competition opportunities on Amazon.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon">📊</div>
-        <h3>PPC Advertising</h3>
-        <p>Targeted Amazon ad campaigns designed to maximize visibility, reduce ACOS, and drive consistent profitable sales.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon">🤝</div>
-        <h3>Wholesale Partnerships</h3>
-        <p>We establish relationships with authorised distributors and suppliers to secure profitable wholesale accounts for you.</p>
-      </div>
+      <div class="service-card reveal"><div class="service-icon">📦</div><h3>Amazon FBA Management</h3><p>Full-service account management including product sourcing, listing optimization, PPC, inventory, and logistics.</p></div>
+      <div class="service-card reveal"><div class="service-icon">📈</div><h3>E-commerce Strategy</h3><p>Custom growth roadmaps, revenue scaling plans, and automation systems built for long-term sustainable success.</p></div>
+      <div class="service-card reveal"><div class="service-icon">💡</div><h3>Business Consulting</h3><p>Expert guidance on market entry, brand positioning, and scaling your e-commerce venture from idea to income.</p></div>
+      <div class="service-card reveal"><div class="service-icon">🔍</div><h3>Product Research</h3><p>Data-driven product discovery using advanced tools to find high-margin, low-competition opportunities on Amazon.</p></div>
+      <div class="service-card reveal"><div class="service-icon">📊</div><h3>PPC Advertising</h3><p>Targeted Amazon ad campaigns designed to maximize visibility, reduce ACOS, and drive consistent profitable sales.</p></div>
+      <div class="service-card reveal"><div class="service-icon">🤝</div><h3>Wholesale Partnerships</h3><p>We establish relationships with authorised distributors and suppliers to secure profitable wholesale accounts for you.</p></div>
     </div>
   </div>
 </section>
 
-<!-- MARKETPLACES WE MANAGE -->
+<!-- MARKETPLACES -->
 <section id="marketplaces">
   <div class="inner">
     <div class="mp-header reveal">
@@ -760,109 +902,56 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
       <div class="divider"></div>
       <p class="mp-tagline">We operate across the world's most lucrative Amazon markets — giving your business exposure to millions of buyers in established, high-purchasing-power economies.</p>
     </div>
-
     <div class="globe-layout" id="globe-wrap" style="position:relative;">
-
-      <!-- Animated SVG connection lines -->
       <svg class="conn-lines-wrap" id="conn-svg"
         style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:visible;"
-        viewBox="0 0 1060 460" preserveAspectRatio="xMidYMid meet"
-        xmlns="http://www.w3.org/2000/svg">
+        viewBox="0 0 1060 460" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
-            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
+          <filter id="glow"><feGaussianBlur stdDeviation="2.5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
         </defs>
-        <line x1="215" y1="130" x2="480" y2="210" stroke="#c8a951" stroke-width="1.2" stroke-dasharray="5 5" opacity="0.5" filter="url(#glow)">
-          <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="2s" repeatCount="indefinite"/>
-        </line>
+        <line x1="215" y1="130" x2="480" y2="210" stroke="#c8a951" stroke-width="1.2" stroke-dasharray="5 5" opacity="0.5" filter="url(#glow)"><animate attributeName="stroke-dashoffset" from="0" to="-20" dur="2s" repeatCount="indefinite"/></line>
         <circle cx="215" cy="130" r="4" fill="#c8a951" opacity="0.7"/>
-        <line x1="215" y1="330" x2="480" y2="240" stroke="#c8a951" stroke-width="1.2" stroke-dasharray="5 5" opacity="0.5" filter="url(#glow)">
-          <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="2.4s" repeatCount="indefinite"/>
-        </line>
+        <line x1="215" y1="330" x2="480" y2="240" stroke="#c8a951" stroke-width="1.2" stroke-dasharray="5 5" opacity="0.5" filter="url(#glow)"><animate attributeName="stroke-dashoffset" from="0" to="-20" dur="2.4s" repeatCount="indefinite"/></line>
         <circle cx="215" cy="330" r="4" fill="#c8a951" opacity="0.7"/>
-        <line x1="845" y1="130" x2="580" y2="210" stroke="#c8a951" stroke-width="1.2" stroke-dasharray="5 5" opacity="0.5" filter="url(#glow)">
-          <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1.8s" repeatCount="indefinite"/>
-        </line>
+        <line x1="845" y1="130" x2="580" y2="210" stroke="#c8a951" stroke-width="1.2" stroke-dasharray="5 5" opacity="0.5" filter="url(#glow)"><animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1.8s" repeatCount="indefinite"/></line>
         <circle cx="845" cy="130" r="4" fill="#c8a951" opacity="0.7"/>
-        <line x1="845" y1="330" x2="580" y2="240" stroke="#c8a951" stroke-width="1.2" stroke-dasharray="5 5" opacity="0.5" filter="url(#glow)">
-          <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="2.2s" repeatCount="indefinite"/>
-        </line>
+        <line x1="845" y1="330" x2="580" y2="240" stroke="#c8a951" stroke-width="1.2" stroke-dasharray="5 5" opacity="0.5" filter="url(#glow)"><animate attributeName="stroke-dashoffset" from="0" to="-20" dur="2.2s" repeatCount="indefinite"/></line>
         <circle cx="845" cy="330" r="4" fill="#c8a951" opacity="0.7"/>
         <ellipse cx="530" cy="225" rx="108" ry="32" stroke="#c8a951" stroke-width="0.8" fill="none" opacity="0.18" transform="rotate(-8,530,225)"/>
         <ellipse cx="530" cy="225" rx="126" ry="20" stroke="#c8a951" stroke-width="0.7" fill="none" stroke-dasharray="4 7" opacity="0.12" transform="rotate(12,530,225)"/>
       </svg>
-
-      <!-- LEFT CARDS -->
       <div class="cards-left">
         <div class="mp-card reveal">
-          <div class="flag-wrap">🇺🇸</div>
-          <h3>United States</h3>
-          <div class="mp-sub">Amazon.com</div>
+          <div class="flag-wrap">🇺🇸</div><h3>United States</h3><div class="mp-sub">Amazon.com</div>
           <p>The world's largest Amazon marketplace. End-to-end FBA management tapping the highest-spending consumer base on the planet.</p>
           <div><span class="mp-badge"><span class="live-dot"></span>Actively Managed</span></div>
-          <div class="mp-stats">
-            <div><span class="mp-stat-val">$500B+</span><span class="mp-stat-lbl">Market Size</span></div>
-            <div><span class="mp-stat-val">#1</span><span class="mp-stat-lbl">Global Rank</span></div>
-          </div>
+          <div class="mp-stats"><div><span class="mp-stat-val">$500B+</span><span class="mp-stat-lbl">Market Size</span></div><div><span class="mp-stat-val">#1</span><span class="mp-stat-lbl">Global Rank</span></div></div>
         </div>
         <div class="mp-card reveal">
-          <div class="flag-wrap">🇬🇧</div>
-          <h3>United Kingdom</h3>
-          <div class="mp-sub">Amazon.co.uk</div>
+          <div class="flag-wrap">🇬🇧</div><h3>United Kingdom</h3><div class="mp-sub">Amazon.co.uk</div>
           <p>Europe's most profitable FBA market. We handle UK VAT, compliance, and full logistics to maximise your ROI.</p>
           <div><span class="mp-badge"><span class="live-dot"></span>Actively Managed</span></div>
-          <div class="mp-stats">
-            <div><span class="mp-stat-val">£30B+</span><span class="mp-stat-lbl">Market Size</span></div>
-            <div><span class="mp-stat-val">Top 3</span><span class="mp-stat-lbl">Global Rank</span></div>
-          </div>
+          <div class="mp-stats"><div><span class="mp-stat-val">£30B+</span><span class="mp-stat-lbl">Market Size</span></div><div><span class="mp-stat-val">Top 3</span><span class="mp-stat-lbl">Global Rank</span></div></div>
         </div>
       </div>
-
-      <!-- GLOBE CENTER -->
       <div class="globe-center reveal">
         <div class="globe-svg-wrap">
           <svg width="260" height="260" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <radialGradient id="globeGrad" cx="36%" cy="32%" r="68%">
-                <stop offset="0%" stop-color="#f8efc8"/>
-                <stop offset="30%" stop-color="#e8c97a"/>
-                <stop offset="65%" stop-color="#c8a951"/>
-                <stop offset="100%" stop-color="#7a5c20"/>
-              </radialGradient>
-              <radialGradient id="globeSheen" cx="28%" cy="22%" r="55%">
-                <stop offset="0%" stop-color="rgba(255,255,255,0.65)"/>
-                <stop offset="55%" stop-color="rgba(255,255,255,0.08)"/>
-                <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
-              </radialGradient>
-              <radialGradient id="globeRim" cx="50%" cy="50%" r="50%">
-                <stop offset="55%" stop-color="rgba(0,0,0,0)"/>
-                <stop offset="100%" stop-color="rgba(0,0,0,0.28)"/>
-              </radialGradient>
-              <radialGradient id="standGrad" cx="50%" cy="30%" r="60%">
-                <stop offset="0%" stop-color="#e8c97a"/>
-                <stop offset="100%" stop-color="#7a5c20"/>
-              </radialGradient>
-              <radialGradient id="glowHalo" cx="50%" cy="50%" r="50%">
-                <stop offset="60%" stop-color="rgba(200,169,81,0)"/>
-                <stop offset="100%" stop-color="rgba(200,169,81,0.22)"/>
-              </radialGradient>
-              <clipPath id="globeClip">
-                <circle cx="130" cy="118" r="98"/>
-              </clipPath>
-              <filter id="globeShadow" x="-20%" y="-20%" width="140%" height="140%">
-                <feDropShadow dx="0" dy="8" stdDeviation="18" flood-color="#c8a951" flood-opacity="0.3"/>
-              </filter>
+              <radialGradient id="globeGrad" cx="36%" cy="32%" r="68%"><stop offset="0%" stop-color="#f8efc8"/><stop offset="30%" stop-color="#e8c97a"/><stop offset="65%" stop-color="#c8a951"/><stop offset="100%" stop-color="#7a5c20"/></radialGradient>
+              <radialGradient id="globeSheen" cx="28%" cy="22%" r="55%"><stop offset="0%" stop-color="rgba(255,255,255,0.65)"/><stop offset="55%" stop-color="rgba(255,255,255,0.08)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient>
+              <radialGradient id="globeRim" cx="50%" cy="50%" r="50%"><stop offset="55%" stop-color="rgba(0,0,0,0)"/><stop offset="100%" stop-color="rgba(0,0,0,0.28)"/></radialGradient>
+              <radialGradient id="standGrad" cx="50%" cy="30%" r="60%"><stop offset="0%" stop-color="#e8c97a"/><stop offset="100%" stop-color="#7a5c20"/></radialGradient>
+              <radialGradient id="glowHalo" cx="50%" cy="50%" r="50%"><stop offset="60%" stop-color="rgba(200,169,81,0)"/><stop offset="100%" stop-color="rgba(200,169,81,0.22)"/></radialGradient>
+              <clipPath id="globeClip"><circle cx="130" cy="118" r="98"/></clipPath>
+              <filter id="globeShadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="18" flood-color="#c8a951" flood-opacity="0.3"/></filter>
             </defs>
             <circle cx="130" cy="118" r="112" fill="url(#glowHalo)"/>
             <ellipse cx="130" cy="240" rx="46" ry="9" fill="rgba(26,43,74,0.14)"/>
             <ellipse cx="130" cy="236" rx="40" ry="8" fill="url(#standGrad)"/>
             <rect x="117" y="214" width="26" height="24" rx="3" fill="url(#standGrad)"/>
             <ellipse cx="130" cy="214" rx="13" ry="5" fill="#e8c97a"/>
-            <g filter="url(#globeShadow)">
-              <circle cx="130" cy="118" r="98" fill="url(#globeGrad)"/>
-            </g>
+            <g filter="url(#globeShadow)"><circle cx="130" cy="118" r="98" fill="url(#globeGrad)"/></g>
             <g clip-path="url(#globeClip)" opacity="0.22" fill="#1a2b4a">
               <path d="M58 72 Q50 80 54 96 Q58 112 70 118 Q84 122 90 108 Q96 94 86 78 Q76 66 58 72Z"/>
               <path d="M70 126 Q63 142 66 160 Q70 172 80 168 Q92 162 90 144 Q88 128 78 122Z"/>
@@ -903,33 +992,20 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
         </div>
         <div class="globe-label">Global Operations</div>
       </div>
-
-      <!-- RIGHT CARDS -->
       <div class="cards-right">
         <div class="mp-card reveal">
-          <div class="flag-wrap">🇨🇦</div>
-          <h3>Canada</h3>
-          <div class="mp-sub">Amazon.ca</div>
+          <div class="flag-wrap">🇨🇦</div><h3>Canada</h3><div class="mp-sub">Amazon.ca</div>
           <p>Rapidly growing market with strong purchasing power and lower competition. We capture this high-opportunity territory for your brand.</p>
           <div><span class="mp-badge"><span class="live-dot"></span>Actively Managed</span></div>
-          <div class="mp-stats">
-            <div><span class="mp-stat-val">$40B+</span><span class="mp-stat-lbl">Market Size</span></div>
-            <div><span class="mp-stat-val">Top 5</span><span class="mp-stat-lbl">Global Rank</span></div>
-          </div>
+          <div class="mp-stats"><div><span class="mp-stat-val">$40B+</span><span class="mp-stat-lbl">Market Size</span></div><div><span class="mp-stat-val">Top 5</span><span class="mp-stat-lbl">Global Rank</span></div></div>
         </div>
         <div class="mp-card reveal">
-          <div class="flag-wrap">🇩🇪</div>
-          <h3>Germany</h3>
-          <div class="mp-sub">Amazon.de</div>
+          <div class="flag-wrap">🇩🇪</div><h3>Germany</h3><div class="mp-sub">Amazon.de</div>
           <p>Europe's second-largest e-commerce economy. We navigate DE VAT, compliance, and fierce competition to boost your seller performance.</p>
           <div><span class="mp-badge"><span class="live-dot"></span>Actively Managed</span></div>
-          <div class="mp-stats">
-            <div><span class="mp-stat-val">€35B+</span><span class="mp-stat-lbl">Market Size</span></div>
-            <div><span class="mp-stat-val">Top 4</span><span class="mp-stat-lbl">Global Rank</span></div>
-          </div>
+          <div class="mp-stats"><div><span class="mp-stat-val">€35B+</span><span class="mp-stat-lbl">Market Size</span></div><div><span class="mp-stat-val">Top 4</span><span class="mp-stat-lbl">Global Rank</span></div></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -944,28 +1020,11 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
       <p style="color:rgba(255,255,255,0.55);font-size:1rem;font-weight:300;max-width:500px;margin:0 auto;">From your first call to your first sale — here's how simple it is to get your Amazon business up and running with Minorsoltech.</p>
     </div>
     <div class="steps-grid">
-      <div class="step-card reveal">
-        <div class="step-num">01</div>
-        <div class="step-icon">📅</div>
-        <h4>Pick a Date &amp; Time</h4>
-        <p>Browse the calendar and select a time slot that suits your schedule for your free strategy consultation.</p>
-      </div>
-      <div class="step-card reveal">
-        <div class="step-num">02</div>
-        <div class="step-icon">📝</div>
-        <h4>Enter Your Details</h4>
-        <p>Fill in your basic information like name, email, and phone number to confirm your booking and goals.</p>
-      </div>
-      <div class="step-card reveal">
-        <div class="step-num">03</div>
-        <div class="step-icon">🎥</div>
-        <h4>Join the Session</h4>
-        <p>You'll receive an email with your video meeting link. Just click to join at the scheduled time — we handle the rest.</p>
-      </div>
+      <div class="step-card reveal"><div class="step-num">01</div><div class="step-icon">📅</div><h4>Pick a Date &amp; Time</h4><p>Browse the calendar and select a time slot that suits your schedule for your free strategy consultation.</p></div>
+      <div class="step-card reveal"><div class="step-num">02</div><div class="step-icon">📝</div><h4>Enter Your Details</h4><p>Fill in your basic information like name, email, and phone number to confirm your booking and goals.</p></div>
+      <div class="step-card reveal"><div class="step-num">03</div><div class="step-icon">🎥</div><h4>Join the Session</h4><p>You'll receive an email with your video meeting link. Just click to join at the scheduled time — we handle the rest.</p></div>
     </div>
-    <div style="text-align:center;margin-top:3rem;">
-      <a href="#contact" class="btn-gold">Book Your Free Call ›</a>
-    </div>
+    <div style="text-align:center;margin-top:3rem;"><a href="#contact" class="btn-gold">Book Your Free Call ›</a></div>
   </div>
 </section>
 
@@ -981,40 +1040,20 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
         </div>
         <div class="faq-list">
           <div class="faq-item reveal">
-            <button class="faq-q" onclick="toggleFaq(this)">
-              How does Minorsoltech ensure profitability and transparency?
-              <span class="icon">+</span>
-            </button>
-            <div class="faq-a">
-              <p>Every venture we build is guided by data, strategy, and performance metrics. We provide transparent reporting, regular progress updates, and financial tracking so investors can clearly see how their business is performing and growing over time.</p>
-            </div>
+            <button class="faq-q" onclick="toggleFaq(this)">How does Minorsoltech ensure profitability and transparency?<span class="icon">+</span></button>
+            <div class="faq-a"><p>Every venture we build is guided by data, strategy, and performance metrics. We provide transparent reporting, regular progress updates, and financial tracking so investors can clearly see how their business is performing and growing over time.</p></div>
           </div>
           <div class="faq-item reveal">
-            <button class="faq-q" onclick="toggleFaq(this)">
-              What level of involvement is required from investors?
-              <span class="icon">+</span>
-            </button>
-            <div class="faq-a">
-              <p>Minorsoltech is designed for hands-free growth. Our team manages all day-to-day operations—including sourcing, pricing, logistics, and analytics—while keeping investors updated through transparent reports and strategy reviews.</p>
-            </div>
+            <button class="faq-q" onclick="toggleFaq(this)">What level of involvement is required from investors?<span class="icon">+</span></button>
+            <div class="faq-a"><p>Minorsoltech is designed for hands-free growth. Our team manages all day-to-day operations—including sourcing, pricing, logistics, and analytics—while keeping investors updated through transparent reports and strategy reviews.</p></div>
           </div>
           <div class="faq-item reveal">
-            <button class="faq-q" onclick="toggleFaq(this)">
-              How is the estimated profit calculated?
-              <span class="icon">+</span>
-            </button>
-            <div class="faq-a">
-              <p>The profit range is based on average market performance and internal analysis. These figures are estimates only—actual results may vary depending on market conditions, investment amount, and duration.</p>
-            </div>
+            <button class="faq-q" onclick="toggleFaq(this)">How is the estimated profit calculated?<span class="icon">+</span></button>
+            <div class="faq-a"><p>The profit range is based on average market performance and internal analysis. These figures are estimates only—actual results may vary depending on market conditions, investment amount, and duration.</p></div>
           </div>
           <div class="faq-item reveal">
-            <button class="faq-q" onclick="toggleFaq(this)">
-              How long before I start seeing results?
-              <span class="icon">+</span>
-            </button>
-            <div class="faq-a">
-              <p>Most clients begin seeing meaningful traction within 60–90 days of account setup. Amazon wholesale FBA requires an initial ramp-up period for account health, product approvals, and inventory, after which growth accelerates steadily month over month.</p>
-            </div>
+            <button class="faq-q" onclick="toggleFaq(this)">How long before I start seeing results?<span class="icon">+</span></button>
+            <div class="faq-a"><p>Most clients begin seeing meaningful traction within 60–90 days of account setup. Amazon wholesale FBA requires an initial ramp-up period for account health, product approvals, and inventory, after which growth accelerates steadily month over month.</p></div>
           </div>
         </div>
       </div>
@@ -1022,31 +1061,11 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
         <h3>Get Expert Help Right When You Need It</h3>
         <p>Ready to book your free consultation? Our team is available to answer questions and map out your personalised growth plan.</p>
         <div class="faq-contact-list">
-          <div class="faq-contact-item">
-            <div class="ic">📞</div>
-            <div>
-              <div class="lbl">Call Us</div>
-              <div class="val">+92 333 673 0540</div>
-            </div>
-          </div>
-          <div class="faq-contact-item">
-            <div class="ic">✉️</div>
-            <div>
-              <div class="lbl">Email</div>
-              <div class="val">info@minorsoltech.com</div>
-            </div>
-          </div>
-          <div class="faq-contact-item">
-            <div class="ic">📍</div>
-            <div>
-              <div class="lbl">Office</div>
-              <div class="val" style="font-size:0.8rem;">Office No. 05, 5th Floor, The Centaurus Mall, Jinnah Avenue, Islamabad, Pakistan</div>
-            </div>
-          </div>
+          <div class="faq-contact-item"><div class="ic">📞</div><div><div class="lbl">Call Us</div><div class="val">+92 333 673 0540</div></div></div>
+          <div class="faq-contact-item"><div class="ic">✉️</div><div><div class="lbl">Email</div><div class="val">info@minorsoltech.com</div></div></div>
+          <div class="faq-contact-item"><div class="ic">📍</div><div><div class="lbl">Office</div><div class="val" style="font-size:0.8rem;">Office No. 05, 5th Floor, The Centaurus Mall, Jinnah Avenue, Islamabad, Pakistan</div></div></div>
         </div>
-        <div style="margin-top:2rem;">
-          <a href="#contact" class="btn-gold" style="width:100%;justify-content:center;">Book Appointment ›</a>
-        </div>
+        <div style="margin-top:2rem;"><a href="#contact" class="btn-gold" style="width:100%;justify-content:center;">Book Appointment ›</a></div>
       </div>
     </div>
   </div>
@@ -1061,39 +1080,9 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
       <div class="divider"></div>
     </div>
     <div class="testimonials-grid">
-      <div class="testimonial reveal">
-        <div class="stars">★★★★★</div>
-        <p>I asked for an extra customization and the team made special amendments live on my account. Customer support is amazing — genuinely responsive and helpful.</p>
-        <div class="t-author">
-          <div class="t-avatar">MS</div>
-          <div>
-            <div class="t-name">Maria Silverii</div>
-            <div class="t-role">CEO of Blue Illusion</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial reveal">
-        <div class="stars">★★★★★</div>
-        <p>I love working with Minorsoltech! Support deserves 7 stars but unfortunately that's not an option. I really suggest everyone work with them.</p>
-        <div class="t-author">
-          <div class="t-avatar">PM</div>
-          <div>
-            <div class="t-name">Phillip Macintyre</div>
-            <div class="t-role">CEO of Blue Illusion</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial reveal">
-        <div class="stars">★★★★★</div>
-        <p>Great, versatile team with lots of customisability. Above all, the customer support is amazing, useful, and quick. I must recommend them.</p>
-        <div class="t-author">
-          <div class="t-avatar">AH</div>
-          <div>
-            <div class="t-name">Amy Harrison</div>
-            <div class="t-role">Contiki Holidays</div>
-          </div>
-        </div>
-      </div>
+      <div class="testimonial reveal"><div class="stars">★★★★★</div><p>I asked for an extra customization and the team made special amendments live on my account. Customer support is amazing — genuinely responsive and helpful.</p><div class="t-author"><div class="t-avatar">MS</div><div><div class="t-name">Maria Silverii</div><div class="t-role">CEO of Blue Illusion</div></div></div></div>
+      <div class="testimonial reveal"><div class="stars">★★★★★</div><p>I love working with Minorsoltech! Support deserves 7 stars but unfortunately that's not an option. I really suggest everyone work with them.</p><div class="t-author"><div class="t-avatar">PM</div><div><div class="t-name">Phillip Macintyre</div><div class="t-role">CEO of Blue Illusion</div></div></div></div>
+      <div class="testimonial reveal"><div class="stars">★★★★★</div><p>Great, versatile team with lots of customisability. Above all, the customer support is amazing, useful, and quick. I must recommend them.</p><div class="t-author"><div class="t-avatar">AH</div><div><div class="t-name">Amy Harrison</div><div class="t-role">Contiki Holidays</div></div></div></div>
     </div>
   </div>
 </section>
@@ -1107,78 +1096,12 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
       <div class="divider"></div>
     </div>
     <div class="blog-grid">
-      <div class="blog-card reveal">
-        <div class="blog-card-img">
-          <img src="https://mokhu.com/wp-content/uploads/2020/03/update-service-02-600x373.jpg" alt="Blog 1" onerror="this.style.display='none';" />
-          <span class="blog-cat">Business</span>
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-date">November 5, 2019</div>
-          <h4>How Stay Calm from the First Time.</h4>
-          <p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p>
-          <a href="#" class="read-more">Read more ›</a>
-        </div>
-      </div>
-      <div class="blog-card reveal">
-        <div class="blog-card-img">
-          <img src="https://mokhu.com/wp-content/uploads/2019/11/u-blog-02-600x373.jpg" alt="Blog 2" onerror="this.style.display='none';" />
-          <span class="blog-cat">Strategy</span>
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-date">November 5, 2019</div>
-          <h4>Why You'll Never Succeed at 7 Habits.</h4>
-          <p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p>
-          <a href="#" class="read-more">Read more ›</a>
-        </div>
-      </div>
-      <div class="blog-card reveal">
-        <div class="blog-card-img">
-          <img src="https://mokhu.com/wp-content/uploads/2019/11/update-blog3-600x373.jpg" alt="Blog 3" onerror="this.style.display='none';" />
-          <span class="blog-cat">Growth</span>
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-date">November 5, 2019</div>
-          <h4>You can use it for any kind of website like.</h4>
-          <p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p>
-          <a href="#" class="read-more">Read more ›</a>
-        </div>
-      </div>
-      <div class="blog-card reveal">
-        <div class="blog-card-img">
-          <img src="https://mokhu.com/wp-content/uploads/2019/11/theme-13-600x373.jpg" alt="Blog 4" onerror="this.style.display='none';" />
-          <span class="blog-cat">Startup</span>
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-date">November 5, 2019</div>
-          <h4>How to go about initiating a start-up.</h4>
-          <p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p>
-          <a href="#" class="read-more">Read more ›</a>
-        </div>
-      </div>
-      <div class="blog-card reveal">
-        <div class="blog-card-img">
-          <img src="https://mokhu.com/wp-content/uploads/2019/11/theme-09-600x373.jpg" alt="Blog 5" onerror="this.style.display='none';" />
-          <span class="blog-cat">Amazon</span>
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-date">November 5, 2019</div>
-          <h4>Reasons to explain fast business builder.</h4>
-          <p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p>
-          <a href="#" class="read-more">Read more ›</a>
-        </div>
-      </div>
-      <div class="blog-card reveal">
-        <div class="blog-card-img">
-          <img src="https://mokhu.com/wp-content/uploads/2019/11/theme-05-600x373.jpg" alt="Blog 6" onerror="this.style.display='none';" />
-          <span class="blog-cat">Finance</span>
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-date">November 4, 2018</div>
-          <h4>Blackpool polices hunt for David.</h4>
-          <p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p>
-          <a href="#" class="read-more">Read more ›</a>
-        </div>
-      </div>
+      <div class="blog-card reveal"><div class="blog-card-img"><img src="https://mokhu.com/wp-content/uploads/2020/03/update-service-02-600x373.jpg" alt="Blog 1" onerror="this.style.display='none';"/><span class="blog-cat">Business</span></div><div class="blog-card-body"><div class="blog-date">November 5, 2019</div><h4>How Stay Calm from the First Time.</h4><p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p><a href="#" class="read-more">Read more ›</a></div></div>
+      <div class="blog-card reveal"><div class="blog-card-img"><img src="https://mokhu.com/wp-content/uploads/2019/11/u-blog-02-600x373.jpg" alt="Blog 2" onerror="this.style.display='none';"/><span class="blog-cat">Strategy</span></div><div class="blog-card-body"><div class="blog-date">November 5, 2019</div><h4>Why You'll Never Succeed at 7 Habits.</h4><p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p><a href="#" class="read-more">Read more ›</a></div></div>
+      <div class="blog-card reveal"><div class="blog-card-img"><img src="https://mokhu.com/wp-content/uploads/2019/11/update-blog3-600x373.jpg" alt="Blog 3" onerror="this.style.display='none';"/><span class="blog-cat">Growth</span></div><div class="blog-card-body"><div class="blog-date">November 5, 2019</div><h4>You can use it for any kind of website like.</h4><p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p><a href="#" class="read-more">Read more ›</a></div></div>
+      <div class="blog-card reveal"><div class="blog-card-img"><img src="https://mokhu.com/wp-content/uploads/2019/11/theme-13-600x373.jpg" alt="Blog 4" onerror="this.style.display='none';"/><span class="blog-cat">Startup</span></div><div class="blog-card-body"><div class="blog-date">November 5, 2019</div><h4>How to go about initiating a start-up.</h4><p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p><a href="#" class="read-more">Read more ›</a></div></div>
+      <div class="blog-card reveal"><div class="blog-card-img"><img src="https://mokhu.com/wp-content/uploads/2019/11/theme-09-600x373.jpg" alt="Blog 5" onerror="this.style.display='none';"/><span class="blog-cat">Amazon</span></div><div class="blog-card-body"><div class="blog-date">November 5, 2019</div><h4>Reasons to explain fast business builder.</h4><p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p><a href="#" class="read-more">Read more ›</a></div></div>
+      <div class="blog-card reveal"><div class="blog-card-img"><img src="https://mokhu.com/wp-content/uploads/2019/11/theme-05-600x373.jpg" alt="Blog 6" onerror="this.style.display='none';"/><span class="blog-cat">Finance</span></div><div class="blog-card-body"><div class="blog-date">November 4, 2018</div><h4>Blackpool polices hunt for David.</h4><p>As an e-commerce expert, help organizations adjust to the demands of internet marketing. Far away, behind the word.</p><a href="#" class="read-more">Read more ›</a></div></div>
     </div>
   </div>
 </section>
@@ -1202,13 +1125,8 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
 
 <!-- MAP -->
 <div class="map-section">
-  <iframe
-    src="https://maps.google.com/maps?q=The+Centaurus+Mall+Jinnah+Avenue+Islamabad+Pakistan&t=m&z=15&output=embed&iwloc=near"
-    title="Minorsoltech Office Location"
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"
-    allowfullscreen>
-  </iframe>
+  <iframe src="https://maps.google.com/maps?q=The+Centaurus+Mall+Jinnah+Avenue+Islamabad+Pakistan&t=m&z=15&output=embed&iwloc=near"
+    title="Minorsoltech Office Location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
 </div>
 
 <!-- FOOTER -->
@@ -1264,6 +1182,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
 <div class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</div>
 
 <script>
+/* MAIN HERO SLIDER */
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.hero-dots span');
@@ -1279,56 +1198,85 @@ function goToSlide(n) {
   autoSlide = setInterval(() => changeSlide(1), 5000);
 }
 function changeSlide(dir) {
-  let next = (currentSlide + dir + slides.length) % slides.length;
-  goToSlide(next);
+  goToSlide((currentSlide + dir + slides.length) % slides.length);
 }
 
-const reveals = document.querySelectorAll('.reveal');
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), i * 90);
-      revealObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.1 });
-reveals.forEach(el => revealObs.observe(el));
+/* HERO TEAM SLIDER — isolated IIFE, hts-* only */
+(function() {
+  const TOTAL = 3;
+  let idx = 0, timer = null;
+  const track = document.getElementById('hts-track');
+  const dotEls = document.querySelectorAll('#hts-dots span');
 
-function toggleFaq(btn) {
-  const item = btn.parentElement;
-  const answer = item.querySelector('.faq-a');
-  const isOpen = btn.classList.contains('open');
-  document.querySelectorAll('.faq-q.open').forEach(q => {
-    q.classList.remove('open');
-    q.parentElement.querySelector('.faq-a').classList.remove('open');
-  });
-  if (!isOpen) {
-    btn.classList.add('open');
-    answer.classList.add('open');
+  function render(n) {
+    track.style.transform = 'translateX(-' + (n * 100) + '%)';
+    dotEls.forEach(function(d, i) {
+      d.classList.toggle('active', i === n);
+      d.setAttribute('aria-selected', i === n ? 'true' : 'false');
+    });
+    idx = n;
   }
-}
+  function next() { render((idx + 1) % TOTAL); }
+  function start() { timer = setInterval(next, 3500); }
+  function reset() { clearInterval(timer); start(); }
 
-function toggleMobileNav() {
-  document.getElementById('main-nav').classList.toggle('nav-mobile-open');
-}
-document.querySelectorAll('.nav-links a').forEach(a => {
-  a.addEventListener('click', () => {
-    document.getElementById('main-nav').classList.remove('nav-mobile-open');
+  window.htsGoTo = function(n) { render(n); reset(); };
+
+  var el = document.getElementById('hts-slider');
+  if (el) {
+    el.addEventListener('mouseenter', function() { clearInterval(timer); });
+    el.addEventListener('mouseleave', start);
+  }
+  if (track) {
+    var tx = 0;
+    track.addEventListener('touchstart', function(e) { tx = e.changedTouches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', function(e) {
+      var d = tx - e.changedTouches[0].clientX;
+      if (Math.abs(d) > 40) { render(d > 0 ? (idx+1)%TOTAL : (idx-1+TOTAL)%TOTAL); reset(); }
+    }, { passive: true });
+  }
+  start();
+})();
+
+/* SCROLL REVEAL */
+const reveals = document.querySelectorAll('.reveal');
+new IntersectionObserver(function(entries) {
+  entries.forEach(function(e, i) {
+    if (e.isIntersecting) { setTimeout(function() { e.target.classList.add('visible'); }, i * 90); }
   });
+}, { threshold: 0.1 }).observe && reveals.forEach(function(el) {
+  new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1 }).observe(el);
 });
 
-window.addEventListener('scroll', () => {
-  const btn = document.getElementById('back-to-top');
-  if (window.scrollY > 500) btn.classList.add('visible');
-  else btn.classList.remove('visible');
+/* FAQ */
+function toggleFaq(btn) {
+  var item = btn.parentElement, ans = item.querySelector('.faq-a'), open = btn.classList.contains('open');
+  document.querySelectorAll('.faq-q.open').forEach(function(q) { q.classList.remove('open'); q.parentElement.querySelector('.faq-a').classList.remove('open'); });
+  if (!open) { btn.classList.add('open'); ans.classList.add('open'); }
+}
+
+/* MOBILE NAV */
+function toggleMobileNav() { document.getElementById('main-nav').classList.toggle('nav-mobile-open'); }
+document.querySelectorAll('.nav-links a').forEach(function(a) {
+  a.addEventListener('click', function() { document.getElementById('main-nav').classList.remove('nav-mobile-open'); });
 });
 
+/* BACK TO TOP */
+window.addEventListener('scroll', function() {
+  var b = document.getElementById('back-to-top');
+  b.classList.toggle('visible', window.scrollY > 500);
+});
+
+/* NEWSLETTER */
 function handleNewsletter(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('button');
-  btn.textContent = 'Subscribed ✓';
-  btn.style.background = '#2e7d32';
-  setTimeout(() => { btn.textContent = 'Subscribe'; btn.style.background = ''; }, 3000);
+  var btn = e.target.querySelector('button');
+  btn.textContent = 'Subscribed ✓'; btn.style.background = '#2e7d32';
+  setTimeout(function() { btn.textContent = 'Subscribe'; btn.style.background = ''; }, 3000);
 }
 </script>
 </body>
