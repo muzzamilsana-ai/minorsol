@@ -144,150 +144,6 @@ nav {
 }
 .hero-arrows button:hover { background: var(--gold); border-color: var(--gold); }
 
-/* ══════════════════════════════════════════
-   HERO TEAM SLIDER — SLIDE 2 RIGHT PANEL
-   All classes prefixed hts- to avoid conflicts
-   ══════════════════════════════════════════ */
-.slide-split {
-  position: absolute; inset: 0;
-  display: flex; align-items: center;
-}
-.slide-split-left {
-  position: relative; z-index: 2;
-  padding: 0 0 0 8%;
-  flex: 0 0 52%;
-  max-width: 52%;
-}
-.slide-split-right {
-  flex: 0 0 48%;
-  max-width: 48%;
-  display: flex; align-items: center; justify-content: center;
-  position: relative; z-index: 2; padding-right: 5%;
-}
-
-/* Team slider track */
-.hts-slider {
-  width: 100%;
-  max-width: 320px;
-  position: relative;
-  overflow: hidden;
-}
-.hts-track {
-  display: flex;
-  transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
-  will-change: transform;
-}
-.hts-card {
-  flex: 0 0 100%;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(200,169,81,0.35);
-  border-radius: 14px;
-  overflow: hidden;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.08);
-  position: relative;
-}
-.hts-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
-  border-radius: 14px 14px 0 0;
-}
-.hts-img-wrap {
-  height: 200px;
-  overflow: hidden;
-  position: relative;
-  background: linear-gradient(135deg, #1a3560, #0d1f38);
-}
-.hts-img-wrap img {
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: top center;
-  display: block;
-  transition: transform 0.5s ease;
-}
-.hts-card:hover .hts-img-wrap img { transform: scale(1.04); }
-.hts-img-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(13,31,56,0.75) 0%, transparent 55%);
-}
-.hts-avatar-fallback {
-  width: 100%; height: 100%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-head); font-size: 3.5rem; font-weight: 800;
-  color: rgba(200,169,81,0.5);
-}
-.hts-body {
-  padding: 1.1rem 1.4rem 1.3rem;
-}
-.hts-role-badge {
-  display: inline-block;
-  background: var(--gold-dim);
-  border: 1px solid rgba(200,169,81,0.35);
-  color: var(--gold-light);
-  font-size: 0.65rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.1em;
-  padding: 3px 10px; border-radius: 20px;
-  margin-bottom: 0.5rem;
-}
-.hts-name {
-  font-family: var(--font-head);
-  font-size: 1.15rem; font-weight: 700;
-  color: #fff; margin-bottom: 0.35rem; line-height: 1.2;
-}
-.hts-desc {
-  font-size: 0.78rem; color: rgba(255,255,255,0.6);
-  font-weight: 300; line-height: 1.55;
-}
-.hts-footer {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-top: 0.9rem; padding-top: 0.75rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
-}
-.hts-socials { display: flex; gap: 7px; }
-.hts-socials a {
-  width: 28px; height: 28px; border-radius: 50%;
-  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
-  display: flex; align-items: center; justify-content: center;
-  color: rgba(255,255,255,0.6); font-size: 0.65rem;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-}
-.hts-socials a:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
-.hts-counter {
-  font-size: 0.72rem; color: rgba(255,255,255,0.4);
-  font-weight: 600; letter-spacing: 0.05em;
-}
-/* Slider nav dots */
-.hts-dots {
-  display: flex; gap: 6px; justify-content: center;
-  margin-top: 14px;
-}
-.hts-dots span {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: rgba(255,255,255,0.25);
-  cursor: pointer; transition: background 0.25s, transform 0.25s, width 0.25s;
-  border-radius: 3px;
-}
-.hts-dots span.active {
-  background: var(--gold); width: 20px; transform: none;
-}
-/* Label above slider */
-.hts-label {
-  text-align: center; margin-bottom: 14px;
-}
-.hts-label span {
-  font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--gold-light); font-weight: 700;
-  display: inline-flex; align-items: center; gap: 8px;
-}
-.hts-label span::before,
-.hts-label span::after {
-  content: ''; display: block; width: 28px; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(200,169,81,0.5));
-}
-.hts-label span::after { background: linear-gradient(90deg, rgba(200,169,81,0.5), transparent); }
-
 /* ── VALUES ── */
 .values-strip { background: var(--navy); padding: 3.5rem 5%; display: flex; gap: 0; }
 .value-item { flex: 1; padding: 0 2rem; border-right: 1px solid rgba(255,255,255,0.08); }
@@ -339,7 +195,7 @@ section { padding: 90px 5%; }
 .about-val-text strong { display: block; font-size: 0.85rem; color: var(--navy); font-weight: 700; }
 .about-val-text span { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
 
-/* Team sub-section inside about-team-hero — ORIGINAL, untouched */
+/* Team sub-section inside about-team-hero */
 .team-sub-header { text-align: center; margin-bottom: 3rem; }
 .team-sub-header .divider { margin: 1rem auto; }
 .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
@@ -555,12 +411,6 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   .cards-left { grid-column: 1; flex-direction: row; flex-wrap: wrap; align-items: flex-start; padding-right: 0; justify-content: center; }
   .cards-right { grid-column: 2; flex-direction: row; flex-wrap: wrap; align-items: flex-start; padding-left: 0; justify-content: center; }
   .conn-lines-wrap { display: none; }
-
-  /* Hero team slider: stack on medium screens */
-  .slide-split { flex-direction: column; justify-content: center; }
-  .slide-split-left { flex: none; max-width: 100%; padding: 0 6%; margin-bottom: 1.5rem; }
-  .slide-split-right { flex: none; max-width: 100%; padding: 0 6% 2rem; justify-content: flex-start; }
-  .hts-slider { max-width: 280px; }
 }
 @media (max-width: 900px) {
   .nav-links { display: none; }
@@ -593,14 +443,6 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   .globe-layout { grid-template-columns: 1fr; }
   .cards-left, .cards-right { grid-column: 1; flex-direction: column; align-items: center; }
   .mp-card { width: 100%; max-width: 320px; }
-
-  /* Full-width slider on mobile */
-  .slide-split { flex-direction: column; }
-  .slide-split-left { flex: none; max-width: 100%; padding: 60px 6% 0; }
-  .slide-split-right { flex: none; max-width: 100%; padding: 1.5rem 6% 3rem; justify-content: center; }
-  .hts-slider { max-width: 100%; }
-  .hts-card { border-radius: 10px; }
-  .hts-img-wrap { height: 160px; }
 }
 @media (max-width: 600px) {
   .services-grid { grid-template-columns: 1fr; }
@@ -655,14 +497,8 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   </div>
 </nav>
 
-<!-- ══════════════════════════════════════════
-     HERO SLIDER
-     Slide 1: original full-width layout
-     Slide 2: split layout with team slider on right
-     ══════════════════════════════════════════ -->
+<!-- HERO SLIDER -->
 <div class="hero" id="hero-slider">
-
-  <!-- SLIDE 1: original -->
   <div class="slide active">
     <div class="slide-bg"></div>
     <div class="slide-overlay"></div>
@@ -677,137 +513,29 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
       </div>
     </div>
   </div>
-
-  <!-- SLIDE 2: split — left text + right team slider -->
   <div class="slide">
     <div class="slide-bg" style="background: linear-gradient(135deg, #0b1e35 0%, #152e52 40%, #1c3d6b 100%);"></div>
-    <div class="slide-overlay" style="background: linear-gradient(90deg, rgba(10,20,50,0.9) 0%, rgba(10,20,50,0.5) 55%, rgba(10,20,50,0.2) 100%);"></div>
+    <div class="slide-overlay"></div>
     <div class="slide-pattern"></div>
-
-    <!-- Split layout wrapper -->
-    <div class="slide-split">
-
-      <!-- LEFT: original text -->
-      <div class="slide-split-left">
-        <span class="slide-tag">Invest · Scale · Prosper</span>
-        <h1>Build <em>Passive Income</em><br>That Lasts</h1>
-        <p>Helping investors worldwide build passive income through Amazon Wholesale FBA — creating freedom, security, and peace of mind.</p>
-        <div class="slide-actions">
-          <a href="#contact" class="btn-gold">Book Free Call ›</a>
-          <a href="#steps" class="btn-outline-white">How It Works</a>
-        </div>
+    <div class="slide-content">
+      <span class="slide-tag">Invest · Scale · Prosper</span>
+      <h1>Build <em>Passive Income</em><br>That Lasts</h1>
+      <p>Helping investors worldwide build passive income through Amazon Wholesale FBA — creating freedom, security, and peace of mind.</p>
+      <div class="slide-actions">
+        <a href="#contact" class="btn-gold">Book Free Call ›</a>
+        <a href="#steps" class="btn-outline-white">How It Works</a>
       </div>
-
-      <!-- RIGHT: hero team slider (hts-*) -->
-      <div class="slide-split-right">
-        <div>
-          <div class="hts-label">
-            <span>The Team Behind Your Growth</span>
-          </div>
-          <div class="hts-slider" id="hts-slider" aria-label="Team members slideshow">
-            <div class="hts-track" id="hts-track">
-
-              <!-- Card 1: Muzzamil -->
-              <div class="hts-card" role="group" aria-label="Muzzamil Sana Khan – Founder &amp; CEO">
-                <div class="hts-img-wrap">
-                  <img
-                    src="192170777_1681746962009591_7091455462882851203_n.jpg"
-                    alt="Muzzamil Sana Khan"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-                  />
-                  <div class="hts-avatar-fallback" style="display:none;">MSK</div>
-                  <div class="hts-img-overlay"></div>
-                </div>
-                <div class="hts-body">
-                  <div class="hts-role-badge">Founder &amp; CEO</div>
-                  <div class="hts-name">Muzzamil Sana Khan</div>
-                  <div class="hts-desc">Visionary behind Minorsoltech's mission. Leads strategy, client partnerships, and Amazon wholesale operations.</div>
-                  <div class="hts-footer">
-                    <div class="hts-socials">
-                      <a href="https://www.linkedin.com/in/muzamil-sana-184225134/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="Muzzamil on LinkedIn">in</a>
-                      <a href="#" title="Twitter" aria-label="Muzzamil on Twitter">𝕏</a>
-                    </div>
-                    <div class="hts-counter" id="hts-counter">1 / 3</div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 2: Sadaf -->
-              <div class="hts-card" role="group" aria-label="Sadaf Fatima – Co-Founder">
-                <div class="hts-img-wrap">
-                  <img
-                    src="sadaf pic.jpeg"
-                    alt="Sadaf Fatima"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-                  />
-                  <div class="hts-avatar-fallback" style="display:none;">SF</div>
-                  <div class="hts-img-overlay"></div>
-                </div>
-                <div class="hts-body">
-                  <div class="hts-role-badge">Co-Founder</div>
-                  <div class="hts-name">Sadaf Fatima</div>
-                  <div class="hts-desc">Operations lead and Amazon FBA strategist. Drives the systems that scale client businesses efficiently and profitably.</div>
-                  <div class="hts-footer">
-                    <div class="hts-socials">
-                      <a href="https://www.linkedin.com/in/sadaf-fatima-2397b2336" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="Sadaf on LinkedIn">in</a>
-                      <a href="#" title="Twitter" aria-label="Sadaf on Twitter">𝕏</a>
-                    </div>
-                    <div class="hts-counter">2 / 3</div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 3: Hira -->
-              <div class="hts-card" role="group" aria-label="Hira Yousafzai – Senior Manager Operations">
-                <div class="hts-img-wrap">
-                  <img
-                    src="Hira Yousafzai.jpeg"
-                    alt="Hira Yousafzai"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-                  />
-                  <div class="hts-avatar-fallback" style="display:none;">HY</div>
-                  <div class="hts-img-overlay"></div>
-                </div>
-                <div class="hts-body">
-                  <div class="hts-role-badge">Senior Manager Operations</div>
-                  <div class="hts-name">Hira Yousafzai</div>
-                  <div class="hts-desc">Oversees day-to-day ops, manages Amazon seller accounts, monitors KPIs, and ensures listings stay optimized.</div>
-                  <div class="hts-footer">
-                    <div class="hts-socials">
-                      <a href="#" title="LinkedIn" aria-label="Hira on LinkedIn">in</a>
-                      <a href="#" title="Twitter" aria-label="Hira on Twitter">𝕏</a>
-                    </div>
-                    <div class="hts-counter">3 / 3</div>
-                  </div>
-                </div>
-              </div>
-
-            </div><!-- /hts-track -->
-          </div><!-- /hts-slider -->
-
-          <!-- Dot navigation -->
-          <div class="hts-dots" id="hts-dots" role="tablist" aria-label="Team member navigation">
-            <span class="active" role="tab" aria-selected="true" aria-label="Muzzamil Sana Khan" onclick="htsGoTo(0)"></span>
-            <span role="tab" aria-selected="false" aria-label="Sadaf Fatima" onclick="htsGoTo(1)"></span>
-            <span role="tab" aria-selected="false" aria-label="Hira Yousafzai" onclick="htsGoTo(2)"></span>
-          </div>
-        </div>
-      </div><!-- /slide-split-right -->
-
-    </div><!-- /slide-split -->
-  </div><!-- /slide 2 -->
-
-  <!-- Arrows & dots (main hero) -->
+    </div>
+  </div>
   <div class="hero-arrows">
-    <button onclick="changeSlide(-1)" aria-label="Previous slide">&#8592;</button>
-    <button onclick="changeSlide(1)" aria-label="Next slide">&#8594;</button>
+    <button onclick="changeSlide(-1)" aria-label="Previous">&#8592;</button>
+    <button onclick="changeSlide(1)" aria-label="Next">&#8594;</button>
   </div>
   <div class="hero-dots">
-    <span class="active" onclick="goToSlide(0)" aria-label="Slide 1"></span>
-    <span onclick="goToSlide(1)" aria-label="Slide 2"></span>
+    <span class="active" onclick="goToSlide(0)"></span>
+    <span onclick="goToSlide(1)"></span>
   </div>
 </div>
-<!-- /HERO SLIDER -->
 
 <!-- VALUES STRIP -->
 <div class="values-strip">
@@ -826,7 +554,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
 </div>
 
 <!-- ══════════════════════════════════════════════════
-     ABOUT US + MEET THE TEAM — ORIGINAL, UNTOUCHED
+     ABOUT US + MEET THE TEAM  —  RIGHT AFTER HERO
      ══════════════════════════════════════════════════ -->
 <section id="about-team-hero">
   <div class="ath-inner">
@@ -876,7 +604,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
       </div>
     </div>
 
-    <!-- MEET THE TEAM — ORIGINAL STATIC SECTION, UNTOUCHED -->
+    <!-- MEET THE TEAM -->
     <div class="team-sub-header reveal">
       <span class="section-label">Our People</span>
       <h2 class="section-h">Meet the <em>Team</em></h2>
@@ -930,7 +658,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
         </div>
       </div>
 
-      <!-- Hira Yousafzai -->
+      <!-- Hira Yousafzai — FIXED image path (case-sensitive, space preserved) -->
       <div class="team-card reveal">
         <div class="team-card-img">
           <img
@@ -955,6 +683,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
     </div>
   </div>
 </section>
+<!-- ══════════════════════════════════════════════════ -->
 
 <!-- SERVICES -->
 <section id="services">
@@ -1033,6 +762,8 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
     </div>
 
     <div class="globe-layout" id="globe-wrap" style="position:relative;">
+
+      <!-- Animated SVG connection lines -->
       <svg class="conn-lines-wrap" id="conn-svg"
         style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:visible;"
         viewBox="0 0 1060 460" preserveAspectRatio="xMidYMid meet"
@@ -1063,6 +794,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
         <ellipse cx="530" cy="225" rx="126" ry="20" stroke="#c8a951" stroke-width="0.7" fill="none" stroke-dasharray="4 7" opacity="0.12" transform="rotate(12,530,225)"/>
       </svg>
 
+      <!-- LEFT CARDS -->
       <div class="cards-left">
         <div class="mp-card reveal">
           <div class="flag-wrap">🇺🇸</div>
@@ -1088,6 +820,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
         </div>
       </div>
 
+      <!-- GLOBE CENTER -->
       <div class="globe-center reveal">
         <div class="globe-svg-wrap">
           <svg width="260" height="260" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
@@ -1171,6 +904,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
         <div class="globe-label">Global Operations</div>
       </div>
 
+      <!-- RIGHT CARDS -->
       <div class="cards-right">
         <div class="mp-card reveal">
           <div class="flag-wrap">🇨🇦</div>
@@ -1530,9 +1264,6 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
 <div class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</div>
 
 <script>
-/* ═══════════════════════════════════════════
-   MAIN HERO SLIDER (slide 1 / slide 2)
-   ═══════════════════════════════════════════ */
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.hero-dots span');
@@ -1552,92 +1283,22 @@ function changeSlide(dir) {
   goToSlide(next);
 }
 
-/* ═══════════════════════════════════════════
-   HERO TEAM SLIDER (hts-*)
-   Completely isolated from the bottom section
-   ═══════════════════════════════════════════ */
-(function() {
-  const TOTAL = 3;
-  let htsIndex = 0;
-  let htsTimer = null;
-  const track = document.getElementById('hts-track');
-  const dotEls = document.querySelectorAll('#hts-dots span');
-
-  function htsRender(idx) {
-    track.style.transform = 'translateX(-' + (idx * 100) + '%)';
-    dotEls.forEach(function(d, i) {
-      d.classList.toggle('active', i === idx);
-      d.setAttribute('aria-selected', i === idx ? 'true' : 'false');
-    });
-    htsIndex = idx;
-  }
-
-  function htsNext() {
-    htsRender((htsIndex + 1) % TOTAL);
-  }
-
-  function htsStartTimer() {
-    htsTimer = setInterval(htsNext, 3500);
-  }
-
-  function htsResetTimer() {
-    clearInterval(htsTimer);
-    htsStartTimer();
-  }
-
-  // Expose to inline onclick handlers
-  window.htsGoTo = function(idx) {
-    htsRender(idx);
-    htsResetTimer();
-  };
-
-  // Pause on hover
-  var sliderEl = document.getElementById('hts-slider');
-  if (sliderEl) {
-    sliderEl.addEventListener('mouseenter', function() { clearInterval(htsTimer); });
-    sliderEl.addEventListener('mouseleave', htsStartTimer);
-  }
-
-  // Touch swipe support
-  var touchStartX = 0;
-  if (track) {
-    track.addEventListener('touchstart', function(e) {
-      touchStartX = e.changedTouches[0].clientX;
-    }, { passive: true });
-    track.addEventListener('touchend', function(e) {
-      var diff = touchStartX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) {
-        htsRender(diff > 0 ? (htsIndex + 1) % TOTAL : (htsIndex - 1 + TOTAL) % TOTAL);
-        htsResetTimer();
-      }
-    }, { passive: true });
-  }
-
-  htsStartTimer();
-})();
-
-/* ═══════════════════════════════════════════
-   SCROLL REVEAL
-   ═══════════════════════════════════════════ */
 const reveals = document.querySelectorAll('.reveal');
-const revealObs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e, i) {
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
     if (e.isIntersecting) {
-      setTimeout(function() { e.target.classList.add('visible'); }, i * 90);
+      setTimeout(() => e.target.classList.add('visible'), i * 90);
       revealObs.unobserve(e.target);
     }
   });
 }, { threshold: 0.1 });
-reveals.forEach(function(el) { revealObs.observe(el); });
+reveals.forEach(el => revealObs.observe(el));
 
-/* ═══════════════════════════════════════════
-   FAQ ACCORDION
-   ═══════════════════════════════════════════ */
 function toggleFaq(btn) {
-  var item = btn.parentElement;
-  var answer = item.querySelector('.faq-a');
-  var isOpen = btn.classList.contains('open');
-  document.querySelectorAll('.faq-q.open').forEach(function(q) {
+  const item = btn.parentElement;
+  const answer = item.querySelector('.faq-a');
+  const isOpen = btn.classList.contains('open');
+  document.querySelectorAll('.faq-q.open').forEach(q => {
     q.classList.remove('open');
     q.parentElement.querySelector('.faq-a').classList.remove('open');
   });
@@ -1647,36 +1308,27 @@ function toggleFaq(btn) {
   }
 }
 
-/* ═══════════════════════════════════════════
-   MOBILE NAV
-   ═══════════════════════════════════════════ */
 function toggleMobileNav() {
   document.getElementById('main-nav').classList.toggle('nav-mobile-open');
 }
-document.querySelectorAll('.nav-links a').forEach(function(a) {
-  a.addEventListener('click', function() {
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
     document.getElementById('main-nav').classList.remove('nav-mobile-open');
   });
 });
 
-/* ═══════════════════════════════════════════
-   BACK TO TOP
-   ═══════════════════════════════════════════ */
-window.addEventListener('scroll', function() {
-  var btn = document.getElementById('back-to-top');
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('back-to-top');
   if (window.scrollY > 500) btn.classList.add('visible');
   else btn.classList.remove('visible');
 });
 
-/* ═══════════════════════════════════════════
-   NEWSLETTER
-   ═══════════════════════════════════════════ */
 function handleNewsletter(e) {
   e.preventDefault();
-  var btn = e.target.querySelector('button');
+  const btn = e.target.querySelector('button');
   btn.textContent = 'Subscribed ✓';
   btn.style.background = '#2e7d32';
-  setTimeout(function() { btn.textContent = 'Subscribe'; btn.style.background = ''; }, 3000);
+  setTimeout(() => { btn.textContent = 'Subscribe'; btn.style.background = ''; }, 3000);
 }
 </script>
 </body>
