@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <style>
 /* ─────────────────────────────────────────
-   BASE / RESET (unchanged from original)
+   BASE / RESET
 ───────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -39,7 +39,7 @@ a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 
 /* ─────────────────────────────────────────
-   TOPBAR (unchanged)
+   TOPBAR
 ───────────────────────────────────────── */
 .topbar {
   background: var(--navy-dark); color: #aab4c4; font-size: 0.8rem;
@@ -56,7 +56,7 @@ img { max-width: 100%; display: block; }
 .topbar .socials a:hover { background: var(--gold); color: #fff; }
 
 /* ─────────────────────────────────────────
-   NAV (unchanged)
+   NAV
 ───────────────────────────────────────── */
 nav {
   position: sticky; top: 0; z-index: 999; background: var(--white);
@@ -90,12 +90,8 @@ nav {
 .hamburger span { width: 24px; height: 2px; background: var(--navy); border-radius: 2px; }
 
 /* ═══════════════════════════════════════════════════════════
-   ★ NEW HERO — Premium 2-Column Expert-Led Amazon Wholesale
-   Replaces the old .hero slider entirely.
-   Classes are all prefixed with .ph- to avoid conflicts.
+   ★ HERO — Premium 2-Column
 ═══════════════════════════════════════════════════════════ */
-
-/* ── Container ── */
 .ph-hero {
   position: relative;
   min-height: 680px;
@@ -104,57 +100,25 @@ nav {
   overflow: hidden;
   background: linear-gradient(135deg, #080f1e 0%, #0d1e38 35%, #101c30 65%, #0a1525 100%);
 }
-
-/* ── Animated background — particle canvas layer ── */
 .ph-bg-canvas {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
+  position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
 }
-
-/* Dot-grid pattern (matches existing hero pattern) */
 .ph-bg-canvas::before {
-  content: '';
-  position: absolute;
-  inset: 0;
+  content: ''; position: absolute; inset: 0;
   background-image: radial-gradient(circle, rgba(200,169,81,0.07) 1px, transparent 1px);
   background-size: 42px 42px;
 }
-
-/* Gold diagonal beam top-left */
 .ph-bg-canvas::after {
-  content: '';
-  position: absolute;
-  top: -200px;
-  left: -200px;
-  width: 700px;
-  height: 700px;
+  content: ''; position: absolute; top: -200px; left: -200px; width: 700px; height: 700px;
   background: radial-gradient(ellipse at center, rgba(200,169,81,0.10) 0%, transparent 65%);
   animation: ph-orb-pulse 7s ease-in-out infinite;
 }
-
 @keyframes ph-orb-pulse {
   0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.8; }
   50%       { transform: scale(1.15) translate(30px, 20px); opacity: 1; }
 }
-
-/* Floating gold particles (pure CSS) */
-.ph-particles {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-.ph-p {
-  position: absolute;
-  border-radius: 50%;
-  background: var(--gold);
-  opacity: 0;
-  animation: ph-float linear infinite;
-}
+.ph-particles { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.ph-p { position: absolute; border-radius: 50%; background: var(--gold); opacity: 0; animation: ph-float linear infinite; }
 .ph-p:nth-child(1)  { width:3px; height:3px; left:8%;   animation-duration:14s; animation-delay:0s;    top:70%; }
 .ph-p:nth-child(2)  { width:2px; height:2px; left:15%;  animation-duration:18s; animation-delay:2s;    top:85%; }
 .ph-p:nth-child(3)  { width:4px; height:4px; left:22%;  animation-duration:12s; animation-delay:1s;    top:90%; }
@@ -166,403 +130,316 @@ nav {
 .ph-p:nth-child(9)  { width:3px; height:3px; left:91%;  animation-duration:10s; animation-delay:0.3s;  top:92%; }
 .ph-p:nth-child(10) { width:2px; height:2px; left:5%;   animation-duration:17s; animation-delay:5s;    top:78%; }
 @keyframes ph-float {
-  0%   { transform: translateY(0)   translateX(0)   rotate(0deg);   opacity: 0; }
+  0%   { transform: translateY(0) translateX(0) rotate(0deg);   opacity: 0; }
   10%  { opacity: 0.55; }
   90%  { opacity: 0.35; }
   100% { transform: translateY(-580px) translateX(20px) rotate(360deg); opacity: 0; }
 }
-
-/* ── Inner layout ── */
 .ph-inner {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0 5%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 0;
-  min-height: 680px;
+  position: relative; z-index: 2; width: 100%; max-width: 1300px; margin: 0 auto;
+  padding: 0 5%; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 0; min-height: 680px;
 }
-
-/* ── LEFT COLUMN ── */
 .ph-left {
   padding: 80px 48px 80px 0;
-  /* Fade-in from left */
-  opacity: 0;
-  transform: translateX(-36px);
+  opacity: 0; transform: translateX(-36px);
   animation: ph-fade-left 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
 }
-@keyframes ph-fade-left {
-  to { opacity: 1; transform: translateX(0); }
-}
-
-/* Tag pill */
+@keyframes ph-fade-left { to { opacity: 1; transform: translateX(0); } }
 .ph-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(200,169,81,0.12);
-  border: 1px solid rgba(200,169,81,0.35);
-  color: var(--gold-light);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 7px 16px;
-  border-radius: 100px;
-  margin-bottom: 1.5rem;
-  backdrop-filter: blur(6px);
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(200,169,81,0.12); border: 1px solid rgba(200,169,81,0.35);
+  color: var(--gold-light); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; padding: 7px 16px; border-radius: 100px; margin-bottom: 1.5rem; backdrop-filter: blur(6px);
 }
 .ph-tag-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--gold);
-  animation: ph-tag-blink 2.4s ease-in-out infinite;
-  flex-shrink: 0;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+  animation: ph-tag-blink 2.4s ease-in-out infinite; flex-shrink: 0;
 }
 @keyframes ph-tag-blink {
   0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(200,169,81,0.5); }
   50%       { opacity: 0.65; box-shadow: 0 0 0 5px rgba(200,169,81,0); }
 }
-
-/* Headline */
 .ph-headline {
-  font-family: var(--font-head);
-  font-size: clamp(2.5rem, 4.2vw, 3.8rem);
-  font-weight: 800;
-  color: var(--white);
-  line-height: 1.08;
-  letter-spacing: -0.025em;
-  margin-bottom: 1.5rem;
+  font-family: var(--font-head); font-size: clamp(2.5rem, 4.2vw, 3.8rem); font-weight: 800;
+  color: var(--white); line-height: 1.08; letter-spacing: -0.025em; margin-bottom: 1.5rem;
 }
 .ph-headline em {
-  color: var(--gold-light);
-  font-style: normal;
-  position: relative;
-  display: inline-block;
+  color: var(--gold-light); font-style: normal; position: relative; display: inline-block;
 }
-/* Gold underline stroke on "Autopilot" */
 .ph-headline em::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 3px;
+  content: ''; position: absolute; left: 0; bottom: -4px; width: 100%; height: 3px;
   background: linear-gradient(90deg, var(--gold), var(--gold-light), transparent);
-  border-radius: 2px;
-  transform: scaleX(0);
-  transform-origin: left;
+  border-radius: 2px; transform: scaleX(0); transform-origin: left;
   animation: ph-underline-draw 0.6s cubic-bezier(0.22, 1, 0.36, 1) 1.1s forwards;
 }
 @keyframes ph-underline-draw { to { transform: scaleX(1); } }
-
-/* Sub-headline */
 .ph-sub {
-  color: rgba(255,255,255,0.68);
-  font-size: 1.05rem;
-  font-weight: 300;
-  line-height: 1.78;
-  margin-bottom: 2.2rem;
-  max-width: 490px;
+  color: rgba(255,255,255,0.68); font-size: 1.05rem; font-weight: 300; line-height: 1.78;
+  margin-bottom: 2.2rem; max-width: 490px;
 }
-
-/* CTA Buttons row */
-.ph-ctas {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-bottom: 2.4rem;
-}
+.ph-ctas { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 2.4rem; }
 .ph-btn-primary {
-  background: var(--gold);
-  color: #fff;
-  padding: 15px 32px;
-  border-radius: 5px;
-  font-weight: 700;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  background: var(--gold); color: #fff; padding: 15px 32px; border-radius: 5px;
+  font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.06em;
+  display: inline-flex; align-items: center; gap: 8px;
   transition: background 0.22s, transform 0.22s, box-shadow 0.22s;
-  box-shadow: 0 4px 22px rgba(200,169,81,0.3);
-  white-space: nowrap;
+  box-shadow: 0 4px 22px rgba(200,169,81,0.3); white-space: nowrap;
 }
-.ph-btn-primary:hover {
-  background: #b8942e;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(200,169,81,0.42);
-}
+.ph-btn-primary:hover { background: #b8942e; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,169,81,0.42); }
 .ph-btn-secondary {
-  background: transparent;
-  color: rgba(255,255,255,0.88);
-  border: 1.5px solid rgba(255,255,255,0.3);
-  padding: 14px 28px;
-  border-radius: 5px;
-  font-weight: 700;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: border-color 0.22s, background 0.22s, color 0.22s;
-  white-space: nowrap;
+  background: transparent; color: rgba(255,255,255,0.88); border: 1.5px solid rgba(255,255,255,0.3);
+  padding: 14px 28px; border-radius: 5px; font-weight: 700; font-size: 0.9rem; text-transform: uppercase;
+  letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 8px;
+  transition: border-color 0.22s, background 0.22s, color 0.22s; white-space: nowrap;
 }
-.ph-btn-secondary:hover {
-  border-color: var(--gold);
-  background: rgba(200,169,81,0.1);
-  color: var(--gold-light);
-}
-
-/* ── Trust Badges ── */
-.ph-trust {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
+.ph-btn-secondary:hover { border-color: var(--gold); background: rgba(200,169,81,0.1); color: var(--gold-light); }
+.ph-trust { display: flex; flex-wrap: wrap; gap: 10px; }
 .ph-trust-item {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(200,169,81,0.18);
-  border-radius: 6px;
-  padding: 8px 14px;
-  color: rgba(255,255,255,0.72);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  backdrop-filter: blur(4px);
-  transition: background 0.2s, border-color 0.2s;
+  display: flex; align-items: center; gap: 7px; background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(200,169,81,0.18); border-radius: 6px; padding: 8px 14px;
+  color: rgba(255,255,255,0.72); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.03em;
+  backdrop-filter: blur(4px); transition: background 0.2s, border-color 0.2s;
 }
-.ph-trust-item:hover {
-  background: rgba(200,169,81,0.08);
-  border-color: rgba(200,169,81,0.4);
-}
-.ph-trust-icon {
-  font-size: 0.9rem;
-  flex-shrink: 0;
-}
-
-/* ── RIGHT COLUMN — Image ── */
+.ph-trust-item:hover { background: rgba(200,169,81,0.08); border-color: rgba(200,169,81,0.4); }
+.ph-trust-icon { font-size: 0.9rem; flex-shrink: 0; }
 .ph-right {
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  padding: 60px 0 0;
-  /* Fade-in from right */
-  opacity: 0;
-  transform: translateX(36px);
+  position: relative; display: flex; align-items: flex-end; justify-content: flex-end; padding: 60px 0 0;
+  opacity: 0; transform: translateX(36px);
   animation: ph-fade-right 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
 }
-@keyframes ph-fade-right {
-  to { opacity: 1; transform: translateX(0); }
-}
-
-/* Glass card frame around the image */
-.ph-img-frame {
-  position: relative;
-  width: 100%;
-  max-width: 460px;
-  margin-left: auto;
-}
-
-/* Decorative rings behind the image */
-.ph-img-rings {
-  position: absolute;
-  bottom: -30px;
-  right: -30px;
-  width: 320px;
-  height: 320px;
-  pointer-events: none;
-  z-index: 0;
-}
-.ph-img-rings circle {
-  fill: none;
-  stroke: var(--gold);
-  stroke-dasharray: 6 10;
-}
-
-/* Gold glow behind image */
+@keyframes ph-fade-right { to { opacity: 1; transform: translateX(0); } }
+.ph-img-frame { position: relative; width: 100%; max-width: 460px; margin-left: auto; }
+.ph-img-rings { position: absolute; bottom: -30px; right: -30px; width: 320px; height: 320px; pointer-events: none; z-index: 0; }
+.ph-img-rings circle { fill: none; stroke: var(--gold); stroke-dasharray: 6 10; }
 .ph-img-glow {
-  position: absolute;
-  inset: -20px;
-  border-radius: 20px;
+  position: absolute; inset: -20px; border-radius: 20px;
   background: radial-gradient(ellipse at 60% 40%, rgba(200,169,81,0.20) 0%, transparent 70%);
-  z-index: 0;
-  animation: ph-glow-breathe 5s ease-in-out infinite;
+  z-index: 0; animation: ph-glow-breathe 5s ease-in-out infinite;
 }
 @keyframes ph-glow-breathe {
   0%, 100% { opacity: 0.8; transform: scale(1); }
-  50%       { opacity: 1;   transform: scale(1.04); }
+  50%       { opacity: 1; transform: scale(1.04); }
 }
-
-/* Image wrapper — rounded top, open bottom so figure "stands" */
 .ph-img-wrap {
-  position: relative;
-  z-index: 1;
-  border-radius: 16px 16px 0 0;
-  overflow: hidden;
-  box-shadow:
-    0 -8px 0 0 rgba(200,169,81,0.55),
-    0 28px 72px rgba(0,0,0,0.55),
-    inset 0 0 0 1px rgba(200,169,81,0.22);
-  /* subtle hover parallax via JS */
+  position: relative; z-index: 1; border-radius: 16px 16px 0 0; overflow: hidden;
+  box-shadow: 0 -8px 0 0 rgba(200,169,81,0.55), 0 28px 72px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(200,169,81,0.22);
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .ph-img-wrap:hover { transform: translateY(-6px) scale(1.01); }
-
-.ph-img-wrap img {
-  width: 100%;
-  height: 520px;
-  object-fit: cover;
-  object-position: top center;
-  display: block;
-  /* Remove any default white flash */
-  background: var(--navy);
-}
-
-/* Gradient fade at bottom — blends image into hero bg */
+.ph-img-wrap img { width: 100%; height: 520px; object-fit: cover; object-position: top center; display: block; background: var(--navy); }
 .ph-img-fade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 48%;
+  position: absolute; bottom: 0; left: 0; right: 0; height: 48%;
   background: linear-gradient(to top, rgba(8,15,30,0.92) 0%, rgba(8,15,30,0.55) 40%, transparent 100%);
   z-index: 2;
-  border-radius: 0 0 0 0;
 }
-
-/* ── Floating credential card (bottom-left of image) ── */
 .ph-cred-card {
-  position: absolute;
-  bottom: 28px;
-  left: -28px;
-  z-index: 4;
-  background: rgba(8, 18, 38, 0.88);
-  border: 1px solid rgba(200,169,81,0.35);
-  border-radius: 12px;
-  padding: 16px 20px;
-  backdrop-filter: blur(16px);
+  position: absolute; bottom: 28px; left: -28px; z-index: 4;
+  background: rgba(8, 18, 38, 0.88); border: 1px solid rgba(200,169,81,0.35); border-radius: 12px;
+  padding: 16px 20px; backdrop-filter: blur(16px);
   box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(200,169,81,0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  min-width: 160px;
+  display: flex; flex-direction: column; gap: 4px; min-width: 160px;
   animation: ph-card-float 4s ease-in-out infinite;
 }
-@keyframes ph-card-float {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-6px); }
-}
-.ph-cred-num {
-  font-family: var(--font-head);
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--gold-light);
-  line-height: 1;
-}
-.ph-cred-label {
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.6);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-/* ── Second floating card (top-right of image) ── */
+@keyframes ph-card-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.ph-cred-num { font-family: var(--font-head); font-size: 2.2rem; font-weight: 800; color: var(--gold-light); line-height: 1; }
+.ph-cred-label { font-size: 0.7rem; font-weight: 600; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.08em; }
 .ph-perf-card {
-  position: absolute;
-  top: 32px;
-  right: -24px;
-  z-index: 4;
-  background: rgba(8, 18, 38, 0.88);
-  border: 1px solid rgba(200,169,81,0.25);
-  border-radius: 12px;
-  padding: 14px 18px;
-  backdrop-filter: blur(16px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  position: absolute; top: 32px; right: -24px; z-index: 4;
+  background: rgba(8, 18, 38, 0.88); border: 1px solid rgba(200,169,81,0.25); border-radius: 12px;
+  padding: 14px 18px; backdrop-filter: blur(16px); box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+  display: flex; align-items: center; gap: 12px;
   animation: ph-card-float 5s ease-in-out 1.5s infinite;
 }
 .ph-perf-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: rgba(200,169,81,0.15);
-  border: 1.5px solid rgba(200,169,81,0.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  flex-shrink: 0;
+  width: 38px; height: 38px; border-radius: 50%; background: rgba(200,169,81,0.15);
+  border: 1.5px solid rgba(200,169,81,0.35); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0;
 }
 .ph-perf-text { display: flex; flex-direction: column; gap: 2px; }
 .ph-perf-label { font-size: 0.65rem; color: rgba(255,255,255,0.5); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
 .ph-perf-val { font-size: 0.82rem; color: var(--gold-light); font-weight: 700; }
-
-/* ── Thin gold divider line bottom of hero ── */
 .ph-hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
   background: linear-gradient(90deg, transparent 0%, var(--gold) 30%, var(--gold-light) 50%, var(--gold) 70%, transparent 100%);
   z-index: 10;
 }
 
-/* ── RESPONSIVE ── */
+/* ═══════════════════════════════════════════════════════════
+   ★ WHY BUSINESSES PARTNER WITH US — replaces .values-strip
+   Positioned immediately after the hero.
+═══════════════════════════════════════════════════════════ */
+#why-partner {
+  background: linear-gradient(160deg, var(--navy-dark) 0%, var(--navy) 60%, #1e3461 100%);
+  padding: 96px 5%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Dot-grid background texture */
+#why-partner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(200,169,81,0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+}
+
+/* Gold radial glow top-right */
+#why-partner::after {
+  content: '';
+  position: absolute; top: -120px; right: -120px; width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(200,169,81,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.wp-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.wp-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.wp-label {
+  font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--gold-light); font-weight: 700; margin-bottom: 0.6rem; display: block;
+}
+.wp-title {
+  font-family: var(--font-head); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700;
+  color: var(--white); line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 1rem;
+}
+.wp-title em { color: var(--gold-light); font-style: normal; }
+.wp-divider {
+  width: 50px; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 2px; margin: 0 auto 1.5rem;
+}
+.wp-subtitle {
+  color: rgba(255,255,255,0.6); font-size: 1rem; font-weight: 300; line-height: 1.8;
+  max-width: 640px; margin: 0 auto;
+}
+
+/* 4-card grid */
+.wp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+/* Individual card — starts hidden, JS adds .wp-visible for slide-up */
+.wp-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(200,169,81,0.15);
+  border-radius: var(--radius);
+  padding: 32px 26px 28px;
+  position: relative;
+  overflow: hidden;
+  /* Slide-up initial state */
+  opacity: 0;
+  transform: translateY(42px);
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease;
+}
+
+/* Stagger delays for the 4 cards */
+.wp-card:nth-child(1) { transition-delay: 0s; }
+.wp-card:nth-child(2) { transition-delay: 0.12s; }
+.wp-card:nth-child(3) { transition-delay: 0.24s; }
+.wp-card:nth-child(4) { transition-delay: 0.36s; }
+
+/* Visible state triggered by IntersectionObserver */
+.wp-card.wp-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Gold top-border reveal on hover */
+.wp-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s ease;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+/* Background radial glow bottom-right */
+.wp-card::after {
+  content: ''; position: absolute; bottom: -40px; right: -40px; width: 100px; height: 100px;
+  background: radial-gradient(circle, rgba(200,169,81,0.06) 0%, transparent 70%);
+  border-radius: 50%; transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.wp-card:hover {
+  transform: translateY(-8px) !important; /* override slide-up when visible */
+  box-shadow: 0 24px 60px rgba(0,0,0,0.35), 0 0 0 1px rgba(200,169,81,0.25);
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(200,169,81,0.3);
+}
+.wp-card:hover::before { transform: scaleX(1); }
+.wp-card:hover::after  { transform: scale(2); opacity: 0.6; }
+
+/* Ghost step number */
+.wp-num {
+  position: absolute; top: 22px; right: 22px;
+  font-family: var(--font-head); font-size: 3.2rem; font-weight: 800;
+  color: rgba(200,169,81,0.08); line-height: 1;
+  transition: color 0.35s; user-select: none;
+}
+.wp-card:hover .wp-num { color: rgba(200,169,81,0.14); }
+
+/* Icon wrap */
+.wp-icon-wrap {
+  width: 58px; height: 58px; border-radius: 14px;
+  background: rgba(200,169,81,0.1); border: 1.5px solid rgba(200,169,81,0.22);
+  display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
+  transition: background 0.35s, border-color 0.35s, transform 0.35s; flex-shrink: 0;
+}
+.wp-card:hover .wp-icon-wrap { background: rgba(200,169,81,0.18); border-color: rgba(200,169,81,0.45); transform: scale(1.08); }
+.wp-icon-wrap svg { width: 26px; height: 26px; stroke: var(--gold-light); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Tag, title, body */
+.wp-card-tag { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: var(--gold); margin-bottom: 8px; display: block; }
+.wp-card h4  { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; color: var(--white); line-height: 1.3; margin-bottom: 12px; }
+.wp-card p   { font-size: 0.84rem; color: rgba(255,255,255,0.62); line-height: 1.8; font-weight: 300; }
+.wp-card p strong { color: var(--gold-light); font-weight: 700; }
+
+/* CTA footer row */
+.wp-footer {
+  display: flex; align-items: center; justify-content: center; gap: 20px;
+  margin-top: 52px; flex-wrap: wrap;
+}
+.wp-footer-text { font-size: 0.9rem; color: rgba(255,255,255,0.5); font-weight: 300; }
+
+/* Responsive: 2 cols on medium, 1 on small */
+@media (max-width: 1100px) { .wp-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 700px)  { .wp-grid { grid-template-columns: 1fr; gap: 16px; } }
+@media (max-width: 600px)  { .wp-footer { flex-direction: column; text-align: center; } }
+
+/* ─────────────────────────────────────────
+   HERO RESPONSIVE
+───────────────────────────────────────── */
 @media (max-width: 1100px) {
-  .ph-inner {
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-  }
+  .ph-inner { grid-template-columns: 1fr 1fr; gap: 0; }
   .ph-img-wrap img { height: 460px; }
   .ph-cred-card { left: -10px; }
   .ph-perf-card { right: -10px; }
 }
-
 @media (max-width: 860px) {
-  /* Stack vertically on tablet/mobile */
-  .ph-inner {
-    grid-template-columns: 1fr;
-    min-height: unset;
-    padding-bottom: 0;
-  }
-  .ph-left {
-    padding: 60px 0 36px;
-    order: 1;
-  }
-  .ph-right {
-    order: 2;
-    justify-content: center;
-    padding: 0;
-  }
-  .ph-img-frame {
-    max-width: 100%;
-    margin: 0;
-  }
+  .ph-inner { grid-template-columns: 1fr; min-height: unset; padding-bottom: 0; }
+  .ph-left  { padding: 60px 0 36px; order: 1; }
+  .ph-right { order: 2; justify-content: center; padding: 0; }
+  .ph-img-frame { max-width: 100%; margin: 0; }
   .ph-img-wrap img { height: 380px; }
   .ph-cred-card { left: 16px; bottom: 20px; }
   .ph-perf-card { right: 16px; top: 20px; }
   .ph-headline { font-size: clamp(2rem, 6vw, 3rem); }
   .ph-hero { padding-bottom: 0; }
 }
-
 @media (max-width: 540px) {
   .ph-left { padding: 48px 0 28px; }
   .ph-img-wrap img { height: 300px; }
@@ -575,16 +452,7 @@ nav {
 }
 
 /* ─────────────────────────────────────────
-   VALUES STRIP (unchanged)
-───────────────────────────────────────── */
-.values-strip { background: var(--navy); padding: 3.5rem 5%; display: flex; gap: 0; }
-.value-item { flex: 1; padding: 0 2rem; border-right: 1px solid rgba(255,255,255,0.08); }
-.value-item:last-child { border-right: none; }
-.value-item h4 { font-family: var(--font-head); font-size: 1.15rem; color: var(--gold-light); margin-bottom: 0.6rem; }
-.value-item p { color: rgba(255,255,255,0.65); font-size: 0.875rem; line-height: 1.65; font-weight: 300; }
-
-/* ─────────────────────────────────────────
-   SECTION SHARED (unchanged)
+   SECTION SHARED
 ───────────────────────────────────────── */
 section { padding: 90px 5%; }
 .inner { max-width: 1200px; margin: 0 auto; }
@@ -601,7 +469,7 @@ section { padding: 90px 5%; }
 .btn-outline-white:hover { border-color: var(--gold); background: rgba(200,169,81,0.12); }
 
 /* ─────────────────────────────────────────
-   ABOUT + TEAM (unchanged)
+   ABOUT + TEAM
 ───────────────────────────────────────── */
 #about-team-hero { background: var(--white); padding: 90px 5%; }
 .ath-inner { max-width: 1200px; margin: 0 auto; }
@@ -618,7 +486,7 @@ section { padding: 90px 5%; }
 .about-val-text strong { display: block; font-size: 0.85rem; color: var(--navy); font-weight: 700; }
 .about-val-text span { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
 
-/* Team carousel (unchanged) */
+/* Team Swiper */
 .team-sub-header { text-align: center; margin-bottom: 3rem; }
 .team-sub-header .divider { margin: 1rem auto; }
 .team-swiper-section { position: relative; padding-bottom: 60px; }
@@ -648,7 +516,7 @@ section { padding: 90px 5%; }
 .team-swiper-pagination .swiper-pagination-bullet-active { background: var(--gold); transform: scale(1.3); }
 
 /* ─────────────────────────────────────────
-   SERVICES (unchanged)
+   SERVICES
 ───────────────────────────────────────── */
 #services { background: var(--light-bg); }
 .services-header { text-align: center; margin-bottom: 3.5rem; }
@@ -670,56 +538,7 @@ section { padding: 90px 5%; }
 .service-card p { color: var(--muted); font-size: 0.875rem; line-height: 1.65; font-weight: 300; }
 
 /* ─────────────────────────────────────────
-   BUSINESS MODEL (unchanged)
-───────────────────────────────────────── */
-#business-model {
-  background: linear-gradient(160deg, var(--navy-dark) 0%, var(--navy) 60%, #1e3461 100%);
-  padding: 96px 5%;
-  position: relative;
-  overflow: hidden;
-}
-#business-model::before {
-  content: '';
-  position: absolute; inset: 0;
-  background-image: radial-gradient(circle, rgba(200,169,81,0.05) 1px, transparent 1px);
-  background-size: 44px 44px;
-  pointer-events: none;
-}
-#business-model::after {
-  content: '';
-  position: absolute;
-  top: -120px; right: -120px;
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(200,169,81,0.08) 0%, transparent 70%);
-  pointer-events: none;
-}
-.bm-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
-.bm-header { text-align: center; margin-bottom: 60px; }
-.bm-header .section-label { color: var(--gold-light); }
-.bm-header .section-h { color: var(--white); }
-.bm-subtitle { color: rgba(255,255,255,0.6); font-size: 1rem; font-weight: 300; line-height: 1.8; max-width: 640px; margin: 0 auto; }
-.bm-divider { width: 50px; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); border-radius: 2px; margin: 1rem auto 1.5rem; }
-.bm-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
-.bm-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(200,169,81,0.15); border-radius: var(--radius); padding: 32px 26px 28px; position: relative; overflow: hidden; transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease, border-color 0.35s ease; cursor: default; }
-.bm-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; border-radius: var(--radius) var(--radius) 0 0; }
-.bm-card::after { content: ''; position: absolute; bottom: -40px; right: -40px; width: 100px; height: 100px; background: radial-gradient(circle, rgba(200,169,81,0.06) 0%, transparent 70%); border-radius: 50%; transition: transform 0.4s ease, opacity 0.4s ease; }
-.bm-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(0,0,0,0.35), 0 0 0 1px rgba(200,169,81,0.25); background: rgba(255,255,255,0.07); border-color: rgba(200,169,81,0.3); }
-.bm-card:hover::before { transform: scaleX(1); }
-.bm-card:hover::after { transform: scale(2); opacity: 0.6; }
-.bm-num { position: absolute; top: 22px; right: 22px; font-family: var(--font-head); font-size: 3.2rem; font-weight: 800; color: rgba(200,169,81,0.08); line-height: 1; transition: color 0.35s; user-select: none; }
-.bm-card:hover .bm-num { color: rgba(200,169,81,0.14); }
-.bm-icon-wrap { width: 58px; height: 58px; border-radius: 14px; background: rgba(200,169,81,0.1); border: 1.5px solid rgba(200,169,81,0.22); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; transition: background 0.35s, border-color 0.35s, transform 0.35s; flex-shrink: 0; }
-.bm-card:hover .bm-icon-wrap { background: rgba(200,169,81,0.18); border-color: rgba(200,169,81,0.45); transform: scale(1.08); }
-.bm-icon-wrap svg { width: 26px; height: 26px; stroke: var(--gold-light); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.35s; }
-.bm-card:hover .bm-icon-wrap svg { stroke: var(--gold-light); }
-.bm-card-tag { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: var(--gold); margin-bottom: 8px; display: block; }
-.bm-card h4 { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; color: var(--white); line-height: 1.3; margin-bottom: 12px; }
-.bm-card p { font-size: 0.84rem; color: rgba(255,255,255,0.62); line-height: 1.8; font-weight: 300; }
-.bm-footer { display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 52px; flex-wrap: wrap; }
-.bm-footer-text { font-size: 0.9rem; color: rgba(255,255,255,0.5); font-weight: 300; }
-
-/* ─────────────────────────────────────────
-   MARKETPLACES (unchanged)
+   MARKETPLACES
 ───────────────────────────────────────── */
 #marketplaces { background: var(--light-bg); padding: 90px 5%; }
 .mp-header { text-align: center; margin-bottom: 3rem; }
@@ -748,8 +567,7 @@ section { padding: 90px 5%; }
 .mp-stat-lbl { font-size: 0.58rem; color: var(--muted2); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; display: block; }
 
 /* ─────────────────────────────────────────
-   STEPS / FAQ / TESTIMONIALS / BLOG / etc.
-   (all unchanged from original)
+   STEPS / FAQ / TESTIMONIALS / BLOG
 ───────────────────────────────────────── */
 #steps { background: var(--navy); padding: 90px 5%; }
 #steps .section-label { color: var(--gold-light); }
@@ -846,20 +664,8 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
 .reveal.visible { opacity: 1; transform: none; }
 
 /* ─────────────────────────────────────────
-   GLOBAL RESPONSIVE (unchanged + hero)
+   GLOBAL RESPONSIVE
 ───────────────────────────────────────── */
-@media (max-width: 1100px) {
-  .bm-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 1000px) {
-  .globe-layout { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 24px; }
-  .globe-center { grid-column: 1 / -1; grid-row: 1; }
-  .cards-left { grid-column: 1; flex-direction: row; flex-wrap: wrap; align-items: flex-start; padding-right: 0; justify-content: center; }
-  .cards-right { grid-column: 2; flex-direction: row; flex-wrap: wrap; align-items: flex-start; padding-left: 0; justify-content: center; }
-  .conn-lines-wrap { display: none; }
-  .team-swiper-prev { left: -10px; }
-  .team-swiper-next { right: -10px; }
-}
 @media (max-width: 900px) {
   .nav-links { display: none; }
   .nav-phone { display: none; }
@@ -868,9 +674,6 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   .nav-mobile-open .nav-links { display: flex; flex-direction: column; position: absolute; top: 76px; left: 0; right: 0; background: var(--white); box-shadow: var(--shadow-md); padding: 1rem 0; z-index: 998; }
   .nav-mobile-open .nav-links li a { line-height: 1; padding: 12px 5%; }
   .nav-mobile-open .nav-links li a::after { display: none; }
-  .values-strip { flex-direction: column; gap: 1.5rem; }
-  .value-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0 0 1.5rem; }
-  .value-item:last-child { border-bottom: none; }
   .services-intro { grid-template-columns: 1fr; gap: 2rem; }
   .services-grid { grid-template-columns: 1fr 1fr; }
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
@@ -883,13 +686,21 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   section { padding: 70px 4%; }
   #about-team-hero { padding: 70px 4%; }
   #marketplaces { padding: 70px 4%; }
-  #business-model { padding: 72px 4%; }
+  #why-partner { padding: 72px 4%; }
+}
+@media (max-width: 1000px) {
+  .globe-layout { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 24px; }
+  .globe-center { grid-column: 1 / -1; grid-row: 1; }
+  .cards-left { grid-column: 1; flex-direction: row; flex-wrap: wrap; align-items: flex-start; padding-right: 0; justify-content: center; }
+  .cards-right { grid-column: 2; flex-direction: row; flex-wrap: wrap; align-items: flex-start; padding-left: 0; justify-content: center; }
+  .conn-lines-wrap { display: none; }
+  .team-swiper-prev { left: -10px; }
+  .team-swiper-next { right: -10px; }
 }
 @media (max-width: 700px) {
   .globe-layout { grid-template-columns: 1fr; }
   .cards-left, .cards-right { grid-column: 1; flex-direction: column; align-items: center; }
   .mp-card { width: 100%; max-width: 320px; }
-  .bm-grid { grid-template-columns: 1fr; gap: 16px; }
 }
 @media (max-width: 600px) {
   .services-grid { grid-template-columns: 1fr; }
@@ -904,13 +715,12 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   .topbar { justify-content: center; }
   .topbar .left-info { display: none; }
   .about-values { grid-template-columns: 1fr; }
-  .bm-footer { flex-direction: column; text-align: center; }
 }
 </style>
 </head>
 <body>
 
-<!-- TOP BAR (unchanged) -->
+<!-- TOP BAR -->
 <div class="topbar">
   <div class="left-info" style="display:flex;gap:1.5rem;flex-wrap:wrap;">
     <span>📞 +92 333 673 0540</span>
@@ -924,7 +734,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   </div>
 </div>
 
-<!-- NAV (unchanged) -->
+<!-- NAV -->
 <nav id="main-nav">
   <a href="#" class="nav-logo-text">Minor<span>soltech</span></a>
   <div class="nav-center">
@@ -932,7 +742,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
       <li><a href="#">Home</a></li>
       <li><a href="#about-team-hero">About Us</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#business-model">Business Model</a></li>
+      <li><a href="#why-partner">Business Model</a></li>
       <li><a href="#about-team-hero">Team</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact Us</a></li>
@@ -948,48 +758,29 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
 </nav>
 
 <!-- ═══════════════════════════════════════════════════════════
-     ★ NEW HERO — Premium 2-Column Layout
-     Replaces the old hero slider entirely.
-     Image path: 192170777_1681746962009591_7091455462882851203_n.jpg
-     (same local path as original; update to GitHub raw URL if needed)
+     ★ HERO
 ═══════════════════════════════════════════════════════════ -->
 <div class="ph-hero" role="banner">
-
-  <!-- Animated background layers -->
   <div class="ph-bg-canvas" aria-hidden="true"></div>
-
-  <!-- Floating gold particles -->
   <div class="ph-particles" aria-hidden="true">
     <div class="ph-p"></div><div class="ph-p"></div><div class="ph-p"></div>
     <div class="ph-p"></div><div class="ph-p"></div><div class="ph-p"></div>
     <div class="ph-p"></div><div class="ph-p"></div><div class="ph-p"></div>
     <div class="ph-p"></div>
   </div>
-
-  <!-- 2-column inner grid -->
   <div class="ph-inner">
-
-    <!-- ── LEFT: Content ── -->
     <div class="ph-left">
-
-      <!-- Tag pill -->
       <div class="ph-tag">
         <span class="ph-tag-dot" aria-hidden="true"></span>
         Amazon Wholesale FBA Experts
       </div>
-
-      <!-- Headline -->
       <h1 class="ph-headline">
         Scale Your Amazon<br>
         Portfolio on <em>Autopilot.</em>
       </h1>
-
-      <!-- Sub-headline -->
       <p class="ph-sub">
         We handle product research, brand approvals, supplier negotiations, sourcing, and operations — while you focus on growth. Our performance-based model means we only win when you do.
       </p>
-
-      <!-- CTA Buttons -->
       <div class="ph-ctas">
         <a href="#contact" class="ph-btn-primary">
           Book a Consultation
@@ -1000,44 +791,20 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
         </a>
       </div>
-
-      <!-- Trust indicator chips -->
       <div class="ph-trust" role="list">
-        <div class="ph-trust-item" role="listitem">
-          <span class="ph-trust-icon" aria-hidden="true">✦</span>
-          Performance-Based Model
-        </div>
-        <div class="ph-trust-item" role="listitem">
-          <span class="ph-trust-icon" aria-hidden="true">✦</span>
-          No Operational Burden
-        </div>
-        <div class="ph-trust-item" role="listitem">
-          <span class="ph-trust-icon" aria-hidden="true">✦</span>
-          Brand Approval Expertise
-        </div>
-        <div class="ph-trust-item" role="listitem">
-          <span class="ph-trust-icon" aria-hidden="true">✦</span>
-          Supplier Network Access
-        </div>
+        <div class="ph-trust-item" role="listitem"><span class="ph-trust-icon" aria-hidden="true">✦</span>Performance-Based Model</div>
+        <div class="ph-trust-item" role="listitem"><span class="ph-trust-icon" aria-hidden="true">✦</span>No Operational Burden</div>
+        <div class="ph-trust-item" role="listitem"><span class="ph-trust-icon" aria-hidden="true">✦</span>Brand Approval Expertise</div>
+        <div class="ph-trust-item" role="listitem"><span class="ph-trust-icon" aria-hidden="true">✦</span>Supplier Network Access</div>
       </div>
-
-    </div><!-- /ph-left -->
-
-    <!-- ── RIGHT: Founder Image ── -->
+    </div>
     <div class="ph-right">
-
-      <!-- Decorative SVG rings behind image -->
       <svg class="ph-img-rings" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="160" cy="160" r="130" stroke-width="1" stroke-dasharray="6 12" opacity="0.18"/>
         <circle cx="160" cy="160" r="150" stroke-width="0.7" stroke-dasharray="4 16" opacity="0.10"/>
       </svg>
-
       <div class="ph-img-frame">
-
-        <!-- Gold ambient glow -->
         <div class="ph-img-glow" aria-hidden="true"></div>
-
-        <!-- Performance badge (top-right) -->
         <div class="ph-perf-card" aria-label="Performance-based model indicator">
           <div class="ph-perf-icon" aria-hidden="true">📈</div>
           <div class="ph-perf-text">
@@ -1045,55 +812,100 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
             <span class="ph-perf-val">Performance-Based</span>
           </div>
         </div>
-
-        <!-- Main image -->
         <div class="ph-img-wrap" id="ph-img-wrap">
-          <!--
-            PRIMARY: GitHub raw asset URL for the founder image.
-            FALLBACK: Same local filename as in the original site.
-            Update the src below to your actual GitHub raw URL, e.g.:
-            https://raw.githubusercontent.com/muzzamilsana-ai/minorsol/main/192170777_1681746962009591_7091455462882851203_n.jpg
-          -->
           <img
             src="https://raw.githubusercontent.com/muzzamilsana-ai/minorsol/main/192170777_1681746962009591_7091455462882851203_n.jpg"
             alt="Muzzamil Sana Khan – Founder &amp; CEO, Minorsoltech"
             onerror="this.src='192170777_1681746962009591_7091455462882851203_n.jpg';"
             loading="eager"
           />
-          <!-- Bottom gradient fade blends image into hero bg -->
           <div class="ph-img-fade" aria-hidden="true"></div>
         </div>
-
-        <!-- Credentials floating card (bottom-left) -->
         <div class="ph-cred-card" aria-label="Years of experience">
           <span class="ph-cred-num">4+</span>
           <span class="ph-cred-label">Years of<br>Experience</span>
         </div>
-
       </div>
-    </div><!-- /ph-right -->
-
-  </div><!-- /ph-inner -->
-</div>
-<!-- ════ END NEW HERO ════ -->
-
-<!-- VALUES STRIP (unchanged) -->
-<div class="values-strip">
-  <div class="value-item">
-    <h4>Our Value</h4>
-    <p>We value transparency, honesty, discipline, humility, and a winner's mindset—driving productivity, resilience, and continuous growth.</p>
-  </div>
-  <div class="value-item">
-    <h4>Our Mission</h4>
-    <p>Helping clients build passive income through Amazon Wholesale FBA—creating freedom, security, and peace of mind.</p>
-  </div>
-  <div class="value-item">
-    <h4>Why Minorsoltech</h4>
-    <p>Born from personal struggle, built with purpose. We don't just run businesses—we build pathways to financial independence for you.</p>
+    </div>
   </div>
 </div>
 
-<!-- ABOUT + TEAM (unchanged) -->
+<!-- ═══════════════════════════════════════════════════════════
+     ★ WHY BUSINESSES PARTNER WITH US
+     (replaces the old values-strip; now positioned right after hero)
+═══════════════════════════════════════════════════════════ -->
+<section id="why-partner" aria-labelledby="wp-heading">
+  <div class="wp-inner">
+
+    <!-- Section header -->
+    <div class="wp-header">
+      <span class="wp-label">Our Approach</span>
+      <h2 class="wp-title" id="wp-heading">Why Businesses <em>Partner With Us</em></h2>
+      <div class="wp-divider"></div>
+      <p class="wp-subtitle">We help Amazon wholesale businesses grow through supplier relationships, operational expertise, and performance-based scaling — so your investment works harder.</p>
+    </div>
+
+    <!-- 4 Pillar Cards -->
+    <div class="wp-grid" id="wp-grid">
+
+      <!-- 01 -->
+      <div class="wp-card" data-wp-card>
+        <div class="wp-num">01</div>
+        <div class="wp-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        </div>
+        <span class="wp-card-tag">Core Activity</span>
+        <h4>What We Do</h4>
+        <p>We build and scale Amazon wholesale businesses by handling brand approvals, supplier negotiations, product sourcing, and account growth — end to end, so you don't have to.</p>
+      </div>
+
+      <!-- 02 -->
+      <div class="wp-card" data-wp-card>
+        <div class="wp-num">02</div>
+        <div class="wp-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <span class="wp-card-tag">Our Process</span>
+        <h4>How We Work</h4>
+        <p>Our specialized team works directly with brands to secure approvals, negotiate better pricing, and create strong profit margins — building a sustainable, long-term wholesale business for you.</p>
+      </div>
+
+      <!-- 03 -->
+      <div class="wp-card" data-wp-card>
+        <div class="wp-num">03</div>
+        <div class="wp-icon-wrap">
+          <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        </div>
+        <span class="wp-card-tag">Revenue Structure</span>
+        <h4>Our Business Model</h4>
+        <p>We operate on a fully performance-based model with <strong>No Upfront or Hidden Charges</strong>. We only earn when the business becomes profitable — aligning our success directly with yours.</p>
+      </div>
+
+      <!-- 04 -->
+      <div class="wp-card" data-wp-card>
+        <div class="wp-num">04</div>
+        <div class="wp-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <span class="wp-card-tag">Partner Advantage</span>
+        <h4>Why It's Low Risk</h4>
+        <p>Clients don't pay operational or team management costs — we handle and fund the entire operational side ourselves. This makes the process <strong>safer and more growth-focused</strong> for every partner.</p>
+      </div>
+
+    </div><!-- /wp-grid -->
+
+    <!-- Footer CTA row -->
+    <div class="wp-footer">
+      <span class="wp-footer-text">Ready to build a profitable Amazon business with zero operational burden?</span>
+      <a href="#contact" class="btn-gold">Book a Free Strategy Call ›</a>
+      <a href="#steps" class="btn-outline-white" style="border-color:rgba(255,255,255,0.35);">See How It Works</a>
+    </div>
+
+  </div>
+</section>
+<!-- ════ END WHY PARTNER ════ -->
+
+<!-- ABOUT + TEAM -->
 <section id="about-team-hero">
   <div class="ath-inner">
     <div class="about-grid">
@@ -1121,7 +933,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
       </div>
     </div>
 
-    <!-- TEAM SWIPER (unchanged) -->
+    <!-- TEAM SWIPER -->
     <div class="team-sub-header reveal">
       <span class="section-label">Our People</span>
       <h2 class="section-h">Meet the <em>Team</em></h2>
@@ -1194,7 +1006,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   </div>
 </section>
 
-<!-- SERVICES (unchanged) -->
+<!-- SERVICES -->
 <section id="services">
   <div class="inner">
     <div class="services-header reveal">
@@ -1233,62 +1045,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   </div>
 </section>
 
-<!-- BUSINESS MODEL (unchanged) -->
-<section id="business-model">
-  <div class="bm-inner">
-    <div class="bm-header reveal">
-      <span class="section-label">Our Approach</span>
-      <h2 class="section-h">Why Businesses <em>Partner With Us</em></h2>
-      <div class="bm-divider"></div>
-      <p class="bm-subtitle">We help Amazon wholesale businesses grow through supplier relationships, operational expertise, and performance-based scaling — so your investment works harder.</p>
-    </div>
-    <div class="bm-grid">
-      <div class="bm-card reveal">
-        <div class="bm-num">01</div>
-        <div class="bm-icon-wrap">
-          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-        </div>
-        <span class="bm-card-tag">Core Activity</span>
-        <h4>What We Do</h4>
-        <p>We build and scale Amazon wholesale businesses by handling brand approvals, supplier negotiations, product sourcing, and account growth — end to end, so you don't have to.</p>
-      </div>
-      <div class="bm-card reveal">
-        <div class="bm-num">02</div>
-        <div class="bm-icon-wrap">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <span class="bm-card-tag">Our Process</span>
-        <h4>How We Work</h4>
-        <p>Our specialized team works directly with brands to secure approvals, negotiate better pricing, and create strong profit margins — building a sustainable, long-term wholesale business for you.</p>
-      </div>
-      <div class="bm-card reveal">
-        <div class="bm-num">03</div>
-        <div class="bm-icon-wrap">
-          <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-        </div>
-        <span class="bm-card-tag">Revenue Structure</span>
-        <h4>Our Business Model</h4>
-        <p>We operate on a fully performance-based model with no upfront or hidden charges. We only earn when the business becomes profitable — aligning our success directly with yours.</p>
-      </div>
-      <div class="bm-card reveal">
-        <div class="bm-num">04</div>
-        <div class="bm-icon-wrap">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-        </div>
-        <span class="bm-card-tag">Partner Advantage</span>
-        <h4>Why It's Low Risk</h4>
-        <p>Clients don't pay operational or team management costs — we handle and fund the entire operational side ourselves. This makes the process safer and more growth-focused for every partner.</p>
-      </div>
-    </div>
-    <div class="bm-footer reveal">
-      <span class="bm-footer-text">Ready to build a profitable Amazon business with zero operational burden?</span>
-      <a href="#contact" class="btn-gold">Book a Free Strategy Call ›</a>
-      <a href="#steps" class="btn-outline-white" style="border-color:rgba(255,255,255,0.35);">See How It Works</a>
-    </div>
-  </div>
-</section>
-
-<!-- MARKETPLACES (unchanged) -->
+<!-- MARKETPLACES -->
 <section id="marketplaces">
   <div class="inner">
     <div class="mp-header reveal">
@@ -1386,7 +1143,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   </div>
 </section>
 
-<!-- HOW IT WORKS (unchanged) -->
+<!-- HOW IT WORKS -->
 <section id="steps">
   <div class="inner">
     <div class="reveal" style="text-align:center;margin-bottom:3.5rem;">
@@ -1404,7 +1161,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   </div>
 </section>
 
-<!-- FAQ (unchanged) -->
+<!-- FAQ -->
 <section id="faq">
   <div class="inner">
     <div class="faq-grid">
@@ -1436,7 +1193,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   </div>
 </section>
 
-<!-- TESTIMONIALS (unchanged) -->
+<!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="inner">
     <div class="testimonials-header reveal">
@@ -1452,7 +1209,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   </div>
 </section>
 
-<!-- BLOG (unchanged) -->
+<!-- BLOG -->
 <section id="blog">
   <div class="inner">
     <div class="blog-header reveal">
@@ -1471,7 +1228,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   </div>
 </section>
 
-<!-- NEWSLETTER (unchanged) -->
+<!-- NEWSLETTER -->
 <div class="newsletter" id="contact">
   <div style="max-width:700px;margin:0 auto;">
     <span class="section-label" style="color:var(--gold-light);">Newsletter</span>
@@ -1488,12 +1245,12 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   </div>
 </div>
 
-<!-- MAP (unchanged) -->
+<!-- MAP -->
 <div class="map-section">
   <iframe src="https://maps.google.com/maps?q=The+Centaurus+Mall+Jinnah+Avenue+Islamabad+Pakistan&t=m&z=15&output=embed&iwloc=near" title="Minorsoltech Office Location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
 </div>
 
-<!-- FOOTER (unchanged) -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand-col">
@@ -1511,7 +1268,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
         <li><a href="#">Home</a></li>
         <li><a href="#about-team-hero">About Us</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="#business-model">Business Model</a></li>
+        <li><a href="#why-partner">Business Model</a></li>
         <li><a href="#contact">Book Consultation</a></li>
       </ul>
     </div>
@@ -1536,53 +1293,75 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   </div>
 </footer>
 
-<!-- WHATSAPP FLOAT (unchanged) -->
+<!-- WHATSAPP FLOAT -->
 <a href="https://wa.me/923336730540" class="wa-float" target="_blank" title="Chat on WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
   </svg>
 </a>
 
-<!-- BACK TO TOP (unchanged) -->
+<!-- BACK TO TOP -->
 <div class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</div>
 
-<!-- Swiper JS (unchanged) -->
+<!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script>
 /* ════════════════════════════════════════════════════════════
-   ★ NEW: Hero — subtle mouse parallax on founder image
-   Adds a slight depth effect as the cursor moves over the hero.
+   ★ WHY PARTNER SECTION — progressive slide-up & fade-in
+   Uses IntersectionObserver; adds .wp-visible to each card
+   individually so stagger-delay CSS kicks in naturally.
 ════════════════════════════════════════════════════════════ */
 (function() {
-  var hero  = document.querySelector('.ph-hero');
+  var cards = document.querySelectorAll('[data-wp-card]');
+  if (!cards.length) return;
+
+  var fired = false; /* only trigger once per page load */
+
+  var wpObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting && !fired) {
+        fired = true;
+        /* Add .wp-visible to every card in sequence
+           CSS transition-delay handles the stagger. */
+        cards.forEach(function(card) {
+          card.classList.add('wp-visible');
+        });
+        wpObs.disconnect();
+      }
+    });
+  }, { threshold: 0.15 });
+
+  /* Observe the grid container so it fires when the section enters view */
+  var grid = document.getElementById('wp-grid');
+  if (grid) wpObs.observe(grid);
+})();
+
+/* ════════════════════════════════════════════════════════════
+   ★ Hero — subtle mouse parallax on founder image
+════════════════════════════════════════════════════════════ */
+(function() {
+  var hero    = document.querySelector('.ph-hero');
   var imgWrap = document.getElementById('ph-img-wrap');
   if (!hero || !imgWrap) return;
 
   hero.addEventListener('mousemove', function(e) {
-    var rect   = hero.getBoundingClientRect();
+    var rect    = hero.getBoundingClientRect();
     var centerX = rect.left + rect.width  / 2;
     var centerY = rect.top  + rect.height / 2;
-    var dx = (e.clientX - centerX) / rect.width;   /* -0.5 → +0.5 */
-    var dy = (e.clientY - centerY) / rect.height;  /* -0.5 → +0.5 */
-
-    /* Gentle tilt: max ±4 deg each axis */
+    var dx = (e.clientX - centerX) / rect.width;
+    var dy = (e.clientY - centerY) / rect.height;
     imgWrap.style.transform =
       'perspective(900px) rotateY(' + (dx * -4) + 'deg) rotateX(' + (dy * 3) + 'deg)';
   });
-
   hero.addEventListener('mouseleave', function() {
     imgWrap.style.transform = '';
   });
 })();
 
-/* ════ Team Swiper (unchanged) ════ */
+/* ════ Team Swiper ════ */
 var teamSwiper = new Swiper('.teamSwiper', {
-  slidesPerView: 1,
-  spaceBetween: 24,
-  loop: true,
-  speed: 700,
-  grabCursor: true,
+  slidesPerView: 1, spaceBetween: 24, loop: true, speed: 700, grabCursor: true,
   autoplay: { delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true },
   pagination: { el: '#teamPagination', clickable: true, bulletClass: 'swiper-pagination-bullet', bulletActiveClass: 'swiper-pagination-bullet-active' },
   navigation: { prevEl: '#teamPrev', nextEl: '#teamNext' },
@@ -1593,7 +1372,7 @@ var teamSwiper = new Swiper('.teamSwiper', {
   }
 });
 
-/* ════ Scroll Reveals (unchanged) ════ */
+/* ════ Scroll Reveals ════ */
 var revealObs = new IntersectionObserver(function(entries) {
   entries.forEach(function(e, i) {
     if (e.isIntersecting) {
@@ -1604,7 +1383,7 @@ var revealObs = new IntersectionObserver(function(entries) {
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(function(el) { revealObs.observe(el); });
 
-/* ════ FAQ (unchanged) ════ */
+/* ════ FAQ ════ */
 function toggleFaq(btn) {
   var item   = btn.parentElement;
   var answer = item.querySelector('.faq-a');
@@ -1616,7 +1395,7 @@ function toggleFaq(btn) {
   if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
 }
 
-/* ════ Mobile Nav (unchanged) ════ */
+/* ════ Mobile Nav ════ */
 function toggleMobileNav() {
   document.getElementById('main-nav').classList.toggle('nav-mobile-open');
 }
@@ -1626,12 +1405,12 @@ document.querySelectorAll('.nav-links a').forEach(function(a) {
   });
 });
 
-/* ════ Back to Top (unchanged) ════ */
+/* ════ Back to Top ════ */
 window.addEventListener('scroll', function() {
   document.getElementById('back-to-top').classList.toggle('visible', window.scrollY > 500);
 });
 
-/* ════ Smooth scroll (unchanged) ════ */
+/* ════ Smooth scroll ════ */
 document.querySelectorAll('a[href^="#"]').forEach(function(a) {
   a.addEventListener('click', function(e) {
     var h = this.getAttribute('href');
@@ -1641,7 +1420,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
   });
 });
 
-/* ════ Newsletter (unchanged) ════ */
+/* ════ Newsletter ════ */
 function handleNewsletter(e) {
   e.preventDefault();
   var btn = e.target.querySelector('button');
