@@ -354,24 +354,143 @@ section { padding: 90px 5%; }
 .faq-contact-item .val { font-size: 0.9rem; color: var(--white); font-weight: 600; }
 
 /* ─────────────────────────────────────────
-   TESTIMONIALS
+   ★ TESTIMONIALS — Polished Rewrite
 ───────────────────────────────────────── */
 #testimonials { background: var(--white); }
-.testimonials-header { text-align: center; margin-bottom: 3rem; }
+
+.testimonials-header { text-align: center; margin-bottom: 3.5rem; }
 .testimonials-header .divider { margin: 1rem auto; }
-.testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
-.testimonial { background: var(--light-bg); border-radius: var(--radius); padding: 2rem; border: 1px solid var(--border); position: relative; transition: box-shadow .2s; }
-.testimonial:hover { box-shadow: var(--shadow-md); }
-.testimonial::before { content: '\201C'; font-family: var(--font-head); font-size: 5rem; line-height: 1; color: var(--gold); opacity: 0.2; position: absolute; top: 10px; left: 20px; }
-.stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 1rem; }
-.testimonial p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; font-weight: 300; font-style: italic; margin-bottom: 1.5rem; position: relative; z-index: 1; }
-.t-author { display: flex; align-items: center; gap: 12px; }
-.t-avatar { width: 44px; height: 44px; border-radius: 50%; overflow: hidden; border: 2px solid var(--gold); background: var(--navy); display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-weight: 700; color: var(--gold-light); font-size: 0.85rem; flex-shrink: 0; }
-.t-name { font-weight: 700; font-size: 0.9rem; color: var(--navy); }
-.t-role { font-size: 0.75rem; color: var(--muted); }
+.testimonials-header .t-sub {
+  color: var(--muted); font-size: 0.975rem; font-weight: 300; line-height: 1.75;
+  max-width: 660px; margin: 0 auto;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.testimonial {
+  background: var(--light-bg);
+  border-radius: var(--radius);
+  padding: 2.25rem 2rem 2rem;
+  border: 1px solid var(--border);
+  position: relative;
+  transition: box-shadow .3s ease, transform .3s ease, border-color .3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.testimonial:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-6px);
+  border-color: rgba(200,169,81,0.35);
+}
+
+/* large decorative quote mark */
+.testimonial::before {
+  content: '\201C';
+  font-family: var(--font-head);
+  font-size: 6rem;
+  line-height: 1;
+  color: var(--gold);
+  opacity: 0.12;
+  position: absolute;
+  top: 4px;
+  left: 18px;
+  pointer-events: none;
+}
+
+/* gold top-border accent on hover */
+.testimonial::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s ease;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+.testimonial:hover::after { transform: scaleX(1); }
+
+/* category tag */
+.t-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  background: rgba(200,169,81,0.1);
+  border: 1px solid rgba(200,169,81,0.28);
+  border-radius: 100px;
+  padding: 4px 12px;
+  margin-bottom: 1rem;
+  align-self: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+/* star rating */
+.stars {
+  color: var(--gold);
+  font-size: 0.95rem;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* quote body */
+.testimonial blockquote {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.82;
+  font-weight: 300;
+  font-style: italic;
+  margin: 0 0 1.75rem;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+/* author row */
+.t-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-top: 1px solid var(--border);
+  padding-top: 1.2rem;
+  position: relative;
+  z-index: 1;
+}
+.t-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--gold);
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--gold-light);
+  font-size: 0.88rem;
+  flex-shrink: 0;
+  letter-spacing: 0.05em;
+}
+.t-name { font-weight: 700; font-size: 0.92rem; color: var(--navy); line-height: 1.2; }
+.t-role { font-size: 0.76rem; color: var(--muted); margin-top: 2px; font-weight: 300; }
 
 /* ═══════════════════════════════════════════════════════════
-   ★★★ PREMIUM RESOURCE HUB — replaces generic blog
+   ★★★ PREMIUM RESOURCE HUB
 ═══════════════════════════════════════════════════════════ */
 #insights-hub {
   background: var(--navy-dark);
@@ -379,8 +498,6 @@ section { padding: 90px 5%; }
   position: relative;
   overflow: hidden;
 }
-
-/* Background texture layers */
 #insights-hub::before {
   content: '';
   position: absolute; inset: 0;
@@ -394,345 +511,61 @@ section { padding: 90px 5%; }
   background: radial-gradient(circle, rgba(200,169,81,0.06) 0%, transparent 65%);
   pointer-events: none;
 }
-
-/* ── Section header ── */
-.ih-inner {
-  max-width: 1240px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-.ih-header {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: flex-end;
-  gap: 2rem;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-
-.ih-header-left {}
-
-.ih-hub-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 10px;
-}
-.ih-hub-label::before {
-  content: '';
-  display: block;
-  width: 22px; height: 2px;
-  background: var(--gold);
-  border-radius: 1px;
-}
-
-.ih-main-title {
-  font-family: var(--font-head);
-  font-size: clamp(2rem, 3.8vw, 3rem);
-  font-weight: 800;
-  color: var(--white);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: 0;
-}
+.ih-inner { max-width: 1240px; margin: 0 auto; position: relative; z-index: 1; }
+.ih-header { display: grid; grid-template-columns: 1fr auto; align-items: flex-end; gap: 2rem; margin-bottom: 20px; flex-wrap: wrap; }
+.ih-hub-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.ih-hub-label::before { content: ''; display: block; width: 22px; height: 2px; background: var(--gold); border-radius: 1px; }
+.ih-main-title { font-family: var(--font-head); font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 800; color: var(--white); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 0; }
 .ih-main-title em { color: var(--gold-light); font-style: normal; }
-
-.ih-header-ctas {
-  display: flex;
-  gap: 12px;
-  flex-shrink: 0;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-/* Premium CTA buttons for this section */
-.ih-btn-primary {
-  display: inline-flex; align-items: center; gap: 7px;
-  padding: 12px 24px;
-  background: var(--gold);
-  color: var(--navy);
-  font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
-  border-radius: 5px; border: none; cursor: pointer;
-  transition: background .22s, transform .22s, box-shadow .22s;
-  box-shadow: 0 4px 18px rgba(200,169,81,0.3);
-  white-space: nowrap;
-}
+.ih-header-ctas { display: flex; gap: 12px; flex-shrink: 0; flex-wrap: wrap; align-items: center; }
+.ih-btn-primary { display: inline-flex; align-items: center; gap: 7px; padding: 12px 24px; background: var(--gold); color: var(--navy); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; border-radius: 5px; border: none; cursor: pointer; transition: background .22s, transform .22s, box-shadow .22s; box-shadow: 0 4px 18px rgba(200,169,81,0.3); white-space: nowrap; }
 .ih-btn-primary:hover { background: #b8942e; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,169,81,0.38); }
-.ih-btn-secondary {
-  display: inline-flex; align-items: center; gap: 7px;
-  padding: 11px 22px;
-  background: transparent;
-  color: rgba(255,255,255,0.8);
-  font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
-  border-radius: 5px; border: 1.5px solid rgba(255,255,255,0.22); cursor: pointer;
-  transition: border-color .22s, background .22s, color .22s;
-  white-space: nowrap;
-}
+.ih-btn-secondary { display: inline-flex; align-items: center; gap: 7px; padding: 11px 22px; background: transparent; color: rgba(255,255,255,0.8); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; border-radius: 5px; border: 1.5px solid rgba(255,255,255,0.22); cursor: pointer; transition: border-color .22s, background .22s, color .22s; white-space: nowrap; }
 .ih-btn-secondary:hover { border-color: var(--gold); background: rgba(200,169,81,0.08); color: var(--gold-light); }
-
-/* Sub-headline */
-.ih-sub {
-  color: rgba(255,255,255,0.5);
-  font-size: 0.95rem; font-weight: 300; line-height: 1.75;
-  max-width: 700px;
-  margin-bottom: 16px;
-}
-
-/* Trust pills row */
-.ih-trust-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 52px;
-}
-.ih-trust-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  background: rgba(200,169,81,0.08);
-  border: 1px solid rgba(200,169,81,0.2);
-  border-radius: 100px;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.7);
-  letter-spacing: 0.04em;
-  transition: background .2s, border-color .2s;
-}
+.ih-sub { color: rgba(255,255,255,0.5); font-size: 0.95rem; font-weight: 300; line-height: 1.75; max-width: 700px; margin-bottom: 16px; }
+.ih-trust-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 52px; }
+.ih-trust-pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: rgba(200,169,81,0.08); border: 1px solid rgba(200,169,81,0.2); border-radius: 100px; font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,0.7); letter-spacing: 0.04em; transition: background .2s, border-color .2s; }
 .ih-trust-pill:hover { background: rgba(200,169,81,0.14); border-color: rgba(200,169,81,0.38); }
 .ih-trust-pill::before { content: '✔'; color: var(--gold); font-size: 0.68rem; }
-
-/* ── Insights Grid ── */
-.ih-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
-
-/* Individual insight card */
-.ih-card {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 14px;
-  overflow: hidden;
-  transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease, border-color .35s ease, background .35s ease;
-  position: relative;
-  /* Scroll reveal initial state */
-  opacity: 0;
-  transform: translateY(36px);
-}
-.ih-card.ih-visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1), box-shadow .35s ease, border-color .35s ease, background .35s ease;
-}
+.ih-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.ih-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; overflow: hidden; transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease, border-color .35s ease, background .35s ease; position: relative; opacity: 0; transform: translateY(36px); }
+.ih-card.ih-visible { opacity: 1; transform: translateY(0); transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1), box-shadow .35s ease, border-color .35s ease, background .35s ease; }
 .ih-card:nth-child(1){transition-delay:.05s;} .ih-card:nth-child(2){transition-delay:.13s;} .ih-card:nth-child(3){transition-delay:.21s;}
 .ih-card:nth-child(4){transition-delay:.09s;} .ih-card:nth-child(5){transition-delay:.17s;} .ih-card:nth-child(6){transition-delay:.25s;}
-.ih-card:hover {
-  transform: translateY(-8px) !important;
-  border-color: rgba(200,169,81,0.22);
-  background: rgba(255,255,255,0.055);
-  box-shadow: 0 24px 56px rgba(0,0,0,0.5), 0 0 0 1px rgba(200,169,81,0.15);
-}
-
-/* Image wrapper */
-.ih-img-wrap {
-  position: relative;
-  height: 210px;
-  overflow: hidden;
-  background: linear-gradient(135deg, #0d1e38 0%, #162840 100%);
-}
-.ih-img-wrap img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
-  transition: transform .6s cubic-bezier(.22,1,.36,1), filter .6s ease;
-  filter: brightness(0.75) saturate(0.9);
-}
-.ih-card:hover .ih-img-wrap img {
-  transform: scale(1.07);
-  filter: brightness(0.85) saturate(1.05);
-}
-
-/* Gradient overlay on image */
-.ih-img-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(8,15,30,0.05) 0%, rgba(8,15,30,0.6) 100%);
-  transition: opacity .35s;
-}
+.ih-card:hover { transform: translateY(-8px) !important; border-color: rgba(200,169,81,0.22); background: rgba(255,255,255,0.055); box-shadow: 0 24px 56px rgba(0,0,0,0.5), 0 0 0 1px rgba(200,169,81,0.15); }
+.ih-img-wrap { position: relative; height: 210px; overflow: hidden; background: linear-gradient(135deg, #0d1e38 0%, #162840 100%); }
+.ih-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.22,1,.36,1), filter .6s ease; filter: brightness(0.75) saturate(0.9); }
+.ih-card:hover .ih-img-wrap img { transform: scale(1.07); filter: brightness(0.85) saturate(1.05); }
+.ih-img-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(8,15,30,0.05) 0%, rgba(8,15,30,0.6) 100%); transition: opacity .35s; }
 .ih-card:hover .ih-img-overlay { opacity: 0.8; }
-
-/* Category pill on image */
-.ih-cat-pill {
-  position: absolute;
-  top: 14px; left: 14px;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 5px 12px;
-  border-radius: 100px;
-  font-size: 0.63rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.15);
-  white-space: nowrap;
-}
-/* Category colour mapping */
-.ih-cat-pill[data-cat="Performance Marketing"]  { background: rgba(200,169,81,0.85); color: #101c30; }
-.ih-cat-pill[data-cat="Business Scaling"]        { background: rgba(22,197,94,0.22); color: #a8ffca; border-color: rgba(22,197,94,0.3); }
-.ih-cat-pill[data-cat="AI & Automation"]         { background: rgba(139,92,246,0.25); color: #ddc8ff; border-color: rgba(139,92,246,0.3); }
-.ih-cat-pill[data-cat="Investment Models"]       { background: rgba(59,130,246,0.22); color: #bae0ff; border-color: rgba(59,130,246,0.3); }
-.ih-cat-pill[data-cat="E-Commerce Growth"]       { background: rgba(236,72,153,0.22); color: #ffc8e8; border-color: rgba(236,72,153,0.3); }
-.ih-cat-pill[data-cat="Brand Strategy"]          { background: rgba(245,158,11,0.22); color: #ffebc8; border-color: rgba(245,158,11,0.3); }
-
-/* Reading time badge */
-.ih-read-badge {
-  position: absolute;
-  bottom: 14px; right: 14px;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 4px 10px;
-  background: rgba(8,15,30,0.7);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 100px;
-  font-size: 0.6rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.65);
-  letter-spacing: 0.06em;
-  backdrop-filter: blur(8px);
-}
+.ih-cat-pill { position: absolute; top: 14px; left: 14px; z-index: 2; display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 100px; font-size: 0.63rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15); white-space: nowrap; }
+.ih-cat-pill[data-cat="Performance Marketing"] { background: rgba(200,169,81,0.85); color: #101c30; }
+.ih-cat-pill[data-cat="Business Scaling"] { background: rgba(22,197,94,0.22); color: #a8ffca; border-color: rgba(22,197,94,0.3); }
+.ih-cat-pill[data-cat="AI & Automation"] { background: rgba(139,92,246,0.25); color: #ddc8ff; border-color: rgba(139,92,246,0.3); }
+.ih-cat-pill[data-cat="Investment Models"] { background: rgba(59,130,246,0.22); color: #bae0ff; border-color: rgba(59,130,246,0.3); }
+.ih-cat-pill[data-cat="E-Commerce Growth"] { background: rgba(236,72,153,0.22); color: #ffc8e8; border-color: rgba(236,72,153,0.3); }
+.ih-cat-pill[data-cat="Brand Strategy"] { background: rgba(245,158,11,0.22); color: #ffebc8; border-color: rgba(245,158,11,0.3); }
+.ih-read-badge { position: absolute; bottom: 14px; right: 14px; z-index: 2; display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; background: rgba(8,15,30,0.7); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; font-size: 0.6rem; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.06em; backdrop-filter: blur(8px); }
 .ih-read-badge svg { width: 11px; height: 11px; stroke: var(--gold); fill: none; stroke-width: 2; flex-shrink: 0; }
-
-/* Card body */
-.ih-card-body {
-  padding: 22px 22px 24px;
-}
-
-.ih-meta {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-.ih-date {
-  font-size: 0.68rem;
-  color: rgba(255,255,255,0.38);
-  font-weight: 500;
-  letter-spacing: 0.05em;
-}
-.ih-meta-dot {
-  width: 3px; height: 3px; border-radius: 50%;
-  background: rgba(200,169,81,0.4);
-  flex-shrink: 0;
-}
-
-.ih-card-title {
-  font-family: var(--font-head);
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--white);
-  line-height: 1.38;
-  margin-bottom: 10px;
-  transition: color .25s;
-}
+.ih-card-body { padding: 22px 22px 24px; }
+.ih-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.ih-date { font-size: 0.68rem; color: rgba(255,255,255,0.38); font-weight: 500; letter-spacing: 0.05em; }
+.ih-card-title { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; color: var(--white); line-height: 1.38; margin-bottom: 10px; transition: color .25s; }
 .ih-card:hover .ih-card-title { color: var(--gold-light); }
-
-.ih-card-desc {
-  font-size: 0.82rem;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.75;
-  font-weight: 300;
-  margin-bottom: 18px;
-}
-
-/* Read article link */
-.ih-read-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  transition: gap .25s, color .25s;
-}
-.ih-read-link svg {
-  width: 13px; height: 13px;
-  stroke: currentColor; fill: none; stroke-width: 2.2;
-  transition: transform .25s;
-}
+.ih-card-desc { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.75; font-weight: 300; margin-bottom: 18px; }
+.ih-read-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; transition: gap .25s, color .25s; }
+.ih-read-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2.2; transition: transform .25s; }
 .ih-card:hover .ih-read-link { color: var(--gold-light); gap: 10px; }
 .ih-card:hover .ih-read-link svg { transform: translateX(3px); }
-
-/* Hover border-glow top */
-.ih-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), transparent);
-  opacity: 0;
-  transition: opacity .35s;
-}
+.ih-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), transparent); opacity: 0; transition: opacity .35s; }
 .ih-card:hover::before { opacity: 1; }
-
-/* ── Bottom CTA banner ── */
-.ih-cta-banner {
-  margin-top: 60px;
-  background: linear-gradient(120deg, rgba(200,169,81,0.08) 0%, rgba(200,169,81,0.04) 50%, rgba(26,43,74,0.5) 100%);
-  border: 1px solid rgba(200,169,81,0.2);
-  border-radius: 16px;
-  padding: 44px 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-  flex-wrap: wrap;
-  position: relative;
-  overflow: hidden;
-}
-.ih-cta-banner::before {
-  content: '';
-  position: absolute; top: -80px; right: -80px; width: 300px; height: 300px;
-  background: radial-gradient(circle, rgba(200,169,81,0.10) 0%, transparent 65%);
-  pointer-events: none;
-}
-
+.ih-cta-banner { margin-top: 60px; background: linear-gradient(120deg, rgba(200,169,81,0.08) 0%, rgba(200,169,81,0.04) 50%, rgba(26,43,74,0.5) 100%); border: 1px solid rgba(200,169,81,0.2); border-radius: 16px; padding: 44px 48px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; position: relative; overflow: hidden; }
+.ih-cta-banner::before { content: ''; position: absolute; top: -80px; right: -80px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(200,169,81,0.10) 0%, transparent 65%); pointer-events: none; }
 .ih-cta-text { flex: 1; min-width: 260px; }
-.ih-cta-text h3 {
-  font-family: var(--font-head);
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 10px;
-  line-height: 1.2;
-}
+.ih-cta-text h3 { font-family: var(--font-head); font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: var(--white); margin-bottom: 10px; line-height: 1.2; }
 .ih-cta-text h3 em { color: var(--gold-light); font-style: normal; }
-.ih-cta-text p {
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.55);
-  line-height: 1.75;
-  font-weight: 300;
-  max-width: 520px;
-}
-
-.ih-cta-actions {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  flex-shrink: 0;
-}
-
-/* END ── PREMIUM RESOURCE HUB ── */
+.ih-cta-text p { font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.75; font-weight: 300; max-width: 520px; }
+.ih-cta-actions { display: flex; gap: 14px; flex-wrap: wrap; flex-shrink: 0; }
 
 /* ─────────────────────────────────────────
    NEWSLETTER / MAP / FOOTER
@@ -797,6 +630,9 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   .ph-cred-card { left: -10px; }
   .ph-perf-card { right: -10px; }
 }
+@media (max-width: 960px) {
+  .testimonials-grid { grid-template-columns: 1fr 1fr; }
+}
 @media (max-width: 900px) {
   .nav-links { display: none; }
   .nav-phone { display: none; }
@@ -811,7 +647,6 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   .services-grid { grid-template-columns: 1fr 1fr; }
   .steps-grid { grid-template-columns: 1fr; }
   .faq-grid { grid-template-columns: 1fr; }
-  .testimonials-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
   section { padding: 70px 4%; }
   #about-team-hero { padding: 70px 4%; }
@@ -836,12 +671,12 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   .ih-cta-banner { flex-direction: column; padding: 28px 24px; }
   .ih-cta-actions { width: 100%; flex-direction: column; }
   .ih-btn-primary, .ih-btn-secondary { justify-content: center; }
+  .testimonials-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
   .services-grid { grid-template-columns: 1fr; }
   .team-swiper-prev { left: 0; }
   .team-swiper-next { right: 0; }
-  .testimonials-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .newsletter-form { flex-direction: column; }
   .newsletter-form input { border-right: 2px solid rgba(255,255,255,0.15); border-bottom: none; border-radius: 4px 4px 0 0; }
@@ -1226,33 +1061,84 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section id="testimonials">
+<!-- ═══════════════════════════════════════════════════════════
+     ★ TESTIMONIALS — Polished, Results-Oriented Rewrite
+═══════════════════════════════════════════════════════════ -->
+<section id="testimonials" aria-labelledby="testimonials-title">
   <div class="inner">
+
+    <!-- Header -->
     <div class="testimonials-header reveal">
       <span class="section-label">Testimonials</span>
-      <h2 class="section-h">It's always a joy to hear that the work<br>we do has <em>positively</em> impacted clients</h2>
-      <div class="divider"></div>
+      <h2 class="section-h" id="testimonials-title">
+        Trusted by Partners Scaling the<br><em>Amazon Wholesale Frontier</em>
+      </h2>
+      <div class="divider" style="margin: 1rem auto;"></div>
+      <p class="t-sub">
+        We take pride in helping investors and businesses build scalable, hands-free Amazon wholesale operations through strategic sourcing and long-term growth systems.
+      </p>
     </div>
+
+    <!-- Cards -->
     <div class="testimonials-grid">
-      <div class="testimonial reveal"><div class="stars">★★★★★</div><p>I asked for an extra customization and the team made special amendments live on my account. Customer support is amazing — genuinely responsive and helpful.</p><div class="t-author"><div class="t-avatar">MS</div><div><div class="t-name">Maria Silverii</div><div class="t-role">CEO of Blue Illusion</div></div></div></div>
-      <div class="testimonial reveal"><div class="stars">★★★★★</div><p>I love working with Minorsoltech! Support deserves 7 stars but unfortunately that's not an option. I really suggest everyone work with them.</p><div class="t-author"><div class="t-avatar">PM</div><div><div class="t-name">Phillip Macintyre</div><div class="t-role">CEO of Blue Illusion</div></div></div></div>
-      <div class="testimonial reveal"><div class="stars">★★★★★</div><p>Great, versatile team with lots of customisability. Above all, the customer support is amazing, useful, and quick. I must recommend them.</p><div class="t-author"><div class="t-avatar">AH</div><div><div class="t-name">Amy Harrison</div><div class="t-role">Contiki Holidays</div></div></div></div>
+
+      <!-- Card 1 — Strategic Growth -->
+      <div class="testimonial reveal">
+        <span class="t-tag">Strategic Growth</span>
+        <div class="stars">★★★★★</div>
+        <blockquote>
+          "Working with Minorsoltech completely transformed our Amazon wholesale operations. Their team secured premium brand approvals, optimised our sourcing strategy, and scaled both our US and UK stores with exceptional professionalism. The transparency and consistency exceeded every expectation."
+        </blockquote>
+        <div class="t-author">
+          <div class="t-avatar">SM</div>
+          <div>
+            <div class="t-name">Sarah Mitchell</div>
+            <div class="t-role">Founder, Horizon Ventures</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 — Operational Excellence -->
+      <div class="testimonial reveal">
+        <span class="t-tag">Operational Excellence</span>
+        <div class="stars">★★★★★</div>
+        <blockquote>
+          "From supplier negotiations to inventory management, Minorsoltech handled every aspect flawlessly. Their performance-based approach gave us total confidence, and the results have been outstanding. They significantly improved our capital efficiency and stabilised our monthly net margins."
+        </blockquote>
+        <div class="t-author">
+          <div class="t-avatar">AK</div>
+          <div>
+            <div class="t-name">Ahmed Khan</div>
+            <div class="t-role">Managing Director, Apex Trade Solutions</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 — Portfolio Management -->
+      <div class="testimonial reveal">
+        <span class="t-tag">Portfolio Management</span>
+        <div class="stars">★★★★★</div>
+        <blockquote>
+          "Finding a reliable Amazon wholesale partner is difficult, but Minorsoltech delivered beyond expectations. Their systems and proactive support helped us create a highly profitable operation without the stress of managing day-to-day complexities ourselves. Truly a hands-off growth engine."
+        </blockquote>
+        <div class="t-author">
+          <div class="t-avatar">ER</div>
+          <div>
+            <div class="t-name">Elena Rodriguez</div>
+            <div class="t-role">CEO, GlobalBloom Brands</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════
-     ★★★ PREMIUM RESOURCE HUB — replaces generic "Our Blog"
-     Matches existing navy-dark background aesthetic.
-     3-column grid, premium card design, staggered reveal,
-     hover glow, category pills, reading time badges,
-     + bottom CTA banner.
+     ★★★ PREMIUM RESOURCE HUB
 ═══════════════════════════════════════════════════════════ -->
 <section id="insights-hub" aria-labelledby="ih-title">
   <div class="ih-inner">
-
-    <!-- Section header -->
     <div class="ih-header">
       <div class="ih-header-left">
         <div class="ih-hub-label">Insights Hub</div>
@@ -1269,149 +1155,99 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
         </a>
       </div>
     </div>
-
     <p class="ih-sub">Strategic intelligence on AI automation, scalable infrastructure, performance partnerships, and digital growth systems for modern businesses.</p>
-
-    <!-- Trust pills -->
     <div class="ih-trust-row">
       <span class="ih-trust-pill">AI-Integrated Systems</span>
       <span class="ih-trust-pill">No Heavy Upfront Costs</span>
       <span class="ih-trust-pill">Performance-Based Growth</span>
       <span class="ih-trust-pill">Scalable Business Operations</span>
     </div>
-
-    <!-- Cards grid -->
     <div class="ih-grid" id="ih-grid">
-
-      <!-- Card 1 -->
       <article class="ih-card">
         <div class="ih-img-wrap">
           <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=75" alt="Performance Marketing" loading="lazy"/>
           <div class="ih-img-overlay"></div>
           <span class="ih-cat-pill" data-cat="Performance Marketing">Performance Marketing</span>
-          <div class="ih-read-badge">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            5 min read
-          </div>
+          <div class="ih-read-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>5 min read</div>
         </div>
         <div class="ih-card-body">
-          <div class="ih-meta">
-            <span class="ih-date">April 18, 2026</span>
-          </div>
+          <div class="ih-meta"><span class="ih-date">April 18, 2026</span></div>
           <h3 class="ih-card-title">How Performance-Based Partnerships Reduce Business Risk</h3>
           <p class="ih-card-desc">Traditional retainers create uncertainty. Performance-driven partnerships align growth with measurable outcomes, allowing businesses to scale efficiently without excessive upfront operational costs.</p>
           <a href="#" class="ih-read-link">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
       </article>
-
-      <!-- Card 2 -->
       <article class="ih-card">
         <div class="ih-img-wrap">
           <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=700&q=75" alt="Business Scaling" loading="lazy"/>
           <div class="ih-img-overlay"></div>
           <span class="ih-cat-pill" data-cat="Business Scaling">Business Scaling</span>
-          <div class="ih-read-badge">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            4 min read
-          </div>
+          <div class="ih-read-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>4 min read</div>
         </div>
         <div class="ih-card-body">
-          <div class="ih-meta">
-            <span class="ih-date">March 27, 2026</span>
-          </div>
+          <div class="ih-meta"><span class="ih-date">March 27, 2026</span></div>
           <h3 class="ih-card-title">7 Proven Systems That Help Startups Scale Faster</h3>
           <p class="ih-card-desc">From AI-assisted workflow automation to operational infrastructure, discover the scalable systems modern startups use to transition from survival mode to sustainable expansion.</p>
           <a href="#" class="ih-read-link">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
       </article>
-
-      <!-- Card 3 -->
       <article class="ih-card">
         <div class="ih-img-wrap">
           <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=700&q=75" alt="AI Automation" loading="lazy"/>
           <div class="ih-img-overlay"></div>
           <span class="ih-cat-pill" data-cat="AI & Automation">AI &amp; Automation</span>
-          <div class="ih-read-badge">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            6 min read
-          </div>
+          <div class="ih-read-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>6 min read</div>
         </div>
         <div class="ih-card-body">
-          <div class="ih-meta">
-            <span class="ih-date">May 02, 2026</span>
-          </div>
+          <div class="ih-meta"><span class="ih-date">May 02, 2026</span></div>
           <h3 class="ih-card-title">AI Automation Strategies Every Modern Business Needs</h3>
           <p class="ih-card-desc">Modern AI systems can automate product research, customer support, reporting, lead management, and repetitive operations while improving speed, accuracy, and scalability.</p>
           <a href="#" class="ih-read-link">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
       </article>
-
-      <!-- Card 4 -->
       <article class="ih-card">
         <div class="ih-img-wrap">
           <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=700&q=75" alt="Investment Models" loading="lazy"/>
           <div class="ih-img-overlay"></div>
           <span class="ih-cat-pill" data-cat="Investment Models">Investment Models</span>
-          <div class="ih-read-badge">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            5 min read
-          </div>
+          <div class="ih-read-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>5 min read</div>
         </div>
         <div class="ih-card-body">
-          <div class="ih-meta">
-            <span class="ih-date">April 09, 2026</span>
-          </div>
+          <div class="ih-meta"><span class="ih-date">April 09, 2026</span></div>
           <h3 class="ih-card-title">Why Smart Businesses Are Moving Toward Revenue-Sharing</h3>
           <p class="ih-card-desc">Growth-focused companies are replacing outdated service retainers with performance-aligned revenue-sharing models that encourage accountability, innovation, and long-term scalability.</p>
           <a href="#" class="ih-read-link">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
       </article>
-
-      <!-- Card 5 -->
       <article class="ih-card">
         <div class="ih-img-wrap">
           <img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=700&q=75" alt="E-Commerce Growth" loading="lazy"/>
           <div class="ih-img-overlay"></div>
           <span class="ih-cat-pill" data-cat="E-Commerce Growth">E-Commerce Growth</span>
-          <div class="ih-read-badge">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            4 min read
-          </div>
+          <div class="ih-read-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>4 min read</div>
         </div>
         <div class="ih-card-body">
-          <div class="ih-meta">
-            <span class="ih-date">March 14, 2026</span>
-          </div>
+          <div class="ih-meta"><span class="ih-date">March 14, 2026</span></div>
           <h3 class="ih-card-title">The Future of Digital Growth in 2026</h3>
-          <p class="ih-card-desc">AI-driven personalization, decentralized commerce, predictive analytics, and intelligent automation are reshaping how modern businesses acquire and retain customers.</p>
+          <p class="ih-card-desc">AI-driven personalisation, decentralised commerce, predictive analytics, and intelligent automation are reshaping how modern businesses acquire and retain customers.</p>
           <a href="#" class="ih-read-link">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
       </article>
-
-      <!-- Card 6 -->
       <article class="ih-card">
         <div class="ih-img-wrap">
           <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=700&q=75" alt="Brand Strategy" loading="lazy"/>
           <div class="ih-img-overlay"></div>
           <span class="ih-cat-pill" data-cat="Brand Strategy">Brand Strategy</span>
-          <div class="ih-read-badge">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            5 min read
-          </div>
+          <div class="ih-read-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>5 min read</div>
         </div>
         <div class="ih-card-body">
-          <div class="ih-meta">
-            <span class="ih-date">April 25, 2026</span>
-          </div>
+          <div class="ih-meta"><span class="ih-date">April 25, 2026</span></div>
           <h3 class="ih-card-title">How to Build a Scalable Online Brand from Scratch</h3>
           <p class="ih-card-desc">Strong brands are built on scalable systems, strategic positioning, customer trust, and operational consistency — not just visual identity alone.</p>
           <a href="#" class="ih-read-link">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
       </article>
-
-    </div><!-- /ih-grid -->
-
-    <!-- Bottom CTA Banner -->
+    </div>
     <div class="ih-cta-banner">
       <div class="ih-cta-text">
         <h3>Ready to Scale <em>Smarter?</em></h3>
@@ -1425,10 +1261,8 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
         <a href="#why-partner" class="ih-btn-secondary">Start Partnership</a>
       </div>
     </div>
-
   </div>
 </section>
-<!-- ════ END PREMIUM RESOURCE HUB ════ -->
 
 <!-- NEWSLETTER -->
 <div class="newsletter" id="contact">
