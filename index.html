@@ -1192,7 +1192,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
           <div class="ih-meta"><span class="ih-date">April 18, 2026</span></div>
           <h3 class="ih-card-title">How Performance-Based Partnerships Reduce Business Risk</h3>
           <p class="ih-card-desc">Traditional retainers create uncertainty. Performance-driven partnerships align growth with measurable outcomes, allowing businesses to scale efficiently without excessive upfront operational costs.</p>
-          <a href="#" class="ih-read-link">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="#" class="ih-read-link" onclick="openArticle(0);return false;">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
       </article>
       <article class="ih-card">
@@ -1206,7 +1206,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
           <div class="ih-meta"><span class="ih-date">March 27, 2026</span></div>
           <h3 class="ih-card-title">7 Proven Systems That Help Startups Scale Faster</h3>
           <p class="ih-card-desc">From AI-assisted workflow automation to operational infrastructure, discover the scalable systems modern startups use to transition from survival mode to sustainable expansion.</p>
-          <a href="#" class="ih-read-link">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="#" class="ih-read-link" onclick="openArticle(1);return false;">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
       </article>
       <article class="ih-card">
@@ -1220,7 +1220,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
           <div class="ih-meta"><span class="ih-date">May 02, 2026</span></div>
           <h3 class="ih-card-title">AI Automation Strategies Every Modern Business Needs</h3>
           <p class="ih-card-desc">Modern AI systems can automate product research, customer support, reporting, lead management, and repetitive operations while improving speed, accuracy, and scalability.</p>
-          <a href="#" class="ih-read-link">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="#" class="ih-read-link" onclick="openArticle(2);return false;">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
       </article>
       <article class="ih-card">
@@ -1234,7 +1234,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
           <div class="ih-meta"><span class="ih-date">April 09, 2026</span></div>
           <h3 class="ih-card-title">Why Smart Businesses Are Moving Toward Revenue-Sharing</h3>
           <p class="ih-card-desc">Growth-focused companies are replacing outdated service retainers with performance-aligned revenue-sharing models that encourage accountability, innovation, and long-term scalability.</p>
-          <a href="#" class="ih-read-link">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="#" class="ih-read-link" onclick="openArticle(3);return false;">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
       </article>
       <article class="ih-card">
@@ -1248,7 +1248,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
           <div class="ih-meta"><span class="ih-date">March 14, 2026</span></div>
           <h3 class="ih-card-title">The Future of Digital Growth in 2026</h3>
           <p class="ih-card-desc">AI-driven personalisation, decentralised commerce, predictive analytics, and intelligent automation are reshaping how modern businesses acquire and retain customers.</p>
-          <a href="#" class="ih-read-link">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="#" class="ih-read-link" onclick="openArticle(4);return false;">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
       </article>
       <article class="ih-card">
@@ -1262,7 +1262,7 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
           <div class="ih-meta"><span class="ih-date">April 25, 2026</span></div>
           <h3 class="ih-card-title">How to Build a Scalable Online Brand from Scratch</h3>
           <p class="ih-card-desc">Strong brands are built on scalable systems, strategic positioning, customer trust, and operational consistency — not just visual identity alone.</p>
-          <a href="#" class="ih-read-link">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="#" class="ih-read-link" onclick="openArticle(5);return false;">Read Article <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
       </article>
     </div>
@@ -1384,6 +1384,29 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 60
   </div>
 </div>
 
+<!-- ARTICLE MODAL -->
+<div id="article-modal" style="display:none;position:fixed;inset:0;background:rgba(5,12,28,0.82);z-index:10000;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto;" onclick="if(event.target===this)closeArticle();">
+  <div style="background:#fff;border-radius:16px;max-width:780px;width:100%;position:relative;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.5);">
+    <button onclick="closeArticle()" style="position:absolute;top:16px;right:16px;z-index:10;background:rgba(0,0,0,0.45);border:none;color:#fff;width:36px;height:36px;border-radius:50%;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;">×</button>
+    <div id="article-hero-img" style="width:100%;height:260px;overflow:hidden;background:#1a2b4a;">
+      <img id="article-img" src="" alt="" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+    </div>
+    <div style="padding:36px 40px 44px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+        <span id="article-cat" style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;background:#1a2b4a;color:#c8a951;padding:4px 12px;border-radius:100px;"></span>
+        <span id="article-date" style="font-size:0.75rem;color:#718096;"></span>
+        <span id="article-read" style="font-size:0.75rem;color:#a0aec0;margin-left:auto;">⏱ </span>
+      </div>
+      <h2 id="article-title" style="font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:800;color:#1a2b4a;line-height:1.2;margin-bottom:20px;"></h2>
+      <div id="article-body" style="font-family:'Nunito Sans',sans-serif;font-size:0.97rem;color:#2d3748;line-height:1.9;font-weight:300;"></div>
+      <div style="margin-top:32px;padding-top:24px;border-top:1px solid #e2e8f0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <a href="#contact" onclick="closeArticle();" style="background:#c8a951;color:#fff;padding:12px 28px;border-radius:4px;font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.06em;">Book a Free Consultation →</a>
+        <button onclick="closeArticle()" style="background:none;border:1.5px solid #e2e8f0;color:#718096;padding:12px 24px;border-radius:4px;font-size:0.85rem;cursor:pointer;">← Back to Articles</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
@@ -1473,18 +1496,6 @@ window.addEventListener('scroll', function() {
   document.getElementById('back-to-top').classList.toggle('visible', window.scrollY > 500);
 });
 
-/* ════ Close modals on backdrop click ════ */
-['privacy-modal','terms-modal'].forEach(function(id) {
-  var el = document.getElementById(id);
-  if (!el) return;
-  el.addEventListener('click', function(e) { if (e.target === el) el.style.display = 'none'; });
-});
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    document.getElementById('privacy-modal').style.display = 'none';
-    document.getElementById('terms-modal').style.display = 'none';
-  }
-});
 
 /* ════ Smooth Scroll ════ */
 document.querySelectorAll('a[href^="#"]').forEach(function(a) {
@@ -1496,7 +1507,139 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
   });
 });
 
-/* ════ Newsletter ════ */
+/* ════ Article Modal ════ */
+var articles = [
+  {
+    title: "How Performance-Based Partnerships Reduce Business Risk",
+    cat: "Performance Marketing",
+    date: "April 18, 2026",
+    read: "5 min read",
+    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    body: `<p>Traditional service retainers put all the financial risk on the client. You pay a fixed monthly fee regardless of whether the work delivers results — and if performance falls short, you're still on the hook.</p>
+    <h3 style="font-family:'Playfair Display',serif;color:#1a2b4a;margin:24px 0 12px;font-size:1.15rem;">What Makes Performance-Based Different</h3>
+    <p>In a performance-based model, the service provider only earns when measurable outcomes are achieved. This fundamentally changes the incentive structure — your partner is just as motivated to succeed as you are.</p>
+    <p style="margin-top:16px;">At Minorsoltech, we apply this model to Amazon wholesale FBA. We handle everything — brand approvals, supplier negotiations, inventory management, PPC campaigns — and our earnings are directly tied to your business becoming profitable.</p>
+    <h3 style="font-family:'Playfair Display',serif;color:#1a2b4a;margin:24px 0 12px;font-size:1.15rem;">Key Benefits for Investors</h3>
+    <ul style="padding-left:1.4rem;margin-top:8px;line-height:2.2;">
+      <li>Zero upfront operational costs — capital preserved for inventory</li>
+      <li>Full alignment of incentives between you and your service partner</li>
+      <li>Accountability built into every decision the partner makes</li>
+      <li>Transparent reporting with clear performance metrics</li>
+    </ul>
+    <p style="margin-top:20px;">The result is a business relationship built on trust, transparency, and shared outcomes — not invoices disconnected from results.</p>`
+  },
+  {
+    title: "7 Proven Systems That Help Startups Scale Faster",
+    cat: "Business Scaling",
+    date: "March 27, 2026",
+    read: "4 min read",
+    img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80",
+    body: `<p>Scaling a business isn't just about working harder — it's about building systems that work without you. The fastest-growing startups share one trait: they systematise everything early.</p>
+    <h3 style="font-family:'Playfair Display',serif;color:#1a2b4a;margin:24px 0 12px;font-size:1.15rem;">The 7 Systems That Matter Most</h3>
+    <ol style="padding-left:1.4rem;line-height:2.4;">
+      <li><strong>Automated lead qualification</strong> — Stop manually filtering enquiries. Use forms and CRM rules to score and route leads automatically.</li>
+      <li><strong>Supplier relationship management</strong> — A centralised database of suppliers, pricing tiers, and approval status prevents costly delays.</li>
+      <li><strong>Inventory forecasting</strong> — Data-driven reorder points eliminate both stockouts and overstock situations.</li>
+      <li><strong>PPC campaign automation</strong> — Rule-based bid adjustments keep ad spend efficient without daily manual review.</li>
+      <li><strong>Performance dashboards</strong> — Real-time KPI visibility means problems are caught early, not at month-end.</li>
+      <li><strong>Customer communication templates</strong> — Consistent, fast responses build trust at scale without burdening your team.</li>
+      <li><strong>Financial reporting cadence</strong> — Weekly P&L snapshots keep leadership aligned and investors informed.</li>
+    </ol>
+    <p style="margin-top:20px;">Implement these seven systems and you create a business that can grow beyond what any one person can manage manually.</p>`
+  },
+  {
+    title: "AI Automation Strategies Every Modern Business Needs",
+    cat: "AI & Automation",
+    date: "May 02, 2026",
+    read: "6 min read",
+    img: "https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=1200&q=80",
+    body: `<p>Artificial intelligence is no longer a competitive advantage for large enterprises alone. In 2026, businesses of any size can automate key operations, reduce costs, and move faster using tools that are accessible, affordable, and powerful.</p>
+    <h3 style="font-family:'Playfair Display',serif;color:#1a2b4a;margin:24px 0 12px;font-size:1.15rem;">Where AI Creates the Most Value</h3>
+    <p><strong>Product Research:</strong> AI tools can scan thousands of Amazon listings, identify demand trends, analyse competitor pricing, and surface high-margin opportunities — in minutes, not days.</p>
+    <p style="margin-top:14px;"><strong>Customer Support:</strong> Intelligent chatbots handle routine enquiries 24/7, escalating only complex issues to humans. Response times drop from hours to seconds.</p>
+    <p style="margin-top:14px;"><strong>PPC Optimisation:</strong> Machine learning models continuously adjust bids based on time of day, device, keyword performance, and competitor activity — outperforming any manual strategy.</p>
+    <p style="margin-top:14px;"><strong>Inventory Management:</strong> Predictive models analyse sales velocity, seasonal patterns, and supplier lead times to recommend reorder quantities before stockouts occur.</p>
+    <h3 style="font-family:'Playfair Display',serif;color:#1a2b4a;margin:24px 0 12px;font-size:1.15rem;">Getting Started</h3>
+    <p>The key is to start with one high-impact area rather than trying to automate everything at once. Pick your biggest operational bottleneck, implement an AI solution for it, measure the results, then move to the next.</p>`
+  },
+  {
+    title: "Why Smart Businesses Are Moving Toward Revenue-Sharing",
+    cat: "Investment Models",
+    date: "April 09, 2026",
+    read: "5 min read",
+    img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
+    body: `<p>For decades, businesses bought services with fixed-fee contracts. A consultant charged a retainer. An agency charged monthly. Results were promised but rarely guaranteed. That model is being replaced by something fundamentally better: revenue sharing.</p>
+    <h3 style="font-family:'Playfair Display',serif;color:#1a2b4a;margin:24px 0 12px;font-size:1.15rem;">How Revenue-Sharing Works</h3>
+    <p>Instead of paying upfront for effort, you pay a percentage of the revenue or profit generated. Your service partner earns more when your business earns more — creating a genuine partnership rather than a transactional relationship.</p>
+    <h3 style="font-family:'Playfair Display',serif;color:#1a2b4a;margin:24px 0 12px;font-size:1.15rem;">Why It Works for Amazon Wholesale</h3>
+    <p style="margin-top:8px;">Amazon FBA is an ideal candidate for revenue-sharing because outcomes are measurable, transparent, and directly tied to the actions taken by the management team. Sales data, margin reports, and account health metrics leave no ambiguity about performance.</p>
+    <ul style="padding-left:1.4rem;margin-top:16px;line-height:2.2;">
+      <li>No large upfront investment in a team you don't know yet</li>
+      <li>Your partner is financially motivated to maximise your profitability</li>
+      <li>Costs scale with success — you pay more only when you earn more</li>
+      <li>Natural accountability: poor performance means lower earnings for both parties</li>
+    </ul>
+    <p style="margin-top:20px;">This is precisely the model Minorsoltech operates on — and it's why our clients trust us with their Amazon wholesale businesses.</p>`
+  },
+  {
+    title: "The Future of Digital Growth in 2026",
+    cat: "E-Commerce Growth",
+    date: "March 14, 2026",
+    read: "4 min read",
+    img: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=1200&q=80",
+    body: `<p>Digital commerce in 2026 looks very different from just three years ago. Several converging forces are reshaping how businesses find customers, fulfil orders, and build lasting relationships.</p>
+    <h3 style="font-family:'Playfair Display',serif;color:#1a2b4a;margin:24px 0 12px;font-size:1.15rem;">The Trends Driving Change</h3>
+    <p><strong>AI-Driven Personalisation:</strong> Customers now expect experiences tailored to their specific behaviour, preferences, and purchase history. Businesses that deliver generic experiences are losing ground fast.</p>
+    <p style="margin-top:14px;"><strong>Marketplace Dominance:</strong> Amazon, Noon, and regional marketplaces continue to capture a growing share of e-commerce spend. Being present and optimised on these platforms is no longer optional.</p>
+    <p style="margin-top:14px;"><strong>Predictive Analytics:</strong> Businesses that use historical data to anticipate demand, identify churn risk, and forecast revenue are consistently outperforming those that rely on intuition.</p>
+    <p style="margin-top:14px;"><strong>Automation at Every Layer:</strong> From warehouse robotics to automated customer communications, the businesses scaling fastest are those removing manual steps from every process.</p>
+    <h3 style="font-family:'Playfair Display',serif;color:#1a2b4a;margin:24px 0 12px;font-size:1.15rem;">What This Means for You</h3>
+    <p>The opportunity window for Amazon wholesale FBA is still wide open — but it's closing for those who wait. The businesses establishing strong supplier relationships, brand approvals, and operational systems today will have a significant structural advantage over late entrants.</p>`
+  },
+  {
+    title: "How to Build a Scalable Online Brand from Scratch",
+    cat: "Brand Strategy",
+    date: "April 25, 2026",
+    read: "5 min read",
+    img: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80",
+    body: `<p>A scalable brand isn't built on a logo or a colour palette — it's built on systems, positioning, and trust. Many businesses invest heavily in visual identity while neglecting the structural foundations that allow a brand to grow.</p>
+    <h3 style="font-family:'Playfair Display',serif;color:#1a2b4a;margin:24px 0 12px;font-size:1.15rem;">The Four Pillars of a Scalable Brand</h3>
+    <p><strong>1. Clear Positioning:</strong> Who are you for, and why should they choose you over every alternative? If this can't be answered in one sentence, your brand lacks the clarity needed to scale.</p>
+    <p style="margin-top:14px;"><strong>2. Operational Consistency:</strong> Brand trust is built through repeated positive experiences. Inconsistent delivery, communication, or quality destroys brand equity faster than any competitor can.</p>
+    <p style="margin-top:14px;"><strong>3. Scalable Systems:</strong> A brand that depends on founder involvement at every touchpoint cannot scale. Document your processes, build playbooks, and hire or partner to fill capability gaps.</p>
+    <p style="margin-top:14px;"><strong>4. Customer Trust:</strong> Reviews, testimonials, case studies, and transparent communication are the currency of brand trust. Invest in them deliberately and consistently.</p>
+    <h3 style="font-family:'Playfair Display',serif;color:#1a2b4a;margin:24px 0 12px;font-size:1.15rem;">Applying This to Amazon Wholesale</h3>
+    <p>On Amazon, brand trust is expressed through listing quality, review scores, and account health metrics. Minorsoltech's approach ensures all three are maintained and improved continuously — building a brand presence that compounds over time.</p>`
+  }
+];
+
+function openArticle(index) {
+  var a = articles[index];
+  document.getElementById('article-img').src = a.img;
+  document.getElementById('article-img').alt = a.title;
+  document.getElementById('article-cat').textContent = a.cat;
+  document.getElementById('article-date').textContent = a.date;
+  document.getElementById('article-read').textContent = '⏱ ' + a.read;
+  document.getElementById('article-title').textContent = a.title;
+  document.getElementById('article-body').innerHTML = a.body;
+  var modal = document.getElementById('article-modal');
+  modal.style.display = 'flex';
+  modal.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+}
+
+function closeArticle() {
+  document.getElementById('article-modal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeArticle();
+    document.getElementById('privacy-modal').style.display = 'none';
+    document.getElementById('terms-modal').style.display = 'none';
+  }
+});
 function handleNewsletter(e) {
   e.preventDefault();
   var btn = e.target.querySelector('button');
